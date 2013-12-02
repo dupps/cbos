@@ -1,8 +1,5 @@
 package de.cbos.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,7 +11,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import de.cbos.model.User;
 import de.cbos.service.UserService;
-import de.cbos.service.UserServiceImpl;
 
 @Controller
 public class UserController {

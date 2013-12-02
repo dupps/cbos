@@ -13,10 +13,10 @@
       <header>
         <ul class="nav navbar-nav pull-right">
           <li>
-            <a href="http://cbos.it.dh-karlsruhe.de:8080/CboS-0.0.1/">Home</a>
+            <a href="home.html">Home</a>
           </li>
           <li class="active">
-            <a href="http://cbos.it.dh-karlsruhe.de:8080/CboS-0.0.1/register">Register</a>
+            <a href="register.html">Register</a>
           </li>
           <li>
             <a href="https://github.com/dupps/CboS">Github</a>
@@ -55,7 +55,7 @@
 	          <form:input maxlength="100" name="birth" path="birthday" placeholder="Enter date of birth..." class="form-control" type="text"/>
 	        </div> 
 	      </div> 
-	      <input type="submit" value="Register"/>
+	      <input type="submit" value="Register" class="btn btn-primary" />
 		</form:form>
     </div>
 </body>
