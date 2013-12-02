@@ -17,7 +17,6 @@
 
 	<context:property-placeholder location="classpath:application.properties" />
 
-	<bean id="User" class="de.cbos.model.User"/>
 	<bean id="UserService" class="de.cbos.service.UserServiceImpl"/>
 	<bean id="UserDAO" class="de.cbos.dao.UserDAOImpl"/>
 	
@@ -51,7 +50,6 @@
     
 	<context:component-scan base-package="de.cbos.controller"/>
 	<tx:annotation-driven />
-	<mvc:annotation-driven />
 
 	<bean id="viewResolver" 
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
