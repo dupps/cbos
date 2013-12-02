@@ -12,10 +12,10 @@
       <header>
         <ul class="nav navbar-nav pull-right">
           <li class="active">
-            <a href="http://cbos.it.dh-karlsruhe.de:8080/CboS-0.0.1/">Home</a>
+            <a href="home.html">Home</a>
           </li>
           <li>
-            <a href="http://cbos.it.dh-karlsruhe.de:8080/CboS-0.0.1/register">Register</a>
+            <a href="register.html">Register</a>
           </li>
           <li>
             <a href="https://github.com/dupps/CboS">Github</a>
