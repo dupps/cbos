@@ -31,11 +31,4 @@ public class UserController {
 		modelAndView.addObject("message", "User mit dem Namen "+user.getFullName()+" wurde hinzugefügt");
 		return modelAndView;
 	}
-	
-	@RequestMapping(value="/test",method=RequestMethod.GET)
-	public ModelAndView test() {
-		ModelAndView modelAndView = new ModelAndView("home");
-		modelAndView.addObject("message", userService.getUsers().get(0).getFullName());
-		return modelAndView;
-	}
 }
