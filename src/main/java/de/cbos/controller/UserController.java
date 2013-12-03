@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView; 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import de.cbos.model.User;
 import de.cbos.service.UserService;
@@ -16,7 +15,6 @@ import de.cbos.service.UserService;
 public class UserController {
 
 	@Autowired
-	@Qualifier("UserService")
 	private UserService userService;
 
 	@RequestMapping(value="/register",method=RequestMethod.GET)
@@ -31,13 +29,6 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView("home");
 		userService.addUser(user);
 		modelAndView.addObject("message", "User mit dem Namen "+user.getFullName()+" wurde hinzugefügt");
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/test",method=RequestMethod.GET)
-	public ModelAndView test() {
-		ModelAndView modelAndView = new ModelAndView("home");
-		modelAndView.addObject("message", userService.getUsers().get(0).getFullName());
 		return modelAndView;
 	}
 }
