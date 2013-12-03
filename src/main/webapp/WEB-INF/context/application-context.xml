@@ -14,25 +14,25 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
+	<!-- Root config being used in the whole application is configured here -->
 
+	<!-- Location for application-properties -->
 	<context:property-placeholder location="classpath:application.properties" />
 
-	<bean id="User" class="de.cbos.model.User"/>
-	<bean id="UserService" class="de.cbos.service.UserServiceImpl"/>
-	<bean id="UserDAO" class="de.cbos.dao.UserDAOImpl"/>
-	
+	<!-- DB-Config -->
     <bean id="dataSource"
         class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
-      	<property name="driverClassName" value="${jdbc.driverClassName}" />
-      	<property name="url" value="${jdbc.url}" />
-      	<property name="username" value="${jdbc.user}" />
-      	<property name="password" value="${jdbc.pass}" />
+              <property name="driverClassName" value="${jdbc.driverClassName}" />
+              <property name="url" value="${jdbc.url}" />
+              <property name="username" value="${jdbc.user}" />
+              <property name="password" value="${jdbc.pass}" />
     </bean>
     
-    <bean id="sessionFactory"
+    <!-- Hibernate config -->
+     <bean id="sessionFactory"
     class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
       <property name="dataSource" ref="dataSource" />
-      <property name="packagesToScan" value="de.cbos" />
+      <property name="packagesToScan" value="de.cbos.model" /> <!-- Looking for models (@Entity) -->
       <property name="hibernateProperties">
          <props>
             <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
@@ -40,23 +40,14 @@
          </props>
       </property>
     </bean>
-    
+      
     <bean id="transactionManager" 
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-	           <property name="sessionFactory" ref="sessionFactory" />
+	      <property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<!-- Translating error messages due to persistence in Spring Data Access Exception objects -->
 	<bean id="persistenceExceptionTranslationPostProcessor"
-    class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-    
-	<context:component-scan base-package="de.cbos.controller"/>
-	<tx:annotation-driven />
-	<mvc:annotation-driven />
-
-	<bean id="viewResolver" 
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/pages/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+    class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> 
 
 </beans>
