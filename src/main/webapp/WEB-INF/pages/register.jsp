@@ -35,24 +35,28 @@
 	        <label class="control-label">Full Name *</label>
 	        <div class="controls">
 	          <form:input placeholder="Fill in Username..." name="username" path="fullName" maxlength="100" class="form-control" type="text"/>
+	          <div><form:errors path="fullName"/></div>
 	        </div>
 	      </div>
 	      <div class="form-group">
 	        <label class="control-label">E-Mail *</label>
 	        <div class="controls">
 	          <form:input maxlength="100" name="email" path="email" placeholder="Enter correct E-Mail-Address..." class="form-control" type="email"/>
+	          <div><form:errors path="email"/></div>
 	        </div>
 	      </div>
 	      <div class="form-group">
 	        <label class="control-label">City</label>
 	        <div class="controls">
 	          <form:input maxlength="100" name="city" path="city" placeholder="Enter your city..." class="form-control" type="text"/>
+	          <div><form:errors path="city"/></div>
 	        </div>
 	      </div>
 	      <div class="form-group">
 	        <label class="control-label">Birthday</label>
 	        <div class="controls">
 	          <form:input maxlength="100" name="birth" path="birthday" placeholder="Enter date of birth..." class="form-control" type="text"/>
+	          <div><form:errors path="birthday"/></div>
 	        </div> 
 	      </div> 
 	      <input type="submit" value="Register" class="btn btn-primary" />
