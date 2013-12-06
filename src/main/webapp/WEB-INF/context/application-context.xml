@@ -16,38 +16,41 @@
 
 	<!-- Root config being used in the whole application is configured here -->
 
-	<!-- Location for application-properties -->
+	<!-- Location for application.properties -->
 	<context:property-placeholder location="classpath:application.properties" />
 
 	<!-- DB-Config -->
-    <bean id="dataSource"
-        class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
-              <property name="driverClassName" value="${jdbc.driverClassName}" />
-              <property name="url" value="${jdbc.url}" />
-              <property name="username" value="${jdbc.user}" />
-              <property name="password" value="${jdbc.pass}" />
+    <bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.pass}" />
     </bean>
     
     <!-- Hibernate config -->
-     <bean id="sessionFactory"
-    class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-      <property name="dataSource" ref="dataSource" />
-      <property name="packagesToScan" value="de.cbos.model" /> <!-- Looking for models (@Entity) -->
-      <property name="hibernateProperties">
-         <props>
-            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
-         </props>
-      </property>
-    </bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="de.cbos.model" /> <!-- Looking for models (@Entity) -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+			</props>
+		</property>
+	</bean>
       
-    <bean id="transactionManager" 
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-	      <property name="sessionFactory" ref="sessionFactory" />
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
 	<!-- Translating error messages due to persistence in Spring Data Access Exception objects -->
 	<bean id="persistenceExceptionTranslationPostProcessor"
-    class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> 
-
+    class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    
+    <!-- Spring modules validation -->
+    <bean id="configurationLoader" class="org.springmodules.validation.bean.conf.loader.annotation.AnnotationBeanValidationConfigurationLoader"/>
+    <bean id="validator" class="org.springmodules.validation.bean.BeanValidator" p:configurationLoader-ref="configurationLoader"/>
+ 	
+ 	<!-- Load error messages -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basenames="error"/> 
 </beans>
