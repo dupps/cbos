@@ -20,7 +20,7 @@
 	<tx:annotation-driven />
 	
 	<!-- Search controller-package after @Controller-annotation -->
-	<context:component-scan base-package="de.cbos.general.controller"/>
+	<context:component-scan base-package="de.cbos.admin.controller"/>
 
 	<!-- Resolve ModelAndView given by the controller to map a jsp to be rendered
 		 Adds prefix "/WEB-INF/pages/" before and suffix ".jsp" after the name of the ModelAndView -->

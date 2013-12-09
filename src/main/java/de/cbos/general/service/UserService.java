@@ -1,6 +1,6 @@
-package de.cbos.service;
+package de.cbos.general.service;
 
-import de.cbos.model.User;
+import de.cbos.general.model.User;
 
 import java.util.List;
 

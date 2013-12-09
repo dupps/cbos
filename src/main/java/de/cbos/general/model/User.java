@@ -1,4 +1,4 @@
-package de.cbos.model;
+package de.cbos.general.model;
 
 
 import javax.persistence.Entity;

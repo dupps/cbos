@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>CboS - Home</title>
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>CboS - Home</title>
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
+        <div class="container">
       <header>
         <ul class="nav navbar-nav pull-right">
           <li class="active">
