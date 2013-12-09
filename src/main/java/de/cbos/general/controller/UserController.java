@@ -1,4 +1,4 @@
-package de.cbos.controller;
+package de.cbos.general.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView; 
 
-import de.cbos.model.User;
-import de.cbos.service.UserService;
+import de.cbos.general.model.User;
+import de.cbos.general.service.UserService;
 
 @Controller
 public class UserController {
