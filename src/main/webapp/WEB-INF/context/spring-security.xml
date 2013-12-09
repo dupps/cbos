@@ -12,7 +12,10 @@
     <!-- default features, for example default login page and access rights checking -->
      <http auto-config="true"> 
 	     <!-- URL whose access should be restricted to users with the specified Role ("ROLE_ADMIN") --> 
-	     <intercept-url pattern="/admin" access="ROLE_ADMIN" />  
+	     <intercept-url pattern="/admin" access="ROLE_ADMIN" />
+	     <intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
+    	 <!-- URL which should be requested after logging out -->
+	     <logout logout-success-url="/" />
      </http>  
       
      <!-- erstmal hard-coded users zum Test, später dann aus DB gelesen -->
