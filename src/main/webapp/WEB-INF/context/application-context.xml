@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:mvc="http://www.springframework.org/schema/mvc" 
-       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xmlns:tx="http://www.springframework.org/schema/tx"  
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
        http://www.springframework.org/schema/context 
@@ -12,11 +12,11 @@
        http://www.springframework.org/schema/mvc
 	   http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+       http://www.springframework.org/schema/tx/spring-tx-3.2.xsd"> 
 
 	<!-- Root config being used in the whole application is configured here -->
-
-	<!-- Location for application.properties -->
+	
+	<!-- Location for application.properties, where database-configurationen is outsourced -->
 	<context:property-placeholder location="classpath:application.properties" />
 
 	<!-- DB-Config -->
@@ -47,10 +47,11 @@
 	<bean id="persistenceExceptionTranslationPostProcessor"
     class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
     
-    <!-- Spring modules validation -->
+    <!-- Enables spring modules validation -->
     <bean id="configurationLoader" class="org.springmodules.validation.bean.conf.loader.annotation.AnnotationBeanValidationConfigurationLoader"/>
+    <!-- Validator is used in controller to validate user input -->
     <bean id="validator" class="org.springmodules.validation.bean.BeanValidator" p:configurationLoader-ref="configurationLoader"/>
  	
- 	<!-- Load error messages -->
+ 	<!-- Load validation error messages from {basename}.properties in resources -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basenames="error"/> 
 </beans>

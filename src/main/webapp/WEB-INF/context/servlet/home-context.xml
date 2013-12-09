@@ -16,7 +16,7 @@
     <bean id="UserService" class="de.cbos.general.service.UserServiceImpl"/>
 	<bean id="UserDAO" class="de.cbos.general.dao.UserDAOImpl"/>
     
-    <!-- Transactional via annotations -->
+    <!-- Enables transactional via annotations -->
 	<tx:annotation-driven />
 	
 	<!-- Search controller-package after @Controller-annotation -->
@@ -26,7 +26,7 @@
 		 Adds prefix "/WEB-INF/pages/" before and suffix ".jsp" after the name of the ModelAndView -->
 	<bean id="viewResolver" 
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="prefix" value="/WEB-INF/pages/general/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	

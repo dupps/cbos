@@ -11,14 +11,17 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 
 
+/**JPA-Entity der DB-Tabelle "users" --> entspricht einem Eintrag**/
 @Entity
 @Table(name="users")
 public class User {
 	
+/** Attribute entsprechen Zeilen der Tabelle**/
     @Id
     @GeneratedValue
     private Integer userId;
     
+    /**Spring Module Validations, nach denen User Eingaben Validiert werden**/
     @NotBlank
     @RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
 	private String fullName;

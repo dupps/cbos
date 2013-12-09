@@ -9,16 +9,16 @@
 							http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 		id="WebApp_ID" version="3.0">
 
-
   	<display-name>CboS - CMS based on Spring</display-name>
 
-<!-- Container path for application root context -->  	
+<!-- Path for application root context: application-context and spring-security -->  	
     <context-param>  
-        <param-name>contextConfigLocation</param-name>  
-        <param-value>/WEB-INF/context/application-context.xml</param-value>  
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/context/application-context.xml
+        			 /WEB-INF/context/spring-security.xml</param-value>  
     </context-param>  
   
- <!-- Create container -->
+ <!-- Create container application-context and spring-security -->
     <listener>  
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
     </listener>  
@@ -45,19 +45,20 @@
     	<load-on-startup>1</load-on-startup>
  	</servlet>
  	
-  <!-- Mapping requests starting with / to home-servlet -->
+  <!-- Mapping requests starting with "/" to home-servlet -->
   	<servlet-mapping>
     	<servlet-name>admin</servlet-name>
     	<url-pattern>/admin</url-pattern>
   	</servlet-mapping>
  	
-  <!-- Mapping requests starting with /admin to admin-servlet -->
+  <!-- Mapping requests starting with "/admin" to admin-servlet -->
   	<servlet-mapping>
     	<servlet-name>home</servlet-name>
     	<url-pattern>/</url-pattern>
   	</servlet-mapping>	
   	 
-   <!-- Filter for HttpRequests with /* -->
+   <!-- Filter for HttpRequests with "/*" -->
+   <!-- Damit jsp usw nicht als HttpRequests wieder erneut an DispatcherServlets gemappt werden -->
   	<filter>
     	<filter-name>HttpMethodFilter</filter-name>
     	<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
@@ -68,4 +69,15 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>	
 	
+	<!-- Filter for authentication -->
+    <filter>
+	    <filter-name>springSecurityFilterChain</filter-name>
+	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+	    <filter-name>springSecurityFilterChain</filter-name>
+	    <!-- zählt nur für admin-servlet -->
+	    <servlet-name>admin</servlet-name>
+    </filter-mapping>
  </web-app>

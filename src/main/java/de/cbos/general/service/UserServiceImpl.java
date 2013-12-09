@@ -11,6 +11,8 @@ import de.cbos.general.dao.UserDAO;
 @Transactional
 public class UserServiceImpl implements UserService {
 	
+	/**For autowiring, beans with context paths are set in home-context.xml
+	 * UserDAO is data access object to access data from a database or the other way round**/
 	@Autowired
 	private UserDAO userDAO;
 	

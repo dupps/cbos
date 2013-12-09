@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import de.cbos.general.model.User;
 
-public class UserDAOImpl implements UserDAO {
 
+public class UserDAOImpl implements UserDAO {
+	
+	/**Hibernate's sessionsFactory to write objects created during this session in the database 
+	 * or load objects from there to the session**/
 	@Autowired
 	private SessionFactory sessionFactory;
 	
