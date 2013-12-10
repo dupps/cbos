@@ -32,7 +32,7 @@ public class RegisterController {
 	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public ModelAndView register() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
-		 * 						data can be saved
+		 * data can be saved
 		 */
 		ModelAndView modelAndView = new ModelAndView("register");
 		/**userDummy created to bind probably incoming user data**/
