@@ -10,16 +10,7 @@
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
-		<header>
-			<ul class="nav navbar-nav pull-right">
-				<li><a href="home.html">Home</a></li>
-				<li class="active"><a href="register.html">Register</a></li>
-				<li><a href="https://github.com/dupps/CboS">Github</a></li>
-				<li><a href="mailto:cbos@dupps.it">Contact</a></li>
-			</ul>
-		</header>
-	</div>
+	<%@ include file="menu.jsp" %>
 	<div class="well"></div>
 	<div class="container">
 		<form:form method="POST" action="register" commandName="userDummy">
@@ -59,8 +50,7 @@
 				<label class="control-label">Birthday</label>
 				<div class="controls">
 					<form:input maxlength="100" name="birth" path="birthday"
-						placeholder="Enter date of birth..." class="form-control"
-						type="text" />
+						placeholder="Enter date of birth..." class="form-control" type="text" />
 					<div>
 						<form:errors path="birthday" />
 					</div>
