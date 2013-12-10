@@ -1,4 +1,4 @@
-package de.cbos.general.controller;
+package de.cbos.controller.guest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /** annotated as controller to be recognized by DispatcherServlet **/
 @Controller
-public class HomeController {
+public class GuestController {
 
 	/**mapps incoming requests by URL and Method**/
 	@RequestMapping(value="/*",method=RequestMethod.GET)

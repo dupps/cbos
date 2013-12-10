@@ -1,9 +1,9 @@
-package de.cbos.general.dao;
+package de.cbos.dao;
 
 import java.util.List;
 
-import de.cbos.general.model.Authority;
-import de.cbos.general.model.User;
+import de.cbos.model.Authority;
+import de.cbos.model.User;
 
 public interface UserDAO {
 	
