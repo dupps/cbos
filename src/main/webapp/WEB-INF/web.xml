@@ -3,69 +3,82 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns="http://java.sun.com/xml/ns/javaee" 
-		xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 							http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-		id="WebApp_ID" version="3.0">
+	id="WebApp_ID" version="3.0">
 
+	<display-name>CboS - CMS based on Spring</display-name>
 
-  	<display-name>CboS - CMS based on Spring</display-name>
+	<!-- Path for application root context: application-context, dataAccess-context and spring-security -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/context/application-context.xml
+					 /WEB-INF/context/spring-security.xml
+					 /WEB-INF/context/dataAccess-context.xml</param-value>
+	</context-param>
 
-<!-- Container path for application root context -->  	
-    <context-param>  
-        <param-name>contextConfigLocation</param-name>  
-        <param-value>/WEB-INF/context/application-context.xml</param-value>  
-    </context-param>  
-  
- <!-- Create container -->
-    <listener>  
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
-    </listener>  
-        
- <!-- Defining home-servlet with context path for home-context.xml -->
+	<!-- Create container application-context and spring-security -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Defining home-servlet with context path for home-context.xml -->
 	<servlet>
-    	<servlet-name>home</servlet-name>
-    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    	<init-param>
+		<servlet-name>home</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/context/servlet/home-context.xml</param-value>
-        </init-param>
-    	<load-on-startup>1</load-on-startup>
- 	</servlet>
- 	
-  <!-- Defining admin-servlet with context path for admin-context.xml -->
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Defining admin-servlet with context path for admin-context.xml -->
 	<servlet>
-    	<servlet-name>admin</servlet-name>
-    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    	<init-param>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/context/servlet/admin-context.xml</param-value>
-        </init-param>
-    	<load-on-startup>1</load-on-startup>
- 	</servlet>
- 	
-  <!-- Mapping requests starting with / to home-servlet -->
-  	<servlet-mapping>
-    	<servlet-name>admin</servlet-name>
-    	<url-pattern>/admin</url-pattern>
-  	</servlet-mapping>
- 	
-  <!-- Mapping requests starting with /admin to admin-servlet -->
-  	<servlet-mapping>
-    	<servlet-name>home</servlet-name>
-    	<url-pattern>/</url-pattern>
-  	</servlet-mapping>	
-  	 
-   <!-- Filter for HttpRequests with /* -->
-  	<filter>
-    	<filter-name>HttpMethodFilter</filter-name>
-    	<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-  	</filter>
-	
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Mapping requests starting with "/" to home-servlet -->
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+
+	<!-- Mapping requests starting with "/admin" to admin-servlet -->
+	<servlet-mapping>
+		<servlet-name>home</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- Filter for HttpRequests with "/*" -->
+	<!-- Damit jsp usw nicht als HttpRequests wieder erneut an DispatcherServlets 
+		gemappt werden -->
+	<filter>
+		<filter-name>HttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+
 	<filter-mapping>
 		<filter-name>HttpMethodFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>	
-	
- </web-app>
+	</filter-mapping>
+
+	<!-- Filter for authentication -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<!-- zählt nur für alle Requests (nur für admin-servlet funktioniert nicht -->
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>

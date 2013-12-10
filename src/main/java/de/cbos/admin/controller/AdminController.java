@@ -6,12 +6,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class TestController {
+public class AdminController {
 
-	@RequestMapping(value="/*",method=RequestMethod.GET)
-	public ModelAndView helloWorld() {
+	/**mapps incoming requests by URL and Method**/
+	@RequestMapping(value="/admin",method=RequestMethod.GET)
+	public ModelAndView adminPage() {
+		/**ModelAndView object: returned name describes which jsp should be rendered,
+		 * 						data can be saved
+		 */
 		ModelAndView modelAndView = new ModelAndView("home");
-		modelAndView.addObject("message", "Admin-Servlet works");
+		modelAndView.addObject("message", "Logged in as admin");
 		return modelAndView;
 	}
 }
