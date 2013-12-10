@@ -1,4 +1,4 @@
-package de.cbos.general.controller;
+package de.cbos.controller.guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView; 
 
-import de.cbos.general.model.User;
-import de.cbos.general.service.UserService;
+import de.cbos.model.User;
+import de.cbos.service.UserService;
 
 /** annotated as controller to be recognized by DispatcherServlet **/
 @Controller
-public class UserController {
+public class RegisterController {
 
 	/**For autowiring, beans with context paths are set in home-context.xml**/
 	@Autowired
@@ -65,15 +65,5 @@ public class UserController {
 			modelAndView.addObject("message", "User mit dem Namen "+user.getUserName()+" wurde hinzugefügt");
 			return modelAndView;
 		}
-	}
-	
-	@RequestMapping(value="/user",method=RequestMethod.GET)
-	public ModelAndView userPage() {
-	/**ModelAndView object: returned name describes which jsp should be rendered,
-	 * 						data can be saved
-	 */
-	ModelAndView modelAndView = new ModelAndView("home");
-	modelAndView.addObject("message", "Logged in as user");
-	return modelAndView;
 	}
 }

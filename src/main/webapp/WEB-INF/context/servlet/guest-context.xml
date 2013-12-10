@@ -14,21 +14,19 @@
 	<!-- Beans to be autowired -->
 	<bean id="UserService" class="de.cbos.service.UserServiceImpl" />
 	<bean id="UserDAO" class="de.cbos.dao.UserDAOImpl" />
-
-	<!-- Transactional via annotations -->
+	
+	<!-- Enables transactional via annotations -->
 	<tx:annotation-driven />
 
 	<!-- Search controller-package after @Controller-annotation -->
-	<!-- Bisher einziger Unterschied zu home-servlet: de.cbos.admin.controller, 
-		statt general.controller -->
-	<context:component-scan base-package="de.cbos.controller.admin" />
+	<context:component-scan base-package="de.cbos.controller.guest" />
 
 	<!-- Resolve ModelAndView given by the controller to map a jsp to be rendered 
 		Adds prefix "/WEB-INF/pages/" before and suffix ".jsp" after the name of 
 		the ModelAndView -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/pages/admin/" />
+		<property name="prefix" value="/WEB-INF/pages/guest/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 

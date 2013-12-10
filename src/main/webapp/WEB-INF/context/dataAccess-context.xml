@@ -29,7 +29,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="de.cbos.general.model" /> <!-- Looking for models (@Entity) -->
+		<property name="packagesToScan" value="de.cbos.model" /> <!-- Looking for models (@Entity) -->
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
@@ -39,7 +39,7 @@
 	</bean>
 
 	<!-- creating schema and inserting data into the in-memory database on initialization of this bean -->
-	<bean id="dataSourcePopulator" class="de.cbos.general.service.HsqldbSchemaAndDataPopulator">
+	<bean id="dataSourcePopulator" class="de.cbos.service.HsqldbSchemaAndDataPopulator">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	

@@ -1,22 +1,21 @@
-package de.cbos.general.controller;
+package de.cbos.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-/** annotated as controller to be recognized by DispatcherServlet **/
 @Controller
-public class HomeController {
+public class UserController {
 
 	/**mapps incoming requests by URL and Method**/
-	@RequestMapping(value="/*",method=RequestMethod.GET)
-	public ModelAndView home() {
+	@RequestMapping(value="/user",method=RequestMethod.GET)
+	public ModelAndView adminPage() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * 						data can be saved
 		 */
 		ModelAndView modelAndView = new ModelAndView("home");
-		modelAndView.addObject("message", "Welcome to CboS");
+		modelAndView.addObject("message", "Logged in as user");
 		return modelAndView;
 	}
 }

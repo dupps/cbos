@@ -1,10 +1,10 @@
-package de.cbos.general.model;
+package de.cbos.model;
 
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Email;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
@@ -18,11 +18,11 @@ public class User {
 	
 	/** Attribute entsprechen Zeilen der Tabelle**/
 	
-    /**Spring Module Validations, nach denen User Eingaben Validiert werden**/
-    @Id
+	@Id
+	 /**Spring Module Validations, nach denen User Eingaben Validiert werden**/
 	@NotBlank
     @RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
-	private String UserName;
+	private String userName;
     
     @NotBlank
     @Email
@@ -43,10 +43,10 @@ public class User {
      * Getter and Setter-Methoden
      */
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 	public void setUserName(String userName) {
-		this.UserName = userName;
+		this.userName = userName;
 	}
 	public String getEmail() {
 		return email;

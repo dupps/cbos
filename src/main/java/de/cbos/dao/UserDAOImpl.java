@@ -1,4 +1,4 @@
-package de.cbos.general.dao;
+package de.cbos.dao;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import de.cbos.general.model.Authority;
-import de.cbos.general.model.User;
+import de.cbos.model.Authority;
+import de.cbos.model.User;
 
 
 public class UserDAOImpl implements UserDAO {
