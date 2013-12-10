@@ -52,10 +52,28 @@ public class UserController {
 		} else {
 			/**if user input is valid, new user is added to the data base and home.jsp is rendered with a message**/
 			ModelAndView modelAndView = new ModelAndView("home");
-			/**Method addUser from autowired Userservice is used to add the new user to the database*/
+			/** Hard-coded password setting and enabling for users**/
+			user.setPassword("test");
+			user.setEnabled(true);
+			/**Method addUser from autowired UserService to add the new user to the database*/
 			userService.addUser(user);
-			modelAndView.addObject("message", "User mit dem Namen "+user.getFullName()+" wurde hinzugefügt");
+			/** Method setAuthority from autowired UserService creates for each new entry
+			 *  in "users"-table an entry with same UserName in "authorities"-table and sets
+			 *  column "Authority" to "ROLE_USER" --> each new user has "ROLE_USER"
+			 */
+			userService.setAuthority(user,"ROLE_USER");
+			modelAndView.addObject("message", "User mit dem Namen "+user.getUserName()+" wurde hinzugefügt");
 			return modelAndView;
 		}
+	}
+	
+	@RequestMapping(value="/user",method=RequestMethod.GET)
+	public ModelAndView userPage() {
+	/**ModelAndView object: returned name describes which jsp should be rendered,
+	 * 						data can be saved
+	 */
+	ModelAndView modelAndView = new ModelAndView("home");
+	modelAndView.addObject("message", "Logged in as user");
+	return modelAndView;
 	}
 }

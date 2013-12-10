@@ -16,15 +16,13 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 @Table(name="users")
 public class User {
 	
-/** Attribute entsprechen Zeilen der Tabelle**/
-    @Id
-    @GeneratedValue
-    private Integer userId;
-    
+	/** Attribute entsprechen Zeilen der Tabelle**/
+	
     /**Spring Module Validations, nach denen User Eingaben Validiert werden**/
-    @NotBlank
+    @Id
+	@NotBlank
     @RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
-	private String fullName;
+	private String UserName;
     
     @NotBlank
     @Email
@@ -36,11 +34,19 @@ public class User {
     @NotBlank
 	private String birthday;
 
-	public String getFullName() {
-		return fullName;
+    private String password;
+    
+    private boolean enabled;
+    
+    
+    /**
+     * Getter and Setter-Methoden
+     */
+	public String getUserName() {
+		return UserName;
 	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setUserName(String userName) {
+		this.UserName = userName;
 	}
 	public String getEmail() {
 		return email;
@@ -60,5 +66,19 @@ public class User {
 	public void setBirthday(String birth) {
 		this.birthday = birth;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public boolean getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
 
 }

@@ -19,10 +19,4 @@ public class HomeController {
 		modelAndView.addObject("message", "Welcome to CboS");
 		return modelAndView;
 	}
-	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public ModelAndView login() {
-		ModelAndView modelAndView = new ModelAndView("login");
-		return modelAndView;
-	}
 }

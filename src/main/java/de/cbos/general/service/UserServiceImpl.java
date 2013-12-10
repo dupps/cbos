@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import de.cbos.general.model.Authority;
 import de.cbos.general.model.User;
 import de.cbos.general.dao.UserDAO;
 
@@ -22,5 +23,9 @@ public class UserServiceImpl implements UserService {
 	
 	public List<User> getUsers() {
 		return userDAO.getUsers();
+	}
+	
+	public void setAuthority(User user, String role) {
+		userDAO.setAuthority(user, role);
 	}
 }

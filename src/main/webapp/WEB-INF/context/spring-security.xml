@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <beans:beans xmlns="http://www.springframework.org/schema/security"  
-     xmlns:beans="http://www.springframework.org/schema/beans" 
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-     xsi:schemaLocation="http://www.springframework.org/schema/beans  
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
                http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
                http://www.springframework.org/schema/security  
-               http://www.springframework.org/schema/security/spring-security-3.1.xsd">  
-      
-    <!-- spring-security is configured in this file --> 
-    
-    <!-- default features, for example default login page and access rights checking -->
-     <http auto-config="true"> 
-	     <!-- URL whose access should be restricted to users with the specified Role ("ROLE_ADMIN") --> 
-	     <intercept-url pattern="/admin" access="ROLE_ADMIN" />
-	     <intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
-    	 <!-- URL which should be requested after logging out -->
-	     <logout logout-success-url="/" />
-     </http>  
-      
-     <!-- erstmal hard-coded users zum Test, später dann aus DB gelesen -->
-     <authentication-manager>  
-      <authentication-provider>  
-       <user-service>  
-        <user name="user" password="demo" authorities="ROLE_ADMIN" />  
-       </user-service>  
-      </authentication-provider>  
-     </authentication-manager>  
-      
-    </beans:beans>  
+               http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- spring-security is configured in this file -->
+
+	<!-- default features, for example default login page and access rights 
+		checking -->
+	<http auto-config="true">
+		<!-- URL whose access should be restricted to users with the specified 
+			Role ("ROLE_ADMIN" and ("ROLE_ADMIN") -->
+		<intercept-url pattern="/admin" access="ROLE_ADMIN" />
+		<intercept-url pattern="/user" access="ROLE_USER" />
+		<!-- URL which should be requested after logging out -->
+		<logout logout-success-url="/" />
+	</http>
+
+	<!-- Logininput werden mit Einträgen aus DataSource (siehe dataAccess.xml) verglichen -->
+	<authentication-manager>
+		<authentication-provider>
+			 <jdbc-user-service id="userDetailsService" data-source-ref="dataSource" />
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>  
