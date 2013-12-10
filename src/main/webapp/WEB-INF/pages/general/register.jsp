@@ -28,9 +28,9 @@
 				<label class="control-label">Full Name *</label>
 				<div class="controls">
 					<form:input placeholder="Fill in Username..." name="username"
-						path="UserName" maxlength="100" class="form-control" type="text" />
+						path="userName" maxlength="100" class="form-control" type="text" />
 					<div>
-						<form:errors path="UserName" />
+						<form:errors path="userName" />
 					</div>
 				</div>
 			</div>
