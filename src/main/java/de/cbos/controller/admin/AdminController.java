@@ -1,4 +1,4 @@
-package de.cbos.admin.controller;
+package de.cbos.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

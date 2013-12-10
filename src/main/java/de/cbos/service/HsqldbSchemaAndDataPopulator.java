@@ -1,4 +1,4 @@
-package de.cbos.general.service;
+package de.cbos.service;
 
 import javax.sql.DataSource;
 
@@ -6,8 +6,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-
-import de.cbos.general.model.User;
 
 /**
  * Populates the configured datasource
