@@ -18,11 +18,10 @@ public class User {
 	
 	/** Attribute entsprechen Zeilen der Tabelle**/
 	
-    /**Spring Module Validations, nach denen User Eingaben Validiert werden**/
-    
+	@Id
+	 /**Spring Module Validations, nach denen User Eingaben Validiert werden**/
 	@NotBlank
     @RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
-	@Id
 	private String userName;
     
     @NotBlank
