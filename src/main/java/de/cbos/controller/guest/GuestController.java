@@ -19,4 +19,25 @@ public class GuestController {
 		modelAndView.addObject("message", "Welcome to CboS");
 		return modelAndView;
 	}
+	
+	/**mapps incoming requests by URL and Method**/
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public ModelAndView login() {
+		/**ModelAndView object: returned name describes which jsp should be rendered,
+		 * 						data can be saved
+		 */
+		ModelAndView modelAndView = new ModelAndView("login");
+		return modelAndView;
+	}
+	
+	 @RequestMapping(value="/denied", method = RequestMethod.GET)  
+	public ModelAndView denied() {
+		/**ModelAndView object: returned name describes which jsp should be rendered,
+		 * 						data can be saved
+		 */
+		ModelAndView modelAndView = new ModelAndView("login");
+		modelAndView.addObject("error","true");
+		return modelAndView;
+	   
+	 } 
 }
