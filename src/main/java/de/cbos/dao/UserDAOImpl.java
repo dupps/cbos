@@ -2,12 +2,16 @@ package de.cbos.dao;
 
 import java.util.List;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import de.cbos.model.Authority;
 import de.cbos.model.User;
+import de.cbos.model.Authority;
+
+import java.security.SecureRandom;
+
 
 
 public class UserDAOImpl implements UserDAO {
@@ -22,13 +26,21 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	public void addUser(User user) {
+		/** 
+		 * Creating random passwords with a combination of apache.commons.lang.RandomStringUtils and java.security.SecureRandom
+		**/
+		user.setPassword(RandomStringUtils.random(6, 0, 0, true, true, null, new SecureRandom()));
+		/**
+		 * Hard-coded: every user is default enabled
+		 */
+		user.setEnabled(true);
 		getCurrentSession().save(user);
 	}
 	
 	
 	@SuppressWarnings("unchecked")
 	public List<User> getUsers() {
-		return getCurrentSession().createQuery("from User order by fullName asc").list();
+		return getCurrentSession().createQuery("from Users order by fullName asc").list();
 	}
 	
 	public void setAuthority(User user, String role) {
@@ -37,5 +49,4 @@ public class UserDAOImpl implements UserDAO {
 		authority.setAuthority(role);
 		getCurrentSession().save(authority);
 	}
-
 }
