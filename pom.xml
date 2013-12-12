@@ -4,7 +4,7 @@
 	<groupId>SoftwareEngineering</groupId>
 	<artifactId>CboS</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>CboS Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 

@@ -52,17 +52,13 @@ public class RegisterController {
 		} else {
 			/**if user input is valid, new user is added to the data base and home.jsp is rendered with a message**/
 			ModelAndView modelAndView = new ModelAndView("home");
-			/** Hard-coded password setting and enabling for users**/
-			user.setPassword("test");
-			user.setEnabled(true);
-			/**Method addUser from autowired UserService to add the new user to the database*/
 			userService.addUser(user);
 			/** Method setAuthority from autowired UserService creates for each new entry
 			 *  in "users"-table an entry with same UserName in "authorities"-table and sets
 			 *  column "Authority" to "ROLE_USER" --> each new user has "ROLE_USER"
 			 */
 			userService.setAuthority(user,"ROLE_USER");
-			modelAndView.addObject("message", "User mit dem Namen "+user.getUserName()+" wurde hinzugefügt");
+			modelAndView.addObject("message", "Password = "+user.getPassword());
 			return modelAndView;
 		}
 	}
