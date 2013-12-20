@@ -18,7 +18,7 @@
 			<div class="form-group">
 				<label class="control-label">Full Name *</label>
 				<div class="controls">
-					<form:input placeholder="Fill in Username..." name="username"
+					<form:input placeholder="Fill in Username..." name="username" id="username"
 						path="userName" maxlength="100" class="form-control" type="text" />
 					<div>
 						<form:errors path="userName" />
@@ -28,7 +28,7 @@
 			<div class="form-group">
 				<label class="control-label">E-Mail *</label>
 				<div class="controls">
-					<form:input maxlength="100" name="email" path="email"
+					<form:input maxlength="100" name="email" id="email" path="email"
 						placeholder="Enter correct E-Mail-Address..." class="form-control"
 						type="email" />
 					<div>
@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<label class="control-label">City</label>
 				<div class="controls">
-					<form:input maxlength="100" name="city" path="city"
+					<form:input maxlength="100" name="city" id="city" path="city"
 						placeholder="Enter your city..." class="form-control" type="text" />
 					<div>
 						<form:errors path="city" />
@@ -49,14 +49,14 @@
 			<div class="form-group">
 				<label class="control-label">Birthday</label>
 				<div class="controls">
-					<form:input maxlength="100" name="birth" path="birthday"
+					<form:input maxlength="100" name="birth" id="birthday" path="birthday"
 						placeholder="Enter date of birth..." class="form-control" type="text" />
 					<div>
 						<form:errors path="birthday" />
 					</div>
 				</div>
 			</div>
-			<input type="submit" value="Register" class="btn btn-primary" />
+			<input type="submit" value="Register" class="btn btn-primary" id="Register" />
 		</form:form>
 	</div>
 </body>

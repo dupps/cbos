@@ -62,4 +62,16 @@ public class RegisterController {
 			return modelAndView;
 		}
 	}
+	
+	@RequestMapping(value="/register/test",method=RequestMethod.GET)
+	public ModelAndView registertest() {
+		/**ModelAndView object: returned name describes which jsp should be rendered,
+		 * data can be saved
+		 */
+		userService.getUsers();
+		ModelAndView modelAndView = new ModelAndView("home");
+		/**userDummy created to bind probably incoming user data**/
+		modelAndView.addObject("userDummy", new User());
+		return modelAndView;
+	}
 }
