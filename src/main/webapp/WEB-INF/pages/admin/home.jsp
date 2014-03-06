@@ -24,7 +24,11 @@
 		<h1>CboS</h1>
 		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
-		<a href="j_spring_security_logout"> Logout</a>
+		<a href="j_spring_security_logout">Logout</a>
+		<br/>
+		<br/>
+		<br/>
+		<a href="admin/moduleForm.html">Create Module</a>
 	</div>
 </body>
 </html>

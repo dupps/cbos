@@ -18,4 +18,5 @@ public class UserController {
 		modelAndView.addObject("message", "Logged in as user");
 		return modelAndView;
 	}
+	
 }
