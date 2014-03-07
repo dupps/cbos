@@ -32,6 +32,14 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 			.execute("CREATE TABLE IF NOT EXISTS AUTHORITIES(USERNAME VARCHAR_IGNORECASE(50) NOT NULL,AUTHORITY VARCHAR_IGNORECASE(50) NOT NULL,CONSTRAINT FK_AUTHORITIES_USERS FOREIGN KEY(USERNAME) REFERENCES USERS(USERNAME));");
         template
         	.execute("CREATE UNIQUE INDEX IX_AUTH_USERNAME ON AUTHORITIES(USERNAME,AUTHORITY);");
+        
+		template
+		.execute("CREATE TABLE IF NOT EXISTS MODULES(MODULENAME VARCHAR_IGNORECASE(50) NOT NULL PRIMARY KEY,"
+                + "TYPE VARCHAR_IGNORECASE(50) NOT NULL,"
+                + "XKOORD INTEGER NOT NULL,"
+                + "YKOORD INTEGER NOT NULL,"
+                + "HEIGHT INTEGER NOT NULL,"
+                + "WIDTH INTEGER NOT NULL);");
 	
         /**
          *  insert hard-coded "admin"-account

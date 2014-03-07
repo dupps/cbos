@@ -1,6 +1,6 @@
 package de.cbos.service;
 
-import de.cbos.model.Authority;
+
 import de.cbos.model.User;
 
 import java.util.List;

@@ -65,13 +65,13 @@
 	<!-- Mapping requests starting with "/user" to user-servlet -->
 	<servlet-mapping>
 		<servlet-name>user</servlet-name>
-		<url-pattern>/user</url-pattern>
+		<url-pattern>/user/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Mapping requests starting with "/admin" to admin-servlet -->
 	<servlet-mapping>
 		<servlet-name>admin</servlet-name>
-		<url-pattern>/admin</url-pattern>
+		<url-pattern>/admin/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- Filter for HttpRequests with "/*" -->

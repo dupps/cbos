@@ -13,7 +13,9 @@
 
 	<!-- Beans to be autowired -->
 	<bean id="UserService" class="de.cbos.service.UserServiceImpl" />
+	<bean id="ModuleService" class="de.cbos.service.ModuleServiceImpl" />
 	<bean id="UserDAO" class="de.cbos.dao.UserDAOImpl" />
+	<bean id="ModuleDAO" class="de.cbos.dao.ModuleDAOImpl" />
 
 	<!-- Transactional via annotations -->
 	<tx:annotation-driven />
