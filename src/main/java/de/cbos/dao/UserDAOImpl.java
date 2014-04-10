@@ -40,7 +40,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<User> getUsers() {
-		return getCurrentSession().createQuery("from Users order by fullName asc").list();
+		return getCurrentSession().createQuery("from User order by userName asc").list();
 	}
 	
 	public void setAuthority(User user, String role) {
