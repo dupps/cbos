@@ -8,18 +8,20 @@
 
 	<!-- spring-security is configured in this file -->
 
-	<!-- default features, for example default login page and access rights 
-		checking -->
+	<!-- default features, for example default login page and access rights checking -->
 	<http auto-config="true">
-		<!-- URL whose access should be restricted to users with the specified 
-			Role ("ROLE_ADMIN" and ("ROLE_ADMIN") -->
+		<!-- URL whose access should be restricted to users with the specified Role -->
 		<intercept-url pattern="/admin" access="ROLE_ADMIN" />
-		<intercept-url pattern="/user" access="ROLE_USER" />
+		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
+
+                                        <!-- This is quick and dirty -->
+		<intercept-url pattern="/user" access="ROLE_USER, ROLE_ADMIN" />
+		<intercept-url pattern="/user/*" access="ROLE_USER, ROLE_ADMIN" />
 		<!-- URL for rendering a custom login.jsp; but it's handlet like default
 			 login page, so that you can only request admin and login.jsp is rendered before 
 			 default-target-url is rendered, if you request /login -->
-		<form-login login-page="/login"  default-target-url="/user" 
- 					authentication-failure-url="/denied" />  
+		<form-login login-page="/login" default-target-url="/user" 
+ 					authentication-failure-url="/denied" />
  		<!-- URL which should be requested after logging out -->
 		<logout logout-success-url="/" />
 	</http>
@@ -30,5 +32,19 @@
 			 <jdbc-user-service id="userDetailsService" data-source-ref="dataSource" />
 		</authentication-provider>
 	</authentication-manager>
+
+    <!-- Authorization Architecture (Role Hierarchy) -->
+    <!-- http://docs.spring.io/spring-security/site/docs/3.1.6.RELEASE/reference/authz-arch.html -->
+    <!-- <bean id="roleVoter" class="org.springframework.security.access.vote.RoleHierarchyVoter">
+        <constructor-arg ref="roleHierarchy" />
+    </bean>
+    <bean id="roleHierarchy"
+            class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+        <property name="hierarchy">
+            <value>
+                ROLE_ADMIN > ROLE_USER
+            </value>
+        </property>
+    </bean> -->
 
 </beans:beans>  

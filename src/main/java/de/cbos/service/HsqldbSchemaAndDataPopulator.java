@@ -22,12 +22,12 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		 *  add tables
 		 */
 		template
-			.execute("CREATE TABLE IF NOT EXISTS USERS(USERNAME VARCHAR_IGNORECASE(50) NOT NULL PRIMARY KEY,"
-	                + "PASSWORD VARCHAR_IGNORECASE(50) NOT NULL,"
+			.execute("CREATE TABLE IF NOT EXISTS USERS(USERNAME VARCHAR(50) NOT NULL PRIMARY KEY,"
+	                + "PASSWORD VARCHAR(50) NOT NULL,"
 	                + "ENABLED BOOLEAN NOT NULL,"
 	                + "EMAIL VARCHAR_IGNORECASE(50) NOT NULL,"
-	                + "CITY VARCHAR_IGNORECASE(50) NOT NULL,"
-	                + "BIRTHDAY VARCHAR_IGNORECASE(50) NOT NULL);");
+	                + "CITY VARCHAR(50) NOT NULL,"
+	                + "BIRTHDAY VARCHAR(50) NOT NULL);");
 		template
 			.execute("CREATE TABLE IF NOT EXISTS AUTHORITIES(USERNAME VARCHAR_IGNORECASE(50) NOT NULL,AUTHORITY VARCHAR_IGNORECASE(50) NOT NULL,CONSTRAINT FK_AUTHORITIES_USERS FOREIGN KEY(USERNAME) REFERENCES USERS(USERNAME));");
         template
@@ -56,6 +56,6 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 	 * @param dataSource
 	 */
 	public void setDataSource(final DataSource dataSource) {
-	this.template = new JdbcTemplate(dataSource);
+		this.template = new JdbcTemplate(dataSource);
 	}
 }

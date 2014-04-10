@@ -18,4 +18,5 @@ public class AdminController {
 		modelAndView.addObject("message", "Logged in as admin");
 		return modelAndView;
 	}
+
 }

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**JPA-Entity der DB-Tabelle "authorities"ß**/
+/**JPA-Entity der DB-Tabelle "authorities"**/
 @Entity
 @Table(name="authorities")
 public class Authority {
