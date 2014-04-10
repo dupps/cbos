@@ -39,7 +39,7 @@ public class RegisterController {
 		modelAndView.addObject("userDummy", new User());
 		return modelAndView;
 	}
-	
+
 	/**Initiates User-object out of input and before created dummy**/
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public ModelAndView addUser(@ModelAttribute("userDummy") User user, BindingResult result) {
