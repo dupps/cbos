@@ -21,8 +21,24 @@ public class UserServiceImpl implements UserService {
 		userDAO.addUser(user);
 	}
 	
-	public List<User> getUsers() {
-		return userDAO.getUsers();
+	public User getUser(String userName) {
+		return userDAO.getUser(userName);
+	}
+	
+	public List<User> getUserList() {
+		return userDAO.getUserList();
+	}
+	
+	public void deleteUser(String userName) {
+		userDAO.deleteUser(userName);
+	}
+	
+	public void updateUser(User user, String oldUserName) {
+		userDAO.updateUser(user, oldUserName); 
+	}
+	
+	public void resetPassword(User user) {
+		userDAO.resetPassword(user);
 	}
 	
 	public void setAuthority(User user, String role) {

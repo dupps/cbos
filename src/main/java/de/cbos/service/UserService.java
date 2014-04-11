@@ -9,6 +9,10 @@ import java.util.List;
  * Implemented by UserServiceImpl.java**/
 public interface UserService {
 	public void addUser(User user);
-	public List<User> getUsers();
+	public User getUser(String userName);
+	public List<User> getUserList();
+	public void deleteUser(String userName);
+	public void updateUser(User user, String oldUserName); 
+	public void resetPassword(User user);
 	public void setAuthority(User user, String role);
 }
