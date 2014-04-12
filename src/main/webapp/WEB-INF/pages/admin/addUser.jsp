@@ -5,18 +5,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CboS - Register</title>
+<title>CboS - Add User</title>
 <link rel="stylesheet"
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<%-- 	<%@ include file="menu.jsp" %> --%>
+	<%@ include file="menu.jsp" %>
 	<div class="well"></div>
 	<div class="container">
 		<form:form method="POST" action="add" commandName="userDummy">
 			<h1>Add User</h1>
 			<div class="form-group">
-				<label class="control-label">Full Name *</label>
+				<label class="control-label">Name *</label>
 				<div class="controls">
 					<form:input placeholder="Fill in Username..." name="username" id="username"
 						path="userName" maxlength="100" class="form-control" type="text" />

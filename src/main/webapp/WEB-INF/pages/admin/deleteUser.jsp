@@ -5,10 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title></title>
+<title>CboS - Delete User</title>
+<link rel="stylesheet"
+    href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
 </head>
 <body>
-	<p>Are you really sure you want to delete ${User.userName}?</p>
-<!-- Post method giving back ${User.userName} -->
+    <%@ include file="menu.jsp" %>
+    <div class="well"></div>
+    <div class="container">
+		<p>Are you really sure you want to delete ${User.userName}?</p>
+	   <!-- Post method giving back ${User.userName} -->
+	</div>
 </body>
 </html>

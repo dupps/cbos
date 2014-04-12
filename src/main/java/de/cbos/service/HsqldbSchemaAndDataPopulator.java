@@ -1,7 +1,6 @@
 package de.cbos.service;
 
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,17 +16,14 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 	
 	public void afterPropertiesSet() throws Exception {
 		Assert.notNull(template, "dataSource required");
-		 
-		/**
-		 *  add tables
-		 */
+
 		template
-			.execute("CREATE TABLE IF NOT EXISTS USERS(USERNAME VARCHAR(50) NOT NULL PRIMARY KEY,"
+			.execute("CREATE TABLE IF NOT EXISTS USERS(USERNAME VARCHAR(30) NOT NULL PRIMARY KEY,"
 	                + "PASSWORD VARCHAR(50) NOT NULL,"
 	                + "ENABLED BOOLEAN NOT NULL,"
 	                + "EMAIL VARCHAR_IGNORECASE(50) NOT NULL,"
 	                + "CITY VARCHAR(50) NOT NULL,"
-	                + "BIRTHDAY VARCHAR(50) NOT NULL);");
+	                + "BIRTHDAY DATETIME NOT NULL);");
 		template
 			.execute("CREATE TABLE IF NOT EXISTS AUTHORITIES(USERNAME VARCHAR_IGNORECASE(50) NOT NULL,AUTHORITY VARCHAR_IGNORECASE(50) NOT NULL,CONSTRAINT FK_AUTHORITIES_USERS FOREIGN KEY(USERNAME) REFERENCES USERS(USERNAME));");
         template
@@ -35,14 +31,10 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
         
 		template
 		.execute("CREATE TABLE IF NOT EXISTS MODULES(MODULENAME VARCHAR_IGNORECASE(50) NOT NULL PRIMARY KEY,"
-                + "TYPE VARCHAR_IGNORECASE(50) NOT NULL,"
-                + "XKOORD INTEGER NOT NULL,"
-                + "YKOORD INTEGER NOT NULL,"
-                + "HEIGHT INTEGER NOT NULL,"
-                + "WIDTH INTEGER NOT NULL);");
+                + "TYPE VARCHAR_IGNORECASE(50) NOT NULL);");
 	
         /**
-         *  insert hard-coded "admin"-account
+         *  hard coded admin
          */
         template
         	.execute("INSERT INTO USERS(USERNAME,PASSWORD,ENABLED,EMAIL,CITY,BIRTHDAY) VALUES ('admin','admin',TRUE,'Admin@sample.de','Adminhausen','31.12.1992');");

@@ -16,7 +16,7 @@
 		<form:form method="POST" action="register" commandName="userDummy">
 			<h1>Register</h1>
 			<div class="form-group">
-				<label class="control-label">Full Name *</label>
+				<label class="control-label">Name *</label>
 				<div class="controls">
 					<form:input placeholder="Fill in Username..." name="username" id="username"
 						path="userName" maxlength="100" class="form-control" type="text" />
