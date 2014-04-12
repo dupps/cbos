@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CboS - Home</title>
+<title>CboS - Manage Users</title>
 <link rel="stylesheet"
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
@@ -21,10 +22,18 @@
 	</div>
 	<div class="well"></div>
 	<div class="container">
-		<h1>CboS</h1>
-		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
-		<p><a href="/CboS/admin/manageusers">Manage Users</a><p><!-- Dead Link -->
+		<a href="/CboS/admin/manageusers/add"> Create new User</a>
+		<br/>
+		<c:forEach var="User" items="${users}">
+			<tr>
+				<td>${User.userName} </td>
+				<td>
+					<a href="/CboS/admin/manageusers/${User.userName}">Edit</a>
+				<br/>
+				</td>		
+			</tr>
+		</c:forEach>
 	</div>
 </body>
 </html>

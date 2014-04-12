@@ -37,10 +37,41 @@ public class UserDAOImpl implements UserDAO {
 		getCurrentSession().save(user);
 	}
 	
+	public User getUser(String userName) {
+		User user = (User) getCurrentSession().get(User.class, userName);
+		return user;
+	}
+	
 	
 	@SuppressWarnings("unchecked")
-	public List<User> getUsers() {
-		return getCurrentSession().createQuery("from User order by userName asc").list();
+	public List<User> getUserList() {
+		return getCurrentSession().createQuery("from User").list();
+	}
+	
+	
+	public void deleteUser(String userName) {
+		User user = getUser(userName);
+		if (user != null) {
+			getCurrentSession().delete(user);
+		}
+	}
+	
+	/**
+	 * update user will be fixed when the attributes of the model User are improved
+	 * overwriting the userName is currently not allowed, because userName is identifier
+	 */
+	public void updateUser(User user, String oldUserName) {
+		User userToUpdate = getUser(oldUserName);
+		userToUpdate.setBirthday(user.getBirthday());
+		userToUpdate.setCity(user.getCity());
+		userToUpdate.setEmail(user.getEmail());
+//		userToUpdate.setUserName(user.getUserName());
+		getCurrentSession().update(userToUpdate);
+	}
+	
+	public void resetPassword(User user) {
+		user.setPassword(RandomStringUtils.random(6, 0, 0, true, true, null, new SecureRandom()));
+		getCurrentSession().update(user);
 	}
 	
 	public void setAuthority(User user, String role) {
