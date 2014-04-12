@@ -45,7 +45,8 @@ public class UserDAOImpl implements UserDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<User> getUserList() {
-		return getCurrentSession().createQuery("from User").list();
+		// Thou shalt not make thee any graven image.
+		return getCurrentSession().createQuery("FROM User WHERE username<>'admin'").list();
 	}
 	
 	

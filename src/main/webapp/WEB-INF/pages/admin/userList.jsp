@@ -23,17 +23,15 @@
 	<div class="well"></div>
 	<div class="container">
 		<p>${message}</p>
-		<a href="/CboS/admin/manageusers/add"> Create new User</a>
+		<a href="/CboS/admin/manageusers/add" class="btn btn-block btn-primary"> Create new User</a>
 		<br/>
+		<ul class="list-group">
 		<c:forEach var="User" items="${users}">
-			<tr>
-				<td>${User.userName} </td>
-				<td>
-					<a href="/CboS/admin/manageusers/${User.userName}">Edit</a>
-				<br/>
-				</td>		
-			</tr>
+			<li class="list-group-item">
+			 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a></td>
+			</li>
 		</c:forEach>
+		</ul>
 	</div>
 </body>
 </html>

@@ -14,7 +14,7 @@
 	<div class="well"></div>
 	<div class="container">
 		<form:form method="POST" action="add" commandName="userDummy">
-			<h1>Register</h1>
+			<h1>Add User</h1>
 			<div class="form-group">
 				<label class="control-label">Full Name *</label>
 				<div class="controls">

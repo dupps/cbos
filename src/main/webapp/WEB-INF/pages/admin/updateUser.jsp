@@ -13,8 +13,8 @@
 <%-- 	<%@ include file="menu.jsp" %> --%>
 	<div class="well"></div>
 	<div class="container">
-		<form:form method="POST" action="/CboS/admin/manageusers/${user.userName}" commandName="userDummy">
-			<h1>Update</h1>
+	   <form:form method="POST" action="/CboS/admin/manageusers/${user.userName}" commandName="userDummy">
+			<h1>Edit User</h1>
 			<div class="form-group">
 				<label class="control-label">Full Name *</label>
 				<div class="controls">
@@ -56,11 +56,21 @@
 					</div>
 				</div>
 			</div>
-			<input type="submit" value="Update" class="btn btn-primary" id="${user.userName}" />
-			<a href="/CboS/admin/manageusers">Cancel</a>
-			<a href="/CboS/admin/manageusers/resetpw/${user.userName}">Reset Password</a>
-			<a href="/CboS/admin/manageusers/delete/${user.userName}">Delete User</a>
-		</form:form>
+			<div class="row">
+				<div class="col-md-3">
+				    <input type="submit" value="Update" class="btn btn-primary" id="${user.userName}" />
+				</div>
+				<div class="col-md-3">
+				    <a href="/CboS/admin/manageusers" class="btn btn-default">Cancel</a>
+				</div>
+				<div class="col-md-3">
+				    <a href="/CboS/admin/manageusers/resetpw/${user.userName}" class="btn btn-warning">Reset Password</a>
+				</div>
+				<div class="col-md-3">
+				    <a href="/CboS/admin/manageusers/delete/${user.userName}" class="btn pull-right btn-danger">Delete User</a>
+				</div>
+			</div>
+	   </form:form>
 	</div>
 </body>
 </html>

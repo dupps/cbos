@@ -1,5 +1,13 @@
 package de.cbos.controller.admin;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -50,12 +58,23 @@ public class ModuleController {
 
 		} else {
 			/**if user input is valid, new user is added to the data base and home.jsp is rendered with a message**/
-			
 			ModelAndView modelAndView = new ModelAndView("home");
 			moduleService.addModule(module);
-			
 			return modelAndView;
 		}
 	}
+	
+//	//SimpleFormController
+//	protected Map referenceData(HttpServletRequest request) throws Exception {
+//		Map referenceData = new HashMap();
+//
+//		Map<String, String> modules = new LinkedHashMap<String, String>();
+//		modules.put("1", "Blog");
+//		modules.put("2", "Gallery");
+//		modules.put("3", "Guestbook");
+//		referenceData.put("moduleList", modules);
+//
+//		return referenceData;
+//	}
 	
 }

@@ -34,6 +34,12 @@
 					</div>
 				</div>
 			</div>
+			<!-- http://www.mkyong.com/spring-mvc/spring-mvc-dropdown-box-example/ -->
+			<%-- <div class="form-group">
+				<form:select path="modules">
+				    <form:options items="${moduleList}" />
+				</form:select>
+			</div> --%>
 			<div class="form-group">
 				<label class="control-label">Type *</label>
 				<div class="controls">
@@ -42,46 +48,6 @@
 						type="text" />
 					<div>
 						<form:errors path="type" />
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label">X coordinate</label>
-				<div class="controls">
-					<form:input maxlength="100" name="xKoord" id="xKoord" path="xKoord"
-						placeholder="Set the x coordinate" class="form-control" type="text" />
-					<div>
-						<form:errors path="xKoord" />
-					</div>
-				</div>
-			</div>
-						<div class="form-group">
-				<label class="control-label">Y coordinate</label>
-				<div class="controls">
-					<form:input maxlength="100" name="yKoord" id="yKoord" path="yKoord"
-						placeholder="Set the y coordinate" class="form-control" type="text" />
-					<div>
-						<form:errors path="yKoord" />
-					</div>
-				</div>
-			</div>
-						<div class="form-group">
-				<label class="control-label">Height</label>
-				<div class="controls">
-					<form:input maxlength="100" name="height" id="height" path="height"
-						placeholder="Set the height" class="form-control" type="text" />
-					<div>
-						<form:errors path="height" />
-					</div>
-				</div>
-			</div>
-						<div class="form-group">
-				<label class="control-label">Width</label>
-				<div class="controls">
-					<form:input maxlength="100" name="width" id="width" path="width"
-						placeholder="Set width" class="form-control" type="text" />
-					<div>
-						<form:errors path="width" />
 					</div>
 				</div>
 			</div>
