@@ -57,6 +57,7 @@
 				</div>
 			</div>
 			<input type="submit" value="Add" class="btn btn-primary" id="Add" />
+			<a href="/CboS/admin/manageusers" class="btn btn-default">Cancel</a>
 		</form:form>
 	</div>
 </body>
