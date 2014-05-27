@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView; 
 
 import de.cbos.mail.SendMail;
-import de.cbos.model.User;
-import de.cbos.service.UserService;
+import de.cbos.model.user.User;
+import de.cbos.service.user.UserService;
 
 /** annotated as controller to be recognized by DispatcherServlet **/
 @Controller
@@ -93,3 +93,4 @@ public class RegisterController {
 //		return modelAndView;
 //	}
 }
+

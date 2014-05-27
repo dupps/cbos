@@ -30,8 +30,18 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
         	.execute("CREATE UNIQUE INDEX IX_AUTH_USERNAME ON AUTHORITIES(USERNAME,AUTHORITY);");
         
 		template
-		.execute("CREATE TABLE IF NOT EXISTS MODULES(MODULENAME VARCHAR_IGNORECASE(50) NOT NULL PRIMARY KEY,"
-                + "TYPE VARCHAR_IGNORECASE(50) NOT NULL);");
+		.execute("CREATE TABLE IF NOT EXISTS MODULES(MODULEID INTEGER NOT NULL PRIMARY KEY,"
+				+ "MODULENAME VARCHAR(50) NOT NULL,"
+                + "TYPE VARCHAR_IGNORECASE(50));");
+		
+		template
+		.execute("CREATE TABLE IF NOT EXISTS TEXTCONTAINERS(MODULEID INTEGER NOT NULL PRIMARY KEY,"
+				+"HEADLINE VARCHAR(50)"
+				+"CONSTRAINT FK_MODULES FOREIGN KEY REFERENCES MODULES(MODULEID));");
+		
+		template
+		.execute("CREATE TABLE IF NOT EXISTS GUESTBOOKS(MODULEID INTEGER NOT NULL PRIMARY KEY,"
+				+"CONSTRAINT FK_MODULES FOREIGN KEY(MODULEID) REFERENCES MODULES(MODULEID));");
 	
         /**
          *  hard coded admin
@@ -51,3 +61,4 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		this.template = new JdbcTemplate(dataSource);
 	}
 }
+
