@@ -8,8 +8,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.cbos.dao.UserDAOImpl;
-import de.cbos.model.User;
+import de.cbos.dao.user.UserDAOImpl;
+import de.cbos.model.user.User;
 
 public class UserDAOImplTest {
 

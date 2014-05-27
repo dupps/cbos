@@ -12,8 +12,8 @@
 	<!-- Everything dealing with MVC is configured here -->
 
 	<!-- Beans to be autowired -->
-	<bean id="UserService" class="de.cbos.service.UserServiceImpl" />
-	<bean id="UserDAO" class="de.cbos.dao.UserDAOImpl" />
+	<bean id="UserService" class="de.cbos.service.user.UserServiceImpl" />
+	<bean id="UserDAO" class="de.cbos.dao.user.UserDAOImpl" />
 	
 	<!-- Enables transactional via annotations -->
 	<tx:annotation-driven />
@@ -29,5 +29,4 @@
 		<property name="prefix" value="/WEB-INF/pages/guest/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
 </beans>

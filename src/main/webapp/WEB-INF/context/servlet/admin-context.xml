@@ -12,10 +12,10 @@
 	<!-- Everything dealing with MVC is configured here -->
 
 	<!-- Beans to be autowired -->
-	<bean id="UserService" class="de.cbos.service.UserServiceImpl" />
-	<bean id="ModuleService" class="de.cbos.service.ModuleServiceImpl" />
-	<bean id="UserDAO" class="de.cbos.dao.UserDAOImpl" />
-	<bean id="ModuleDAO" class="de.cbos.dao.ModuleDAOImpl" />
+	<bean id="UserService" class="de.cbos.service.user.UserServiceImpl" />
+	<bean id="ModuleService" class="de.cbos.service.module.ModuleServiceImpl" />
+	<bean id="UserDAO" class="de.cbos.dao.user.UserDAOImpl" />
+	<bean id="ModuleDAO" class="de.cbos.dao.module.ModuleDAOImpl" />
 
 	<!-- Transactional via annotations -->
 	<tx:annotation-driven />
@@ -33,5 +33,4 @@
 		<property name="prefix" value="/WEB-INF/pages/admin/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
 </beans>

@@ -1,0 +1,34 @@
+package de.cbos.model.user;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**JPA-Entity der DB-Tabelle "authorities"**/
+@Entity
+@Table(name="authorities")
+public class Authority {
+	
+    @Id
+	private String UserName;
+    
+    private String Authority;
+    
+    public void setUserName(String userName) {
+    	this.UserName=userName;
+    }
+    
+    public String getUserName() {
+    	return this.UserName;
+    }
+    
+    public void setAuthority(String authority) {
+    	this.Authority=authority;
+    }
+    
+    public String getAuthority() {
+    	return this.Authority;
+    }
+    
+
+}
