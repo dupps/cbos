@@ -1,7 +1,7 @@
-package de.cbos.service;
+package de.cbos.service.user;
 
 
-import de.cbos.model.User;
+import de.cbos.model.user.User;
 
 import java.util.List;
 

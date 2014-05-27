@@ -1,13 +1,13 @@
-package de.cbos.service;
+package de.cbos.service.user;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import de.cbos.model.Authority;
-import de.cbos.model.User;
-import de.cbos.dao.UserDAO;
+import de.cbos.model.user.Authority;
+import de.cbos.model.user.User;
+import de.cbos.dao.user.UserDAO;
 
 @Transactional
 public class UserServiceImpl implements UserService {

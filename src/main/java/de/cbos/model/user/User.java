@@ -1,4 +1,4 @@
-package de.cbos.model;
+package de.cbos.model.user;
 
 
 import javax.persistence.Entity;

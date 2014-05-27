@@ -1,10 +1,12 @@
-package de.cbos.service;
+package de.cbos.service.module;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import de.cbos.dao.ModuleDAO;
-import de.cbos.model.Module;
+import de.cbos.dao.module.ModuleDAO;
+import de.cbos.model.module.Module;
 
 
 @Transactional
@@ -18,5 +20,25 @@ public class ModuleServiceImpl implements ModuleService {
 	public void addModule (Module module) {
 		moduleDAO.addModule(module);
 	}
+	
+	public List<Module> getModuleList() {
+		return moduleDAO.getModuleList();
+	}
+
+	public void deleteModule(Module module) {
+		moduleDAO.deleteModule(module);
+		
+	}
+
+	public void updateModule(Module module) {
+		moduleDAO.updateModule(module);
+		
+	}
+	
+	public Module getModule(int id) {
+		return moduleDAO.getModule(id);
+	}
+	
+	
 
 }

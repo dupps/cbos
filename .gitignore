@@ -1,1 +1,5 @@
 target/
+src/main/java/de/cbos/controller/admin/manageModules/
+src/main/java/de/cbos/dao/content/
+src/main/java/de/cbos/model/content/
+src/main/java/de/cbos/service/content/

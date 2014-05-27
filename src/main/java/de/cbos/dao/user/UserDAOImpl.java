@@ -1,4 +1,4 @@
-package de.cbos.dao;
+package de.cbos.dao.user;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import de.cbos.model.User;
-import de.cbos.model.Authority;
+import de.cbos.model.user.User;
+import de.cbos.model.user.Authority;
 
 import java.security.SecureRandom;
 
@@ -45,7 +45,6 @@ public class UserDAOImpl implements UserDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<User> getUserList() {
-		// Thou shalt not make thee any graven image.
 		return getCurrentSession().createQuery("FROM User WHERE username<>'admin'").list();
 	}
 	
