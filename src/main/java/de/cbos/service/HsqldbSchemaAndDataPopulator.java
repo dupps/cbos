@@ -61,3 +61,4 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		this.template = new JdbcTemplate(dataSource);
 	}
 }
+

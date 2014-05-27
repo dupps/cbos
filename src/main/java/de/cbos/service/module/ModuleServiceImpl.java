@@ -39,6 +39,5 @@ public class ModuleServiceImpl implements ModuleService {
 		return moduleDAO.getModule(id);
 	}
 	
-	
+}	
 
-}

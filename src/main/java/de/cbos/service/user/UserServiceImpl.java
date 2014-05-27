@@ -45,3 +45,4 @@ public class UserServiceImpl implements UserService {
 		userDAO.setAuthority(user, role);
 	}
 }
+

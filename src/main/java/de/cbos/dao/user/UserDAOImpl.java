@@ -81,3 +81,4 @@ public class UserDAOImpl implements UserDAO {
 		getCurrentSession().save(authority);
 	}
 }
+

@@ -15,3 +15,4 @@ public interface UserDAO {
 	public void setAuthority(User user, String role);
 
 }
+
