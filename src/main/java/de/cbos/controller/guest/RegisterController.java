@@ -1,6 +1,9 @@
 package de.cbos.controller.guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView; 
 
+import de.cbos.mail.SendMail;
 import de.cbos.model.User;
 import de.cbos.service.UserService;
 
@@ -53,12 +57,26 @@ public class RegisterController {
 			/**if user input is valid, new user is added to the data base and home.jsp is rendered with a message**/
 			ModelAndView modelAndView = new ModelAndView("home");
 			userService.addUser(user);
+			userService.setAuthority(user,"ROLE_USER");
+
+			// START Mail
+			ApplicationContext context = 
+		             new ClassPathXmlApplicationContext("send-mail.xml");
+		 
+	    	SendMail sm = (SendMail) context.getBean("sendMail");
+	        sm.sendMail("cbos@dupps.it",
+	    		   user.getEmail(),
+	    		   "CboS registration email", 
+	    		   "Welcome to CboS! \n\n Your password: "+user.getPassword());
+	        // END Mail
+
 			/** Method setAuthority from autowired UserService creates for each new entry
 			 *  in "users"-table an entry with same UserName in "authorities"-table and sets
 			 *  column "Authority" to "ROLE_USER" --> each new user has "ROLE_USER"
 			 */
-			userService.setAuthority(user,"ROLE_USER");
-			modelAndView.addObject("message", "Password = "+user.getPassword());
+
+			modelAndView.addObject("message", "Password = "+user.getPassword()+
+					"<p>Additionally we have sent you an e-mail.</p>");
 			return modelAndView;
 		}
 	}

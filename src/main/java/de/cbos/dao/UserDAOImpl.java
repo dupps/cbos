@@ -12,8 +12,6 @@ import de.cbos.model.Authority;
 
 import java.security.SecureRandom;
 
-
-
 public class UserDAOImpl implements UserDAO {
 	
 	/**Hibernate's sessionsFactory to write objects created during this session in the database 
