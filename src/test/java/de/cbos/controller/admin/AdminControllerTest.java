@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
+import de.cbos.controller.admin.AdminController;
+
 public class AdminControllerTest {
 	
 	private AdminController admincontroller;

@@ -15,7 +15,10 @@
     <div class="well"></div>
     <div class="container">
 		<p>Are you really sure you want to delete ${User.userName}?</p>
-	   <!-- Post method giving back ${User.userName} -->
+	   	<!-- Post method giving back ${User.userName} -->
+	   	<div>
+		    <a href="/CboS/admin/manageusers/purge/${user.userName}" class="btn pull-right btn-danger">Delete User</a>
+	   	</div>
 	</div>
 </body>
 </html>

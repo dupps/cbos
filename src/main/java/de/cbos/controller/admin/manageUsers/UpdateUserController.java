@@ -27,7 +27,7 @@ public class UpdateUserController {
 	
 	@RequestMapping(value="/manageusers/{userName}", method=RequestMethod.GET)
 	public ModelAndView userDetailForm(@PathVariable String userName) {
-		ModelAndView modelAndView = new ModelAndView("updateUser");
+		ModelAndView modelAndView = new ModelAndView("manageusers/updateUser");
 		User user = userService.getUser(userName);
 		modelAndView.addObject("user",user);
 		modelAndView.addObject("userDummy", new User());
@@ -42,7 +42,7 @@ public class UpdateUserController {
 	public ModelAndView performUpdate(@ModelAttribute("userDummy") User user, BindingResult result, @PathVariable String userName) {
 		validator.validate(user, result);
 		if (result.hasErrors()) {
-			return new ModelAndView("updateUser");
+			return new ModelAndView("manageusers/updateUser");
 		} else {
 			userService.updateUser(user, userName);
 			ModelAndView modelAndView = userListController.listUsers();

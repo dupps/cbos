@@ -26,7 +26,7 @@ public class AddUserController {
 	
 	@RequestMapping(value="/manageusers/add", method=RequestMethod.GET)
 	public ModelAndView addUserForm() {
-		ModelAndView modelAndView = new ModelAndView("addUser");
+		ModelAndView modelAndView = new ModelAndView("manageusers/addUser");
 		modelAndView.addObject("userDummy", new User());
 		return modelAndView;
 	}
@@ -35,7 +35,7 @@ public class AddUserController {
 	public ModelAndView addUser(@ModelAttribute("userDummy") User user, BindingResult result) {
 		validator.validate(user, result);
 		if (result.hasErrors()) {
-			return new ModelAndView("addUser");
+			return new ModelAndView("manageusers/addUser");
 		} else {
 			userService.addUser(user);
 			userService.setAuthority(user, "ROLE_USER");

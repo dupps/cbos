@@ -17,10 +17,15 @@ public class DeleteUserController {
 	
 	@Autowired
 	private UserListController userListController;
-	
 
 	@RequestMapping(value="/manageusers/delete/{userName}", method=RequestMethod.GET)
 	public ModelAndView deleteUser(@PathVariable String userName) {
+		ModelAndView modelAndView = new ModelAndView("manageusers/deleteUser");
+		return modelAndView;
+	}
+
+	@RequestMapping(value="/manageusers/purge/{userName}", method=RequestMethod.GET)
+	public ModelAndView purgeUser(@PathVariable String userName) {
 		userService.deleteUser(userName);
 		ModelAndView modelAndView = userListController.listUsers();
 		modelAndView.addObject("message", "User was successfully deleted.");

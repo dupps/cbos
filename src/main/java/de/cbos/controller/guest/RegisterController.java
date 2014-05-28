@@ -64,9 +64,9 @@ public class RegisterController {
 		             new ClassPathXmlApplicationContext("send-mail.xml");
 		 
 	    	SendMail sm = (SendMail) context.getBean("sendMail");
-	        sm.sendMail("cbos@dupps.it",
+	        sm.sendMail("elsa.mustermann@gmail.com",
 	    		   user.getEmail(),
-	    		   "CboS registration email", 
+	    		   "CboS registration email",
 	    		   "Welcome to CboS! \n\n Your password: "+user.getPassword());
 	        // END Mail
 

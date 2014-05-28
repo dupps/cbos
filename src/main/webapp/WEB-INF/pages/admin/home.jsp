@@ -15,7 +15,8 @@
 		<h1>CboS</h1>
 		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
-		<p><a href="/CboS/admin/manageusers">Manage Users</a><p><!-- Dead Link -->
+		<p><a href="admin/manageusers/">Manage Users</a><p><!-- Dead Link -->
+		<p><a href="admin/moduleForm.jsp">Manage Modules</a><p>
 	</div>
 </body>
 </html>
