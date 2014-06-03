@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
 <title>CboS - Home</title>
 <link rel="stylesheet"
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -24,6 +25,9 @@
 		<h1>CboS</h1>
 		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
+		<% if (request.isUserInRole("ROLE_ADMIN")) { %>
+		<a href="<c:url value='/admin/' />">Admin Area</a>
+		<% } %>
 	</div>
 </body>
 </html>

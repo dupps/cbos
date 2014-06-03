@@ -10,7 +10,7 @@ public class UserController {
 
 	/**mapps incoming requests by URL and Method**/
 	@RequestMapping(value="/user",method=RequestMethod.GET)
-	public ModelAndView adminPage() {
+	public ModelAndView userPage() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * 						data can be saved
 		 */
