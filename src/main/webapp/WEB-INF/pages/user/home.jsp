@@ -26,7 +26,7 @@
 		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
 		<% if (request.isUserInRole("ROLE_ADMIN")) { %>
-		<a href="<c:url value='/admin/' />">Admin Area</a>
+		<a href="<c:url value='/admin' />">Admin Area</a>
 		<% } %>
 	</div>
 </body>
