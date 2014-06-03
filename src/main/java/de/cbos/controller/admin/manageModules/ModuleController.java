@@ -33,13 +33,9 @@ public class ModuleController {
 	}
 
 	/**maps incoming requests by URL and Method**/
-	@RequestMapping(value="/moduleForm",method=RequestMethod.GET)
-	public ModelAndView showForm() {
-		/**ModelAndView object: returned name describes which jsp should be rendered,
-		 * 						data can be saved
-		 */
-		ModelAndView modelAndView = new ModelAndView("moduleForm");
-		modelAndView.addObject("moduleContainer", new Module());
+	@RequestMapping(value="/managemodules",method=RequestMethod.GET)
+	public ModelAndView manageModules() {
+		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
 		return modelAndView;
 	}
 	
