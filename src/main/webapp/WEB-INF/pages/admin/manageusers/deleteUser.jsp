@@ -17,7 +17,10 @@
 		<p>Are you really sure you want to delete ${User.userName}?</p>
 	   	<!-- Post method giving back ${User.userName} -->
 	   	<div>
-		    <a href="/CboS/admin/manageusers/purge/${user.userName}" class="btn pull-right btn-danger">Delete User</a>
+	   		<form name="submitForm" method="POST" action="../">
+			    <input type="hidden" name="userToDelete" value="${User.userName}">
+			    <A HREF="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Delete User</A>
+			</form>
 	   	</div>
 	</div>
 </body>
