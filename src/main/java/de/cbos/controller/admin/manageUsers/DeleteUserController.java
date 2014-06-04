@@ -23,14 +23,14 @@ public class DeleteUserController {
 	private UserListController userListController;
 
 	@RequestMapping(value="/manageusers/delete/{userName}", method=RequestMethod.GET)
-	public ModelAndView deleteUser(@PathVariable String userName) {
+	public ModelAndView deleteConfirmation(@PathVariable String userName) {
 		ModelAndView modelAndView = new ModelAndView("manageusers/deleteUser");
 		modelAndView.addObject("User", userService.getUser(userName));
 		return modelAndView;
 	}
 
-	@RequestMapping(value="/manageusers/", method=RequestMethod.POST)
-	public ModelAndView purgeUser(HttpServletRequest request) { 
+	@RequestMapping(value="/manageusers", method=RequestMethod.POST)
+	public ModelAndView deleteUser(HttpServletRequest request) { 
 		String userName = request.getParameter("userToDelete");
 		userService.deleteUser(userName);
 		ModelAndView modelAndView = userListController.listUsers();

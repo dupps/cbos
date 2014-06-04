@@ -9,7 +9,6 @@
 <link rel="stylesheet"
     href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
-</head>
 <body>
     <%@ include file="menu.jsp" %>
     <div class="well"></div>
@@ -17,9 +16,10 @@
 		<p>Are you really sure you want to delete ${User.userName}?</p>
 	   	<!-- Post method giving back ${User.userName} -->
 	   	<div>
-	   		<form name="submitForm" method="POST" action="../">
+	   		<form name="submitForm" method="POST" action="../../manageusers">
 			    <input type="hidden" name="userToDelete" value="${User.userName}">
-			    <A HREF="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Delete User</A>
+				<a href="../${User.userName}" class="btn pull-left btn-danger">Cancel</a>
+			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Delete User</A>
 			</form>
 	   	</div>
 	</div>
