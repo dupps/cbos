@@ -12,12 +12,15 @@ import de.cbos.model.content.GuestbookEntry;
 @PrimaryKeyJoinColumn(name = "moduleId")
 public class Guestbook extends Module {
 	
+//	private GuestbookEntry guestbookEntry;
+	
 	public Guestbook() {
 		setType("guestbook");
 	}
-	
-//	@OneToMany
-//	private GuestbookEntry guestbookEntry;
+
+	public void accept(ModuleVisitor visitor) {
+		visitor.visit(this);
+	}
 
 //	public GuestbookEntry getGuestbookEntry() {
 //		return guestbookEntry;

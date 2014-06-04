@@ -9,11 +9,16 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "moduleId")
 public class Textcontainer extends Module {
 
+	private String headline;
+	
+	
 	public Textcontainer() {
 		setType("textfield");
 	}
 	
-	private String headline;
+	public void accept(ModuleVisitor visitor) {
+		visitor.visit(this);
+	}
 	
 	public void setHeadline(String headline) {
 		this.headline = headline;

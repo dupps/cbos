@@ -5,55 +5,63 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
+import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
+import de.cbos.model.module.ModuleVisitor;
+import de.cbos.model.module.Textcontainer;
 
-
+@Transactional
 public class ModuleDAOImpl implements ModuleDAO {
-	
-	/**Hibernate's sessionsFactory to write objects created during this session in the database 
-	 * or load objects from there to the session**/
+
+	/**
+	 * Hibernate's sessionsFactory to write objects created during this session
+	 * in the database or load objects from there to the session
+	 **/
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	
+
 	public void addModule(Module module) {
 		getCurrentSession().save(module);
 	}
-	
+
 	public Module getModule(int moduleId) {
-		Module module = (Module) getCurrentSession().get(Module.class, moduleId);
+		Module module = (Module) getCurrentSession()
+				.get(Module.class, moduleId);
 		return module;
 	}
-	
-	public void deleteModule(int moduleId) {
-		Module module = getModule(moduleId);
-		if (module != null) {
-			getCurrentSession().delete(module);
-		}
+
+	public void deleteModule(Module module) {
+		getCurrentSession().delete(module);
 	}
-	
+
 	public void updateModule(Module module) {
-//		if (module instanceof Textfield) {
-//			Textfield moduleToUpdate = (Textfield) getModule(module.getId());
-//		} else if (module instanceof Guestbook) {
-//			Guestbook moduleToUpdate = (Guestbook) getModule(module.getId());
-//		} else {
-//			Module moduleToUpdate = getModule(module.getId());
-//		}
-//		getCurrentSession().update(moduleToUpdate);
+		module.accept(new ModuleVisitor() {
+
+			public void visit(Guestbook guestbook) {
+				Guestbook guestbookToUpdate = (Guestbook) getModule(guestbook
+						.getId());
+				guestbookToUpdate.setModuleName(guestbook.getModuleName());
+			}
+
+			public void visit(Textcontainer textcontainer) {
+				Textcontainer textcontainerToUpdate = (Textcontainer) getModule(textcontainer
+						.getId());
+				textcontainerToUpdate.setHeadline(textcontainer.getHeadline());
+				textcontainerToUpdate.setModuleName(textcontainer
+						.getModuleName());
+			}
+		});
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Module> getModuleList() {
 		return getCurrentSession().createQuery("FROM Module").list();
 	}
 
-	public void deleteModule(Module module) {
-		// TODO Auto-generated method stub
-		
-	}
 }
