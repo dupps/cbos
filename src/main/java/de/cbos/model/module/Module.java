@@ -16,7 +16,7 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 @Entity
 @Table(name="modules")
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Module {
+public class Module implements ModuleEntity {
 	
 	/** Attribute entsprechen Zeilen der Tabelle**/
 	
@@ -30,9 +30,10 @@ public class Module {
     
 	private String type;
     
-    /**
-     * Getter and Setter-Methoden
-     */
+	public void accept(ModuleVisitor visitor) {
+		
+	}
+	
     public void setModuleName(String inputName) {
     	this.moduleName=inputName;
     }

@@ -56,28 +56,25 @@ public class ModuleController {
 		}
 	}
 	
-	@RequestMapping(value="/test",method=RequestMethod.GET)
-	public ModelAndView testModules() {
+	@RequestMapping(value = "/visitortest", method = RequestMethod.GET)
+	public ModelAndView testVisitor() {
 		ModelAndView modelAndView = new ModelAndView("home");
-		Guestbook guestbook = new Guestbook();
-		Textcontainer text = new Textcontainer();
-		Module module = new Module();
-		guestbook.setModuleName("TestGuestbook");
-		text.setModuleName("testtextcontainer");
-		text.setHeadline("Test");
-		module.setModuleName("testtModule");
-		moduleService.addModule(module);
-		moduleService.addModule(text);
-		moduleService.addModule(guestbook);
-		List<Module> modules = moduleService.getModuleList();
-		for (int i=0; i< modules.size(); i++) {
-			System.out.println(modules.get(i).getModuleName() + " " + modules.get(i).getType());
-		}
-		
-		
-		return modelAndView; 
-	}
-	
 
-	
+		// create textcontainer
+		Textcontainer textcontainer = new Textcontainer();
+		textcontainer.setModuleName("text");
+		moduleService.addModule(textcontainer);
+
+		// change moduleName of textcontainer
+		textcontainer.setModuleName("Update Method works");
+
+		// update textcontainer
+		moduleService.updateModule(textcontainer);
+
+		// Test if method worked
+		modelAndView.addObject("message",
+				moduleService.getModule(textcontainer.getId()).getModuleName());
+
+		return modelAndView;
+	}
 }

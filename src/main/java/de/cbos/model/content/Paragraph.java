@@ -8,4 +8,8 @@ public class Paragraph extends Content {
 	public Paragraph() {
 		setContentType("paragraph");
 	}
+	
+	public void accept (ContentVisitor visitor) {
+		visitor.visit(this);
+	}
 }
