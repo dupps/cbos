@@ -12,27 +12,27 @@ import org.springframework.web.servlet.ModelAndView;
 import de.cbos.service.user.UserService;
 
 @Controller
-public class DeleteUserController {
+public class ResetPasswordController {
 	
 	@Autowired
 	private UserService userService;
 	
 	@Autowired
 	private UserListController userListController;
-
-	@RequestMapping(value="/manageusers/delete/{userName}", method=RequestMethod.GET)
-	public ModelAndView deleteConfirmation(@PathVariable String userName) {
-		ModelAndView modelAndView = new ModelAndView("manageusers/deleteUser");
+	
+	@RequestMapping(value="/manageusers/resetpw/{userName}", method=RequestMethod.GET)
+	public ModelAndView confirmReset(@PathVariable String userName) {
+		ModelAndView modelAndView = new ModelAndView("manageusers/resetPassword");
 		modelAndView.addObject("User", userService.getUser(userName));
 		return modelAndView;
 	}
-
-	@RequestMapping(value="/manageusers", method=RequestMethod.DELETE)
-	public ModelAndView deleteUser(HttpServletRequest request) { 
-		String userName = request.getParameter("userToDelete");
-		userService.deleteUser(userName);
+	
+	@RequestMapping(value="/manageusers", method=RequestMethod.PUT)
+	public ModelAndView resetUser(HttpServletRequest request) { 
+		String userName = request.getParameter("userToUpdate");
+		userService.resetPassword(userService.getUser(userName));
 		ModelAndView modelAndView = userListController.listUsers();
-		modelAndView.addObject("message", "User was successfully deleted.");
+		modelAndView.addObject("message", "New Password for "+userName+" is: "+userService.getUser(userName).getPassword());
 		return modelAndView;
 	}
 }
