@@ -10,7 +10,7 @@
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="menu2.jsp" %>
 	<div class="well"></div>
 	<div class="container">
 		<form:form method="POST" action="../manageusers/add" commandName="userDummy">

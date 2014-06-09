@@ -13,26 +13,28 @@ import de.cbos.service.user.UserService;
 
 @Controller
 public class ResetPasswordController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private UserListController userListController;
-	
-	@RequestMapping(value="/manageusers/resetpw/{userName}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/manageusers/resetpw/{userName}", method = RequestMethod.GET)
 	public ModelAndView confirmReset(@PathVariable String userName) {
-		ModelAndView modelAndView = new ModelAndView("manageusers/resetPassword");
+		ModelAndView modelAndView = new ModelAndView(
+				"manageusers/resetPassword");
 		modelAndView.addObject("User", userService.getUser(userName));
 		return modelAndView;
 	}
-	
-	@RequestMapping(value="/manageusers", method=RequestMethod.PUT)
-	public ModelAndView resetUser(HttpServletRequest request) { 
+
+	@RequestMapping(value = "/manageusers", method = RequestMethod.PUT)
+	public ModelAndView resetUser(HttpServletRequest request) {
 		String userName = request.getParameter("userToUpdate");
 		userService.resetPassword(userService.getUser(userName));
 		ModelAndView modelAndView = userListController.listUsers();
-		modelAndView.addObject("message", "New Password for "+userName+" is: "+userService.getUser(userName).getPassword());
+		modelAndView.addObject("message", "New Password for " + userName
+				+ " is: " + userService.getUser(userName).getPassword());
 		return modelAndView;
 	}
 }

@@ -10,11 +10,10 @@
     href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <%@ include file="menu.jsp" %>
+    <%@ include file="menu3.jsp" %>
     <div class="well"></div>
     <div class="container">
 		<p>Are you really sure you want reset the password for user ${User.userName}?</p>
-	   	<!-- Post method giving back ${User.userName} -->
 	   	<div>
 	   		<form:form name="submitForm" method="PUT" action="../../manageusers">
 			    <input type="hidden" name="userToUpdate" value="${User.userName}">

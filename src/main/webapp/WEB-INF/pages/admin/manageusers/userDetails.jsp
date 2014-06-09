@@ -10,10 +10,11 @@
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="menu2.jsp"%>
 	<div class="well"></div>
 	<div class="container">
-	   <form:form method="POST" action="../manageusers/update" commandName="userDummy">
+		<form:form method="POST" action="../manageusers/update"
+			commandName="userDummy">
 			<h1>Edit User</h1>
 			<div class="form-group">
 				<label class="control-label">Name *</label>
@@ -29,8 +30,7 @@
 				<label class="control-label">E-Mail *</label>
 				<div class="controls">
 					<form:input maxlength="100" name="email" id="email" path="email"
-						value="${user.email}" class="form-control"
-						type="email" />
+						value="${user.email}" class="form-control" type="email" />
 					<div>
 						<form:errors path="email" />
 					</div>
@@ -49,8 +49,9 @@
 			<div class="form-group">
 				<label class="control-label">Birthday</label>
 				<div class="controls">
-					<form:input maxlength="100" name="birth" id="birthday" path="birthday"
-						value="${user.birthday}" class="form-control" type="text" />
+					<form:input maxlength="100" name="birth" id="birthday"
+						path="birthday" value="${user.birthday}" class="form-control"
+						type="text" />
 					<div>
 						<form:errors path="birthday" />
 					</div>
@@ -58,19 +59,22 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">
-				    <input type="submit" value="update" class="btn btn-primary" id="${user.userName}" />
+					<input type="submit" value="update" class="btn btn-primary"
+						id="${user.userName}" />
 				</div>
 				<div class="col-md-3">
-				    <a href="/CboS/admin/manageusers" class="btn btn-default">Cancel</a>
+					<a href="/CboS/admin/manageusers" class="btn btn-default">Cancel</a>
 				</div>
 				<div class="col-md-3">
-				    <a href="/CboS/admin/manageusers/resetpw/${user.userName}" class="btn btn-warning">Reset Password</a>
+					<a href="/CboS/admin/manageusers/resetpw/${user.userName}"
+						class="btn btn-warning">Reset Password</a>
 				</div>
 				<div class="col-md-3">
-				    <a href="/CboS/admin/manageusers/delete/${user.userName}" class="btn pull-right btn-danger">Delete User</a>
+					<a href="/CboS/admin/manageusers/delete/${user.userName}"
+						class="btn pull-right btn-danger">Delete User</a>
 				</div>
 			</div>
-	   </form:form>
+		</form:form>
 	</div>
 </body>
 </html>

@@ -12,9 +12,4 @@
       <from>^[^//]*//(.*)$</from>
       <to type="redirect">../$1</to>
      </rule>
-     <rule match-type="regex">  
-      <note>Clean up URL after adding users</note>
-      <from>^.*/([^/]*)/addUserdwqddwq$</from>
-      <to>null</to>
-     </rule>
 </urlrewrite>
