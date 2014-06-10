@@ -8,9 +8,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 
-//@Entity
-//@Table(name="content")
-//@Inheritance(strategy=InheritanceType.JOINED)
+@Entity
+@Table(name="contents")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Content implements ContentEntity{
 	
 	@Id
