@@ -11,12 +11,8 @@
 	<!-- default features, for example default login page and access rights checking -->
 	<http auto-config="true">
 		<!-- URL whose access should be restricted to users with the specified Role -->
-		<intercept-url pattern="/admin" access="ROLE_ADMIN" />
-		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
-
-                                        <!-- This is quick and dirty -->
-		<intercept-url pattern="/user" access="ROLE_USER, ROLE_ADMIN" />
-		<intercept-url pattern="/user/*" access="ROLE_USER, ROLE_ADMIN" />
+		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/user/**" access="ROLE_USER, ROLE_ADMIN" />
 		<!-- URL for rendering a custom login.jsp; but it's handlet like default
 			 login page, so that you can only request admin and login.jsp is rendered before 
 			 default-target-url is rendered, if you request /login -->

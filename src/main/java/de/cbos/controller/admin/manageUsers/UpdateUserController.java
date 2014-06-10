@@ -1,5 +1,7 @@
 package de.cbos.controller.admin.manageUsers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -27,7 +29,7 @@ public class UpdateUserController {
 	
 	@RequestMapping(value="/manageusers/{userName}", method=RequestMethod.GET)
 	public ModelAndView userDetailForm(@PathVariable String userName) {
-		ModelAndView modelAndView = new ModelAndView("manageusers/updateUser");
+		ModelAndView modelAndView = new ModelAndView("manageusers/userDetails");
 		User user = userService.getUser(userName);
 		modelAndView.addObject("user",user);
 		modelAndView.addObject("userDummy", new User());
@@ -38,25 +40,24 @@ public class UpdateUserController {
 	 * update user will be fixed when the attributes of the model User are improved
 	 * overwriting the userName is currently not allowed, because userName is identifier
 	 */
-	@RequestMapping(value="/manageusers/{userName}", method=RequestMethod.POST)
-	public ModelAndView performUpdate(@ModelAttribute("userDummy") User user, BindingResult result, @PathVariable String userName) {
+	@RequestMapping(value="/manageusers/update", method=RequestMethod.POST)
+	public ModelAndView buildUpdateUser(@ModelAttribute("userDummy") User user, BindingResult result) {
 		validator.validate(user, result);
 		if (result.hasErrors()) {
-			return new ModelAndView("manageusers/updateUser");
+			return new ModelAndView("manageusers/userDetails");
 		} else {
-			userService.updateUser(user, userName);
-			ModelAndView modelAndView = userListController.listUsers();
-			modelAndView.addObject("message", "Except from userName, the User was successfully updated.");
+			ModelAndView modelAndView = new ModelAndView("manageusers/updateUser");
+			modelAndView.addObject("userDummy",new User());
+			modelAndView.addObject("User",user);
 			return modelAndView;
 		}
 	}
 	
-	@RequestMapping(value="/manageusers/resetpw/{userName}", method=RequestMethod.GET)
-	public ModelAndView resetPassword(@PathVariable String userName) {
-		User user = userService.getUser(userName);
-		userService.resetPassword(user);
+	@RequestMapping(value="/manageusers", method=RequestMethod.PATCH)
+	public ModelAndView updateUser(@ModelAttribute("userDummy") User user,BindingResult result) { 
+		userService.updateUser(user, user.getUserName());
 		ModelAndView modelAndView = userListController.listUsers();
-		modelAndView.addObject("message", "New Password for "+userName+" is: "+user.getPassword());
+		modelAndView.addObject("message", "Except from userName, the User was successfully updated.");
 		return modelAndView;
 	}
 }

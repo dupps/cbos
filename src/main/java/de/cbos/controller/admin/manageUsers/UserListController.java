@@ -24,5 +24,4 @@ public class UserListController {
 			modelAndView.addObject("users", users);
 			return modelAndView;
 		}
-
 }
