@@ -47,14 +47,14 @@ public class ModuleDAOImpl implements ModuleDAO {
 
 			public void visit(Guestbook guestbook) {
 				Guestbook guestbookToUpdate = (Guestbook) getModule(guestbook
-						.getId());
+						.getModuleId());
 				guestbookToUpdate.setModuleName(guestbook.getModuleName());
 				guestbookToUpdate.setGuestbookEntries(guestbook.getGuestbookEntries());
 			}
 
 			public void visit(Textcontainer textcontainer) {
 				Textcontainer textcontainerToUpdate = (Textcontainer) getModule(textcontainer
-						.getId());
+						.getModuleId());
 				textcontainerToUpdate.setHeadline(textcontainer.getHeadline());
 				textcontainerToUpdate.setModuleName(textcontainer
 						.getModuleName());
@@ -67,12 +67,8 @@ public class ModuleDAOImpl implements ModuleDAO {
 		return getCurrentSession().createQuery("FROM Module").list();
 	}
 	
-	public void createGuestbookEntry(Guestbook guestbook) {
-		
-	}
-	
 	public List<GuestbookEntry> getGuestbookEntries(Guestbook guestbook) {
-		Guestbook book = (Guestbook) getModule(guestbook.getId());
+		Guestbook book = (Guestbook) getModule(guestbook.getModuleId());
 		return book.getGuestbookEntries();
 	}
 
