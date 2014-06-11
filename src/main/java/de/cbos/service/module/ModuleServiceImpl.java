@@ -1,9 +1,12 @@
 package de.cbos.service.module;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import de.cbos.dao.module.ModuleDAO;
+import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
 
 public class ModuleServiceImpl implements ModuleService {
@@ -34,5 +37,9 @@ public class ModuleServiceImpl implements ModuleService {
 
 	public Module getModule(int id) {
 		return moduleDAO.getModule(id);
+	}
+	
+	public List<GuestbookEntry> getGuestbookEntries(Guestbook guestbook) {
+		return moduleDAO.getGuestbookEntries(guestbook);
 	}
 }

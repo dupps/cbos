@@ -20,7 +20,7 @@
 				<label class="control-label">Name *</label>
 				<div class="controls">
 					<form:input value="${user.userName}" name="username" id="username"
-						path="userName" maxlength="100" class="form-control" type="text" />
+						path="userName" maxlength="100" class="form-control" type="text" disabled="${'true'}"/>
 					<div>
 						<form:errors path="userName" />
 					</div>

@@ -19,7 +19,7 @@
 		<ul class="list-group">
 		<c:forEach var="User" items="${users}">
 			<li class="list-group-item">
-			 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a></td>
+			 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a>
 			</li>
 		</c:forEach>
 		</ul>

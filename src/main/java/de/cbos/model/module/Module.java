@@ -1,15 +1,20 @@
 package de.cbos.model.module;
 
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
+
+import de.cbos.model.content.Content;
 
 
 /**JPA-Entity der DB-Tabelle "users" --> entspricht einem Eintrag**/
@@ -24,12 +29,11 @@ public class Module implements ModuleEntity {
 	@GeneratedValue
 	private int moduleId;
 	
-	@NotBlank
     @RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
 	private String moduleName;
     
 	private String type;
-    
+	
 	public void accept(ModuleVisitor visitor) {
 		
 	}

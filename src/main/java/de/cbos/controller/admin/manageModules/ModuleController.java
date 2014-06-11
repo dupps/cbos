@@ -1,6 +1,10 @@
 package de.cbos.controller.admin.manageModules;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
 import de.cbos.model.module.Textcontainer;
+import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;
 
 @Controller
@@ -21,6 +28,9 @@ public class ModuleController {
 	/**For autowiring, beans with context paths are set in home-context.xml**/
 	@Autowired
 	private ModuleService moduleService;
+	
+	@Autowired
+	private ContentService contentService;
 	
 	/** Validator specified in application-context.xml**/
 	@Autowired
@@ -34,6 +44,8 @@ public class ModuleController {
 	@RequestMapping(value="/managemodules",method=RequestMethod.GET)
 	public ModelAndView manageModules() {
 		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
+		List<Module> modules = moduleService.getModuleList();
+		modelAndView.addObject("modules", modules);
 		return modelAndView;
 	}
 	
@@ -57,22 +69,21 @@ public class ModuleController {
 	@RequestMapping(value = "/visitortest", method = RequestMethod.GET)
 	public ModelAndView testVisitor() {
 		ModelAndView modelAndView = new ModelAndView("home");
-
-		// create textcontainer
-		Textcontainer textcontainer = new Textcontainer();
-		textcontainer.setModuleName("text");
-		moduleService.addModule(textcontainer);
-
-		// change moduleName of textcontainer
-		textcontainer.setModuleName("Update Method works");
-
-		// update textcontainer
-		moduleService.updateModule(textcontainer);
-
-		// Test if method worked
-		modelAndView.addObject("message",
-				moduleService.getModule(textcontainer.getId()).getModuleName());
-
+//		Guestbook guestbook = new Guestbook();
+//		moduleService.addModule(guestbook);
+//		GuestbookEntry entry = new GuestbookEntry();
+//		entry.setContentName("Entry");
+//		entry.setGuestbook(guestbook);
+////		contentService.addContent(entry);
+//		Guestbook guestbookToUpdate = (Guestbook) moduleService.getModule(guestbook.getId());
+//		List<GuestbookEntry> entries = moduleService.getGuestbookEntries(guestbookToUpdate);
+//		entries.add(entry);
+//		guestbookToUpdate.setGuestbookEntries(entries);
+//		moduleService.updateModule(guestbookToUpdate);
+//		
+//		Guestbook updatedGuestbook = (Guestbook) moduleService.getModule(guestbook.getId());
+//		System.out.println(moduleService.getGuestbookEntries(updatedGuestbook).get(0).getContentName());
+		System.out.println(moduleService.getModuleList().get(0).getType());
 		return modelAndView;
 	}
 }

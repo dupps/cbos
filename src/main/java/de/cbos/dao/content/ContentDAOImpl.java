@@ -11,19 +11,24 @@ import de.cbos.model.content.Content;
 import de.cbos.model.content.ContentVisitor;
 import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.content.Paragraph;
+import de.cbos.model.module.Guestbook;
+import de.cbos.service.module.ModuleService;
 
 @Transactional
 public class ContentDAOImpl implements ContentDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private ModuleService moduleService;
 
 	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}
 
 	public void addContent(Content content) {
-		getCurrentSession().save(content);
+			getCurrentSession().save(content);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -47,8 +52,9 @@ public class ContentDAOImpl implements ContentDAO {
 						.getId());
 				guestbookEntryToUpdate.setContentName(guestbookEntry
 						.getContentName());
-				guestbookEntryToUpdate.setAutor(guestbookEntry.getAutor());
-				guestbookEntryToUpdate.setEntry(guestbookEntry.getEntry());
+//				guestbookEntryToUpdate.setAutor(guestbookEntry.getAutor());
+//				guestbookEntryToUpdate.setEntry(guestbookEntry.getEntry());
+				guestbookEntryToUpdate.setGuestbook(guestbookEntry.getGuestbook());
 			}
 
 			public void visit(Paragraph paragraph) {
