@@ -53,8 +53,14 @@ public class Module implements ModuleEntity {
     public String getType() {
     	return this.type;
     }
+
+	public int getModuleId() {
+		return moduleId;
+	}
+
+	public void setModuleId(int moduleId) {
+		this.moduleId = moduleId;
+	}
     
-    public int getId() {
-    	return this.moduleId;
-    }
+
 }
