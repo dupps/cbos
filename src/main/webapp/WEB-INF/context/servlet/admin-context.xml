@@ -20,6 +20,8 @@
 	<bean id="ModuleService" class="de.cbos.service.module.ModuleServiceImpl" />
 	<bean id="UserDAO" class="de.cbos.dao.user.UserDAOImpl" />
 	<bean id="ModuleDAO" class="de.cbos.dao.module.ModuleDAOImpl" />
+	<bean id="ContentService" class="de.cbos.service.content.ContentServiceImpl" />
+	<bean id="ContentDAO" class="de.cbos.dao.content.ContentDAOImpl" />
 
 	<!-- Transactional via annotations -->
 	<tx:annotation-driven />

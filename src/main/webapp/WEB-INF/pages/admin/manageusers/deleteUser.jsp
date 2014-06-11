@@ -18,7 +18,7 @@
 	   	<div>
 	   		<form:form name="submitForm" method="DELETE" action="../../manageusers">
 			    <input type="hidden" name="userToDelete" value="${User.userName}">
-				<a href="../${User.userName}" class="btn pull-left btn-danger">Cancel</a>
+				<a href="../${User.userName}" class="btn pull-left btn-default">Cancel</a>
 			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Delete User</A>
 			</form:form>
 	   	</div>

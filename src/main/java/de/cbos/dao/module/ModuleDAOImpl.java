@@ -7,10 +7,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
 import de.cbos.model.module.ModuleVisitor;
 import de.cbos.model.module.Textcontainer;
+import de.cbos.service.content.ContentService;
 
 @Transactional
 public class ModuleDAOImpl implements ModuleDAO {
@@ -47,6 +49,7 @@ public class ModuleDAOImpl implements ModuleDAO {
 				Guestbook guestbookToUpdate = (Guestbook) getModule(guestbook
 						.getId());
 				guestbookToUpdate.setModuleName(guestbook.getModuleName());
+				guestbookToUpdate.setGuestbookEntries(guestbook.getGuestbookEntries());
 			}
 
 			public void visit(Textcontainer textcontainer) {
@@ -62,6 +65,15 @@ public class ModuleDAOImpl implements ModuleDAO {
 	@SuppressWarnings("unchecked")
 	public List<Module> getModuleList() {
 		return getCurrentSession().createQuery("FROM Module").list();
+	}
+	
+	public void createGuestbookEntry(Guestbook guestbook) {
+		
+	}
+	
+	public List<GuestbookEntry> getGuestbookEntries(Guestbook guestbook) {
+		Guestbook book = (Guestbook) getModule(guestbook.getId());
+		return book.getGuestbookEntries();
 	}
 
 }

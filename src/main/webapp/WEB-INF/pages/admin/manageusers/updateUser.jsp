@@ -26,7 +26,7 @@
 						value="${User.city}" class="form-control" type="hidden" />
 				<form:input maxlength="100" name="birth" id="birthday" path="birthday"
 						value="${User.birthday}" class="form-control" type="hidden" />
-				<a href="${User.userName}" class="btn pull-left btn-danger">Cancel</a>
+				<a href="${User.userName}" class="btn pull-left btn-default">Cancel</a>
 			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Update User</A>
 			</form:form>
 	   	</div>

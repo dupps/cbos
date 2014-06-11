@@ -57,7 +57,7 @@ public class UpdateUserController {
 	public ModelAndView updateUser(@ModelAttribute("userDummy") User user,BindingResult result) { 
 		userService.updateUser(user, user.getUserName());
 		ModelAndView modelAndView = userListController.listUsers();
-		modelAndView.addObject("message", "Except from userName, the User was successfully updated.");
+		modelAndView.addObject("message", "The User was successfully updated.");
 		return modelAndView;
 	}
 }

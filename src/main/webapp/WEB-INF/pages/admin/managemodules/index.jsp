@@ -35,6 +35,7 @@
 	<%@ include file="menu.jsp" %>
 	<div class="well"></div>
 	<div class="container">
+		<p><a href="managemodules/create" class="btn pull-right btn-primary">Create new Module</a></p>
 		<h1>Manage Modules</h1>
 		<div class="ui-widget">
 			<p>You can move every module in the following container.</p>
@@ -42,98 +43,11 @@
 		<div id="containment-wrapper">
 		  <div id="stack-wrapper">
 
-		    <div class="col-md-4 draggable">
-		      <ul class="list-group">
-		        <li class="list-group-item">
-		            <div class="row">
-		              <div class="col-md-4">
-		                <a href="managemodules/update.html" class="btn btn-primary">Config</a>
-		              </div>
-		              <div class="col-md-4">
-		                <h1 class="text-center">Mod<br></h1>
-		              </div>
-		              <div class="col-md-4">
-		                <a href="#" class="btn pull-right btn-primary move">Move</a>
-		              </div>
-		            </div>
-		          </li>
-		        <li class="list-group-item">
-		          <div class="media">
-		            <a class="pull-left" href="#">    <img class="media-object" src="https://app.divshot.com/img/placeholder-64x64.gif">  </a>
-		            <div class="media-body">
-		              <h4 class="media-heading"><a href="#">Media heading</a></h4>
-		              <p><a href="#">This is the content for your media.</a></p>
-		            </div>
-		          </div>
-		        </li>
-		        <li class="list-group-item">
-		          <div class="media">
-		            <a class="pull-left" href="#">    <img class="media-object" src="https://app.divshot.com/img/placeholder-64x64.gif">  </a>
-		            <div class="media-body">
-		              <h4 class="media-heading"><a href="#">More Media</a></h4>
-		              <p><a href="#">This is the content for your media.</a></p>
-		            </div>
-		          </div>
-		        </li>
-		        <li class="list-group-item">
-		          <div class="media">
-		            <a class="pull-left" href="#">    <img class="media-object" src="https://app.divshot.com/img/placeholder-64x64.gif">  </a>
-		            <div class="media-body">
-		              <h4 class="media-heading"><a href="#">Even More Media</a></h4>
-		              <p><a href="#">This is the content for your media.</a></p>
-		            </div>
-		          </div>
-		        </li>
-		        <li class="list-group-item">
-		          <a href="managecontent/create.html" class="btn btn-primary">Add Entry</a>
-		        </li>
-		      </ul>
-		    </div>
-
-		    <div class="col-md-8 draggable">
-		      <ul class="list-group">
-		        <li class="list-group-item">
-		          <div class="row">
-		            <div class="col-md-4">
-		              <a href="managemodules/update.html" class="btn btn-primary">Config</a>
-		            </div>
-		            <div class="col-md-4">
-		              <h1 class="text-center">My Blog</h1>
-		            </div>
-		            <div class="col-md-4">
-		              <a href="#" class="btn pull-right btn-primary move">Move</a>
-		            </div>
-		          </div>
-		        </li>
-		        <li class="list-group-item">
-		          <div class="media">
-		            <a class="pull-left" href="#">    <img class="media-object" src="https://app.divshot.com/img/placeholder-64x64.gif">  </a>
-		            <div class="media-body">
-		              <h4 class="media-heading"><a href="#">Media heading</a></h4>
-		              <p><a href="#">This is the content for your media.</a></p>
-		            </div>
-		          </div>
-		        </li>
-		        <li class="list-group-item">
-		          <p><a href="managecontent/update.html">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a></p>
-		        </li>
-		        <li class="list-group-item">
-		          <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a></p>
-		        </li>
-		        <li class="list-group-item">
-		          <div class="media">
-		            <a class="pull-left" href="#">    <img class="media-object" src="https://app.divshot.com/img/placeholder-64x64.gif">  </a>
-		            <div class="media-body">
-		              <h4 class="media-heading"><a href="#">I shot new photos!</a></h4> 
-		              <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</a></p>
-		            </div>
-		          </div>
-		        </li>
-		        <li class="list-group-item">
-		          <a href="managecontent/create.html" class="btn btn-primary">Create new Entry</a>
-		        </li>
-		      </ul>
-		    </div>
+		  	<c:forEach var="Module" items="${modules}">
+				<div>
+					<p>${Module.type}</p>
+				</div>
+			</c:forEach>
 
 		  </div>
 		</div>
