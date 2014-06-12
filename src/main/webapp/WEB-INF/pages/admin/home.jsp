@@ -14,26 +14,26 @@
 	<%@ include file="menu.jsp" %>
 	<div class="well"></div>
 	<div class="container">
-		<h1>CboS</h1>
-		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
 		<p><a href="admin/manageusers">Manage Users</a><p>
 	</div>
 	<div class="container">
-		<p>Manage your pages:</p>
+		<h1>Manage your pages</h1>
+		<h3>Add new page</h3>
 		<form:form method="POST" action="admin" commandName="pageContainer">
 			<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"
 				placeholder="Enter page name..."/>
-			<input type="submit" class="btn btn-block btn-primary" value="Create new Page"/>
+			<input type="submit" class="btn btn-block btn-primary" value="Create new page"/>
 			<div>
 				<form:errors path="pageName" />
 			</div>
 		</form:form>
 		<br>
+		<h3>Manage Modules for page</h3>
 		<ul class="list-group">
 			<c:forEach var="page" items="${pages}">
 				<li class="list-group-item">
-					<a href="admin/page/${page.pageName}">Manage Modules for page ${page.pageName}</a>
+					<a href="admin/page/${page.pageName}">${page.pageName}</a>
 				</li>
 			</c:forEach>
 		</ul>
