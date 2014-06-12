@@ -5,10 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CboS - Home</title>
-<link rel="stylesheet"
-	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>CboS - Home</title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<style>
+		.error {
+			color: #ff0000;
+		}
+	</style>
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
@@ -23,10 +27,10 @@
 		<form:form method="POST" action="admin" commandName="pageContainer">
 			<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"
 				placeholder="Enter page name..."/>
-			<input type="submit" class="btn btn-block btn-primary" value="Create new page"/>
 			<div>
-				<form:errors path="pageName" />
+				<form:errors path="pageName" cssClass="error" element="div" />
 			</div>
+			<input type="submit" class="btn btn-block btn-primary" value="Create new page"/>
 		</form:form>
 		<br>
 		<h3>Manage Modules for page</h3>
