@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.cbos.controller.admin.AdminController;
+import de.cbos.controller.admin.managePages.PageListController;
 import de.cbos.service.page.PageService;
 
 @Controller
@@ -19,7 +19,7 @@ public class DeletePageController {
 	private PageService pageService;
 	
 	@Autowired
-	private AdminController adminController;
+	private PageListController pageListController;
 	
 	@RequestMapping(value="/admin/delete/${page.pageName}", method=RequestMethod.GET)
 	public ModelAndView deletePageConfirmation(@PathVariable String pageName) {
@@ -32,7 +32,7 @@ public class DeletePageController {
 	public ModelAndView deletePage(HttpServletRequest request) {
 		String pageName = request.getParameter("pageToDelete");
 		pageService.deletePage(pageService.getPage(pageName));
-		ModelAndView modelAndView = adminController.adminPage();
+		ModelAndView modelAndView = pageListController.listPages();
 		modelAndView.addObject("message", "Page was successfully deleted");
 		return modelAndView;
 	}

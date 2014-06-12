@@ -2,7 +2,6 @@ package de.cbos.model.module;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,8 +21,6 @@ public class Guestbook extends Module {
 	
 	public Guestbook() {
 		setType("guestbook");
-		List<GuestbookEntry> guestbookEntries = new ArrayList<GuestbookEntry>();
-		setGuestbookEntries(guestbookEntries); 
 	}
 
 	public void accept(ModuleVisitor visitor) {

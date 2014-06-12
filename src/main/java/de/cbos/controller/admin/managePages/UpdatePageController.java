@@ -14,7 +14,7 @@ import de.cbos.model.module.Module;
 import de.cbos.service.page.PageService;
 
 @Controller
-public class PageController {
+public class UpdatePageController {
 	
 	/**For autowiring, beans with context paths are set in home-context.xml**/
 	@Autowired
@@ -22,7 +22,7 @@ public class PageController {
 	
 	/**maps incoming requests by URL and Method**/
 	@RequestMapping(value="/page/{pageName}",method=RequestMethod.GET)
-	public ModelAndView manageModules(@PathVariable String pageName) {
+	public ModelAndView editPage(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
 		List<Module> modules = pageService.getPage(pageName).getModules();
 		modelAndView.addObject("modules", modules);

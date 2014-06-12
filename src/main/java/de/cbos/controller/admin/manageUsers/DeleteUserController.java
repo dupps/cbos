@@ -21,7 +21,7 @@ public class DeleteUserController {
 	private UserListController userListController;
 
 	@RequestMapping(value="/manageusers/delete/{userName}", method=RequestMethod.GET)
-	public ModelAndView deleteConfirmation(@PathVariable String userName) {
+	public ModelAndView deleteUserConfirmation(@PathVariable String userName) {
 		ModelAndView modelAndView = new ModelAndView("manageusers/deleteUser");
 		modelAndView.addObject("User", userService.getUser(userName));
 		return modelAndView;
