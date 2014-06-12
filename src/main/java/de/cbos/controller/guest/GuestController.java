@@ -11,7 +11,7 @@ public class GuestController {
 
 	/**mapps incoming requests by URL and Method**/
 	@RequestMapping(value="/*",method=RequestMethod.GET)
-	public ModelAndView home() {
+	public ModelAndView welcomePage() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * 						data can be saved
 		 */
@@ -22,7 +22,7 @@ public class GuestController {
 	
 	/**mapps incoming requests by URL and Method**/
 	@RequestMapping(value="/login",method=RequestMethod.GET)
-	public ModelAndView login() {
+	public ModelAndView loginForm() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * 						data can be saved
 		 */
@@ -31,7 +31,7 @@ public class GuestController {
 	}
 	
 	 @RequestMapping(value="/denied", method = RequestMethod.GET)  
-	public ModelAndView denied() {
+	public ModelAndView accessDenied() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * 						data can be saved
 		 */

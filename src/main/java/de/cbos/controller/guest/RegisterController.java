@@ -2,7 +2,6 @@ package de.cbos.controller.guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -34,7 +33,7 @@ public class RegisterController {
 
 	/**mapps incoming requests by URL and Method**/
 	@RequestMapping(value="/register",method=RequestMethod.GET)
-	public ModelAndView register() {
+	public ModelAndView registerForm() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * data can be saved
 		 */
@@ -46,7 +45,7 @@ public class RegisterController {
 
 	/**Initiates User-object out of input and before created dummy**/
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ModelAndView addUser(@ModelAttribute("userDummy") User user, BindingResult result) {
+	public ModelAndView createUser(@ModelAttribute("userDummy") User user, BindingResult result) {
 		/**User input is validated**/
 		validator.validate(user, result);
 		if (result.hasErrors()) {
@@ -80,17 +79,5 @@ public class RegisterController {
 			return modelAndView;
 		}
 	}
-	
-//	@RequestMapping(value="/register/test",method=RequestMethod.GET)
-//	public ModelAndView registertest() {
-//		/**ModelAndView object: returned name describes which jsp should be rendered,
-//		 * data can be saved
-//		 */
-//		userService.getUsers();
-//		ModelAndView modelAndView = new ModelAndView("home");
-//		/**userDummy created to bind probably incoming user data**/
-//		modelAndView.addObject("userDummy", new User());
-//		return modelAndView;
-//	}
 }
 

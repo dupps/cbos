@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.cbos.controller.admin.AdminController;
+import de.cbos.controller.admin.managePages.PageListController;
 import de.cbos.model.page.Page;
 import de.cbos.service.page.PageService;
 
@@ -23,16 +23,16 @@ public class AddPage {
 	private Validator validator;
 	
 	@Autowired
-	private AdminController adminController;
+	private PageListController pageListController;
 	
 	@RequestMapping(value="/admin", method=RequestMethod.POST)
-	public ModelAndView addPage(@ModelAttribute("pageContainer") Page page, BindingResult result) {
+	public ModelAndView createNewPage(@ModelAttribute("pageContainer") Page page, BindingResult result) {
 		validator.validate(page, result);
 		if (result.hasErrors()) {
 			return new ModelAndView("home");
 		} else {
 			pageService.addPage(page);
-			return adminController.adminPage();
+			return pageListController.listPages();
 		}
 	}
 }

@@ -21,7 +21,7 @@ public class ResetPasswordController {
 	private UserListController userListController;
 
 	@RequestMapping(value = "/manageusers/resetpw/{userName}", method = RequestMethod.GET)
-	public ModelAndView confirmReset(@PathVariable String userName) {
+	public ModelAndView resetUserPasswordConfirmation(@PathVariable String userName) {
 		ModelAndView modelAndView = new ModelAndView(
 				"manageusers/resetPassword");
 		modelAndView.addObject("User", userService.getUser(userName));
@@ -29,7 +29,7 @@ public class ResetPasswordController {
 	}
 
 	@RequestMapping(value = "/manageusers", method = RequestMethod.PUT)
-	public ModelAndView resetUser(HttpServletRequest request) {
+	public ModelAndView resetUserPassword(HttpServletRequest request) {
 		String userName = request.getParameter("userToUpdate");
 		userService.resetPassword(userService.getUser(userName));
 		ModelAndView modelAndView = userListController.listUsers();
