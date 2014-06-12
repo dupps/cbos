@@ -10,7 +10,7 @@
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="menu1.jsp" %>
 	<div class="well"></div>
 	<div class="container">
 		<p>${message}</p>
@@ -19,7 +19,7 @@
 		<ul class="list-group">
 		<c:forEach var="User" items="${users}">
 			<li class="list-group-item">
-			 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a></td>
+			 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a>
 			</li>
 		</c:forEach>
 		</ul>

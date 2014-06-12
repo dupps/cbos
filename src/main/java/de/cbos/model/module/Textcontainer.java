@@ -13,7 +13,7 @@ public class Textcontainer extends Module {
 	
 	
 	public Textcontainer() {
-		setType("textfield");
+		setType("textcontainer");
 	}
 	
 	public void accept(ModuleVisitor visitor) {

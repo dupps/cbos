@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import de.cbos.model.user.User;
 import de.cbos.service.user.UserService;
@@ -39,10 +41,13 @@ public class AddUserController {
 		} else {
 			userService.addUser(user);
 			userService.setAuthority(user, "ROLE_USER");
-			ModelAndView modelAndView = userListController.listUsers();
-			modelAndView.addObject("message", "User was successfully created. Password is "+user.getPassword());
+			ModelAndView modelAndView = new ModelAndView(new RedirectView("../manageusers/add/redirect"));
 			return modelAndView;
 		}
 	}
-
+	
+	@RequestMapping(value="/manageusers/add/redirect", method=RequestMethod.GET)
+	public String addRedirect(RedirectAttributes message) {
+		return "redirect:../";
+	}
 }

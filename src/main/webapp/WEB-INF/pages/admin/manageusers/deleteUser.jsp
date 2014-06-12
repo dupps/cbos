@@ -5,19 +5,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CboS - Delete User</title>
+<title>CboS - Delete user confirmation</title>
 <link rel="stylesheet"
     href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
-</head>
 <body>
-    <%@ include file="menu.jsp" %>
+    <%@ include file="menu3.jsp" %>
     <div class="well"></div>
     <div class="container">
 		<p>Are you really sure you want to delete ${User.userName}?</p>
 	   	<!-- Post method giving back ${User.userName} -->
 	   	<div>
-		    <a href="/CboS/admin/manageusers/purge/${user.userName}" class="btn pull-right btn-danger">Delete User</a>
+	   		<form:form name="submitForm" method="DELETE" action="../../manageusers">
+			    <input type="hidden" name="userToDelete" value="${User.userName}">
+				<a href="../${User.userName}" class="btn pull-left btn-default">Cancel</a>
+			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Delete User</A>
+			</form:form>
 	   	</div>
 	</div>
 </body>

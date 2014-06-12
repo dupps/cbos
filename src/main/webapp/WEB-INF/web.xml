@@ -18,7 +18,46 @@
 					 /WEB-INF/context/spring-security.xml
 					 /WEB-INF/context/dataAccess-context.xml</param-value>
 	</context-param>
+	
+	<!-- Filter for HttpRequests with "/*" -->
+	<filter>
+	    <filter-name>UrlRewriteFilter</filter-name>
+	    <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+	       <init-param>
+	            <param-name>confPath</param-name>
+	            <param-value>/WEB-INF/context/urlRewrite.xml</param-value>
+	        </init-param>
+	</filter>
+	
+	<!-- Damit jsp usw nicht als HttpRequests wieder erneut an DispatcherServlets 
+	gemappt werden -->
+	<filter>
+		<filter-name>HttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
 
+	<!-- Filter for authentication -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	
+	<!-- Filter mappings -->
+	<filter-mapping>
+    	<filter-name>UrlRewriteFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>HttpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<!-- Create container application-context and spring-security -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -75,27 +114,4 @@
 		<url-pattern>/admin/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- Filter for HttpRequests with "/*" -->
-	<!-- Damit jsp usw nicht als HttpRequests wieder erneut an DispatcherServlets 
-		gemappt werden -->
-	<filter>
-		<filter-name>HttpMethodFilter</filter-name>
-		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>HttpMethodFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- Filter for authentication -->
-	<filter>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 </web-app>

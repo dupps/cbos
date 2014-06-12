@@ -51,8 +51,12 @@ public class UserDAOImpl implements UserDAO {
 	
 	public void deleteUser(String userName) {
 		User user = getUser(userName);
+		Authority authority = getAuthority(userName);
 		if (user != null) {
 			getCurrentSession().delete(user);
+		}
+		if (authority != null) {
+			getCurrentSession().delete(authority);
 		}
 	}
 	
@@ -72,6 +76,11 @@ public class UserDAOImpl implements UserDAO {
 	public void resetPassword(User user) {
 		user.setPassword(RandomStringUtils.random(6, 0, 0, true, true, null, new SecureRandom()));
 		getCurrentSession().update(user);
+	}
+	
+	public Authority getAuthority(String userName) {
+		Authority authority = (Authority) getCurrentSession().get(Authority.class, userName);
+		return authority;
 	}
 	
 	public void setAuthority(User user, String role) {
