@@ -19,6 +19,11 @@
 			});
 		});
 	</script>
+	<style>
+		.error {
+			color: #ff0000;
+		}
+	</style>
 </head>
 <body>
 	<%@ include file="menu2.jsp"%>
@@ -33,7 +38,7 @@
 					<form:input value="${user.userName}" name="username" id="username"
 						path="userName" maxlength="100" class="form-control" type="text" disabled="${'true'}"/>
 					<div>
-						<form:errors path="userName" />
+						<form:errors path="userName" cssClass="error" element="div" />
 					</div>
 				</div>
 			</div>
@@ -43,7 +48,7 @@
 					<form:input maxlength="100" name="email" id="email" path="email"
 						value="${user.email}" class="form-control" type="email" />
 					<div>
-						<form:errors path="email" />
+						<form:errors path="email" cssClass="error" element="div" />
 					</div>
 				</div>
 			</div>
@@ -53,7 +58,7 @@
 					<form:input maxlength="100" name="city" id="city" path="city"
 						value="${user.city}" class="form-control" type="text" />
 					<div>
-						<form:errors path="city" />
+						<form:errors path="city" cssClass="error" element="div" />
 					</div>
 				</div>
 			</div>
@@ -64,7 +69,7 @@
 						path="birthday" value="${user.birthday}" class="form-control"
 						type="text" />
 					<div>
-						<form:errors path="birthday" />
+						<form:errors path="birthday" cssClass="error" element="div" />
 					</div>
 				</div>
 			</div>
