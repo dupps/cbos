@@ -34,10 +34,10 @@
 	</style>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="menu1.jsp" %>
 	<div class="well"></div>
 	<div class="container">
-		<p><a href="managemodules/create" class="btn pull-right btn-primary">Create new Module</a></p>
+		<p><a href="${page.pageName}/create" class="btn pull-right btn-primary">Create new Module</a></p>
 		<h1>Manage Modules</h1>
 		<div class="ui-widget">
 			<p>You can move every module in the following container.</p>

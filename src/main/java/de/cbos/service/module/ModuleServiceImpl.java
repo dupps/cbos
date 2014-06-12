@@ -39,7 +39,7 @@ public class ModuleServiceImpl implements ModuleService {
 		return moduleDAO.getModule(id);
 	}
 	
-	public List<GuestbookEntry> getGuestbookEntries(Guestbook guestbook) {
-		return moduleDAO.getGuestbookEntries(guestbook);
+	public void addGuestbookEntry(GuestbookEntry guestbookEntry, Guestbook guestbook) {
+		moduleDAO.addGuestbookEntry(guestbookEntry, guestbook);
 	}
 }

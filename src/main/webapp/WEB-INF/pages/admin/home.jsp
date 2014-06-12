@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +17,26 @@
 		<h1>CboS</h1>
 		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
-		<p><a href="admin/manageusers">Manage Users</a><p><!-- Dead Link -->
-		<p><a href="admin/managemodules">Manage Modules</a><p>
+		<p><a href="admin/manageusers">Manage Users</a><p>
+	</div>
+	<div class="container">
+		<p>Manage your pages:</p>
+		<form:form method="POST" action="admin" commandName="pageContainer">
+			<ul>
+				<li>
+					<input type="submit" class="btn btn-block btn-primary" value="Create new User"/>
+					<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"/>
+				</li>
+			</ul>
+		</form:form>
+		<br>
+		<ul class="list-group">
+			<c:forEach var="page" items="${pages}">
+				<li class="list-group-item">
+					<a href="admin/page/${page.pageName}">Manage Modules for page ${page.pageName}</a>
+				</li>
+			</c:forEach>
+		</ul>
 	</div>
 </body>
 </html>

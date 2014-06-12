@@ -32,7 +32,8 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		template
 		.execute("CREATE TABLE IF NOT EXISTS MODULES(MODULEID INTEGER NOT NULL PRIMARY KEY,"
 				+ "MODULENAME VARCHAR(50) NOT NULL,"
-                + "TYPE VARCHAR_IGNORECASE(50));");
+                + "TYPE VARCHAR_IGNORECASE(50),"
+				+ "PAGE INTEGER REFERENCES PAGE(PAGENAME));");
 		
 		template
 		.execute("CREATE TABLE IF NOT EXISTS TEXTCONTAINERS(MODULEID INTEGER NOT NULL PRIMARY KEY,"
@@ -58,6 +59,10 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		.execute("CREATE TABLE IF NOT EXISTS PARAGRAPHS(CONTENTID INTEGER NOT NULL PRIMARY KEY,"
 				+"TEXT VARCHAR(50) NOT NULL,"
 				+"CONSTRAINT FK_CONTENTS FOREIGN KEY(CONTENTID) REFERENCES CONTENTS(CONTENTID));");
+		
+		template
+		.execute("CREATE TABLE IF NOT EXISTS PAGES(PAGENAME VARCHAR(50) NOT NULL PRIMARY KEY,"
+				+"CONSTRAINT FK_MODULES FOREIGN KEY(MODULEID) REFERENCES MODULES(MODULEID));");
         /**
          *  hard coded admin
          */
@@ -65,8 +70,13 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
         	.execute("INSERT INTO USERS(USERNAME,PASSWORD,ENABLED,EMAIL,CITY,BIRTHDAY) VALUES ('admin','admin',TRUE,'Admin@sample.de','Adminhausen','31.12.1992');");
         template
     		.execute("INSERT INTO AUTHORITIES(USERNAME,AUTHORITY) VALUES ('admin','ROLE_ADMIN');");
+        
+        /**
+         *  hard coded default page
+         */
+        template
+        	.execute("INSERT INTO PAGES(PAGENAME) VALUES ('default')");
 	}
-	
 	
 	/**
 	 * Load external dataSource
