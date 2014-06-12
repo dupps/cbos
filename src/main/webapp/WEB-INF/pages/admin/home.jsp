@@ -26,6 +26,9 @@
 				<li>
 					<input type="submit" class="btn btn-block btn-primary" value="Create new User"/>
 					<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"/>
+					<div>
+						<form:errors path="pageName" />
+					</div>
 				</li>
 			</ul>
 		</form:form>
