@@ -16,6 +16,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotEmpty;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 import de.cbos.model.module.Module;
@@ -27,6 +29,7 @@ public class Page {
 	
 	@Id
 	@NotNull
+	@NotBlank
 	private String pageName;
 	
 	@OneToMany (mappedBy="page", fetch=FetchType.EAGER)

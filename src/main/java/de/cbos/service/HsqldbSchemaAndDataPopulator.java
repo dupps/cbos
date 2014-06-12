@@ -75,7 +75,7 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
          *  hard coded default page
          */
         template
-        	.execute("INSERT INTO PAGES(PAGENAME) VALUES ('default')");
+        	.execute("INSERT INTO PAGES(PAGENAME) VALUES ('home')");
 	}
 	
 	/**
