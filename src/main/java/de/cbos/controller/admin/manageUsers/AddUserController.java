@@ -34,7 +34,7 @@ public class AddUserController {
 	}
 	
 	@RequestMapping(value="/manageusers/add", method=RequestMethod.POST)
-	public ModelAndView addUser(@ModelAttribute("userDummy") User user, BindingResult result) {
+	public ModelAndView createUser(@ModelAttribute("userDummy") User user, BindingResult result) {
 		validator.validate(user, result);
 		if (result.hasErrors()) {
 			return new ModelAndView("manageusers/addUser");
@@ -47,7 +47,7 @@ public class AddUserController {
 	}
 	
 	@RequestMapping(value="/manageusers/add/redirect", method=RequestMethod.GET)
-	public String addRedirect(RedirectAttributes message) {
+	public String afterAddUserRedirect(RedirectAttributes message) {
 		return "redirect:../";
 	}
 }

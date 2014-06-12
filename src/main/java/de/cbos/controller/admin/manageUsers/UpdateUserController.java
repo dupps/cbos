@@ -1,7 +1,5 @@
 package de.cbos.controller.admin.manageUsers;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -28,7 +26,7 @@ public class UpdateUserController {
 	private Validator validator;
 	
 	@RequestMapping(value="/manageusers/{userName}", method=RequestMethod.GET)
-	public ModelAndView userDetailForm(@PathVariable String userName) {
+	public ModelAndView userDetailsForm(@PathVariable String userName) {
 		ModelAndView modelAndView = new ModelAndView("manageusers/userDetails");
 		User user = userService.getUser(userName);
 		modelAndView.addObject("user",user);
@@ -41,7 +39,7 @@ public class UpdateUserController {
 	 * overwriting the userName is currently not allowed, because userName is identifier
 	 */
 	@RequestMapping(value="/manageusers/update", method=RequestMethod.POST)
-	public ModelAndView buildUpdateUser(@ModelAttribute("userDummy") User user, BindingResult result) {
+	public ModelAndView createUserToUpdate(@ModelAttribute("userDummy") User user, BindingResult result) {
 		validator.validate(user, result);
 		if (result.hasErrors()) {
 			return new ModelAndView("manageusers/userDetails");
