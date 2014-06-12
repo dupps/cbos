@@ -32,14 +32,14 @@ public class AddModuleController {
 	@Autowired
 	private PageService pageService;
 	
-	@RequestMapping(value="/{pageName}/create", method=RequestMethod.GET)
+	@RequestMapping(value="/page/{pageName}/create", method=RequestMethod.GET)
 	public ModelAndView createModuleList(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("managemodules/moduleList");
 		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/{pageName}/addGuestbook", method=RequestMethod.GET)
+	@RequestMapping(value="/page/{pageName}/addGuestbook", method=RequestMethod.GET)
 	public ModelAndView createGuestbookForm(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Guestbook guestbook = new Guestbook();
@@ -48,7 +48,7 @@ public class AddModuleController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/{pageName}/addTextcontainer", method=RequestMethod.GET)
+	@RequestMapping(value="/page/{pageName}/addTextcontainer", method=RequestMethod.GET)
 	public ModelAndView createTextcontainerForm(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Textcontainer textcontainer = new Textcontainer();
@@ -57,7 +57,7 @@ public class AddModuleController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/{pageName}/redirect", method=RequestMethod.GET)
+	@RequestMapping(value="/page/{pageName}/redirect", method=RequestMethod.GET)
 	public String addRedirectGuestbook(RedirectAttributes message, @PathVariable String pageName) {
 		return "redirect:../"+pageName;
 	}

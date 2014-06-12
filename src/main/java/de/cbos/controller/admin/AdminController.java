@@ -29,6 +29,7 @@ public class AdminController {
 		/**
 		 * quick and dirty navbar
 		 */
+		modelAndView.addObject("pageContainer", new Page());
 		modelAndView.addObject("pages",pageService.getPageList());
 		return modelAndView;
 	}

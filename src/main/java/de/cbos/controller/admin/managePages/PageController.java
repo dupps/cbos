@@ -21,7 +21,7 @@ public class PageController {
 	private PageService pageService;
 	
 	/**maps incoming requests by URL and Method**/
-	@RequestMapping(value="/{pageName}",method=RequestMethod.GET)
+	@RequestMapping(value="/page/{pageName}",method=RequestMethod.GET)
 	public ModelAndView manageModules(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
 		List<Module> modules = pageService.getPage(pageName).getModules();

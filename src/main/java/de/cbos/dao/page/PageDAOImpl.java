@@ -25,7 +25,6 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public void addPage(Page page) {
-		System.out.println(page.getPageName());
 		getCurrentSession().save(page);
 	}
 	
