@@ -25,7 +25,9 @@ public class AddPage {
 	public ModelAndView createNewPage(@ModelAttribute("pageContainer") Page page, BindingResult result) {
 		validator.validate(page, result);
 		if (result.hasErrors()) {
-			return new ModelAndView("home");
+			ModelAndView modelAndView = new ModelAndView("home");
+			modelAndView.addObject("pages",pageService.getPageList());
+			return modelAndView;
 		} else {
 			pageService.addPage(page);;
 			ModelAndView modelAndView = new ModelAndView("home");
