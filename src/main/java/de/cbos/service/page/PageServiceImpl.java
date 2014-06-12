@@ -17,8 +17,8 @@ public class PageServiceImpl implements PageService {
 		pageDAO.addPage(page);
 	}
 	
-	public Page getPage(int pageId) {
-		return pageDAO.getPage(pageId);
+	public Page getPage(String pageName) {
+		return pageDAO.getPage(pageName);
 	}
 	
 	public List<Page> getPageList() {

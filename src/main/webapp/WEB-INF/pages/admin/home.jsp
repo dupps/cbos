@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,9 @@
 		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
 		<p><a href="admin/manageusers">Manage Users</a><p><!-- Dead Link -->
-		<p><a href="admin/managemodules">Manage Modules</a><p>
+		<c:forEach var="page" items="${pages}">
+			<p><a href="admin/${page.pageName}">Manage Modules for page ${page.pageName}</a></p>
+		</c:forEach>
 	</div>
 </body>
 </html>

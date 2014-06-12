@@ -25,11 +25,12 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public void addPage(Page page) {
+		System.out.println(page.getPageName());
 		getCurrentSession().save(page);
 	}
 	
-	public Page getPage(int pageId) {
-		Page page = (Page) getCurrentSession().get(Page.class, pageId);
+	public Page getPage(String pageName) {
+		Page page = (Page) getCurrentSession().get(Page.class, pageName);
 		return page;
 	}
 	
@@ -43,9 +44,8 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public void updatePage(Page page) {
-		Page pageToUpdate = getPage(page.getPageId());
+		Page pageToUpdate = getPage(page.getPageName());
 		pageToUpdate.setModules(page.getModules());
-		pageToUpdate.setPageName(page.getPageName());
 	}
 	
 	public void addModule(Module module, Page page) {

@@ -16,6 +16,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 import de.cbos.model.module.Module;
 import de.cbos.service.module.ModuleService;
@@ -25,23 +26,13 @@ import de.cbos.service.module.ModuleService;
 public class Page {
 	
 	@Id
-	@GeneratedValue
-	private int pageId;
-	
+	@NotNull
 	private String pageName;
 	
 	@OneToMany (mappedBy="page", fetch=FetchType.EAGER)
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Module> modules = new ArrayList<Module>();
-
-	public int getPageId() {
-		return pageId;
-	}
-
-	public void setPageId(int pageId) {
-		this.pageId = pageId;
-	}
-
+	
 	public String getPageName() {
 		return pageName;
 	}

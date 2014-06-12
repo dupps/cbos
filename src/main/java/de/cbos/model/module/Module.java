@@ -49,7 +49,7 @@ public class Module implements ModuleEntity {
 	private String type;
 	
 	@ManyToOne (fetch=FetchType.EAGER)
-	@JoinColumn(name="pageId")
+	@JoinColumn(name="pageName")
 	private Page page;
 	
 	public void accept(ModuleVisitor visitor) {
