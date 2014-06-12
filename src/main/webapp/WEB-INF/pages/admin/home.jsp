@@ -22,15 +22,12 @@
 	<div class="container">
 		<p>Manage your pages:</p>
 		<form:form method="POST" action="admin" commandName="pageContainer">
-			<ul>
-				<li>
-					<input type="submit" class="btn btn-block btn-primary" value="Create new User"/>
-					<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"/>
-					<div>
-						<form:errors path="pageName" />
-					</div>
-				</li>
-			</ul>
+			<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"
+				placeholder="Enter page name..."/>
+			<input type="submit" class="btn btn-block btn-primary" value="Create new Page"/>
+			<div>
+				<form:errors path="pageName" />
+			</div>
 		</form:form>
 		<br>
 		<ul class="list-group">
