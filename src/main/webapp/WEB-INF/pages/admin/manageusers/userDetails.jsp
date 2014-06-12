@@ -4,10 +4,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CboS - User details</title>
-<link rel="stylesheet"
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>CboS - User details</title>
+	<link rel="stylesheet"
 	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	 <script>
+		$(function() {
+			$("#birthday").datepicker({
+				changeMonth: true,
+				changeYear: true
+			});
+		});
+	</script>
 </head>
 <body>
 	<%@ include file="menu2.jsp"%>

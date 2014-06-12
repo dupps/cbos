@@ -5,38 +5,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CboS - Home</title>
-<link rel="stylesheet"
-	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>CboS - Home</title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<style>
+		.error {
+			color: #ff0000;
+		}
+	</style>
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
 	<div class="well"></div>
 	<div class="container">
-		<h1>CboS</h1>
-		<h3>CMS based on Spring.</h3>
 		<p>${message}</p>
 		<p><a href="admin/manageusers">Manage Users</a><p>
 	</div>
 	<div class="container">
-		<p>Manage your pages:</p>
+		<h1>Manage your pages</h1>
+		<h3>Add new page</h3>
 		<form:form method="POST" action="admin" commandName="pageContainer">
-			<ul>
-				<li>
-					<input type="submit" class="btn btn-block btn-primary" value="Create new User"/>
-					<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"/>
-					<div>
-						<form:errors path="pageName" />
-					</div>
-				</li>
-			</ul>
+			<form:input type="text" name="pagename" id="pagename" path="pageName" maxlength="100" class="form-control"
+				placeholder="Enter page name..."/>
+			<div>
+				<form:errors path="pageName" cssClass="error" element="div" />
+			</div>
+			<input type="submit" class="btn btn-block btn-primary" value="Create new page"/>
 		</form:form>
 		<br>
+		<h3>Manage Modules for page</h3>
 		<ul class="list-group">
 			<c:forEach var="page" items="${pages}">
 				<li class="list-group-item">
-					<a href="admin/page/${page.pageName}">Manage Modules for page ${page.pageName}</a>
+					<a href="admin/page/${page.pageName}">${page.pageName}</a>
 				</li>
 			</c:forEach>
 		</ul>
