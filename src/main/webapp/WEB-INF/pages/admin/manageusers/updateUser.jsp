@@ -31,8 +31,7 @@
 	   			<form:input value="${User.userName}" name="username" id="username"
 						path="userName" maxlength="100" class="form-control" type="hidden" />
 				<form:input maxlength="100" name="email" id="email" path="email"
-					value="${User.email}" class="form-control"
-					type="hidden" />
+					value="${User.email}" class="form-control" type="hidden" />
 				<form:input maxlength="100" name="city" id="city" path="city"
 						value="${User.city}" class="form-control" type="hidden" />
 				<form:input maxlength="100" name="birth" id="birthday" path="birthday"
