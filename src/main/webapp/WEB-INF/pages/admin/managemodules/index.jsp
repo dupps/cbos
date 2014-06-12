@@ -46,16 +46,57 @@
 		  <div id="stack-wrapper">
 
 		  	<c:forEach var="module" items="${modules}">
-				<div>
-					<c:if test="${module.type == 'textcontainer'}">
-						<p>I am a ${module.type} (${module.moduleId})</p>				
-					</c:if>
-					<c:if test="${module.type == 'guestbook'}">
-						<p>I am a ${module.type} (${module.moduleId})</p>				
-					</c:if>
-					
-	
-				</div>
+
+				<!-- Textcontainer -->
+				<c:if test="${module.type == 'textcontainer'}">
+					<div class="col-md-4 draggable">
+				      <ul class="list-group">
+				        <li class="list-group-item">
+				            <div class="row">
+				              <div class="col-md-4">
+				                <a href="" class="btn btn-primary">Config</a>
+				              </div>
+				              <div class="col-md-4">
+				                <h1 class="text-center">${module.type} (${module.moduleId})<br></h1>
+				              </div>
+				              <div class="col-md-4">
+				                <a href="#" class="btn pull-right btn-primary move">Move</a>
+				              </div>
+				            </div>
+				        </li>
+				        <li class="list-group-item">
+				          <a href="" class="btn btn-primary">Add Paragraph</a>
+				        </li>
+				      </ul>
+				    </div>
+				</c:if>
+				<!-- EOF Textcontainer -->
+
+				<!-- Guestbook -->
+				<c:if test="${module.type == 'guestbook'}">
+					<div class="col-md-8 draggable">
+				      <ul class="list-group">
+				        <li class="list-group-item">
+				          <div class="row">
+				            <div class="col-md-4">
+				              <a href="" class="btn btn-primary">Config</a>
+				            </div>
+				            <div class="col-md-4">
+				              <h1 class="text-center">${module.type} (${module.moduleId})</h1>
+				            </div>
+				            <div class="col-md-4">
+				              <a href="#" class="btn pull-right btn-primary move">Move</a>
+				            </div>
+				          </div>
+				        </li>
+				        <li class="list-group-item">
+				          <a href="" class="btn btn-primary">Add Entry</a>
+				        </li>
+				      </ul>
+				    </div>
+				</c:if>
+				<!-- EOF Guestbook -->
+
 			</c:forEach>
 
 		  </div>
