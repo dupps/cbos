@@ -27,5 +27,4 @@ public class PageListController {
 		modelAndView.addObject("pages",pageService.getPageList());
 		return modelAndView;
 	}
-
 }

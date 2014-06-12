@@ -1,5 +1,7 @@
 package de.cbos.controller.admin.manageUsers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -18,9 +20,6 @@ public class UpdateUserController {
 
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private UserListController userListController;
 	
 	@Autowired
 	private Validator validator;
@@ -53,8 +52,10 @@ public class UpdateUserController {
 	
 	@RequestMapping(value="/manageusers", method=RequestMethod.PATCH)
 	public ModelAndView updateUser(@ModelAttribute("userDummy") User user,BindingResult result) { 
-		userService.updateUser(user, user.getUserName());
-		ModelAndView modelAndView = userListController.listUsers();
+		userService.updateUser(user);
+		List<User> users = userService.getUserList();
+		ModelAndView modelAndView = new ModelAndView("manageusers/userList");
+		modelAndView.addObject("users", users);
 		modelAndView.addObject("message", "The User was successfully updated.");
 		return modelAndView;
 	}

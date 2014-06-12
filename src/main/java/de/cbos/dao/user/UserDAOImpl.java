@@ -42,12 +42,10 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 	
-	
 	@SuppressWarnings("unchecked")
 	public List<User> getUserList() {
 		return getCurrentSession().createQuery("FROM User WHERE username<>'admin'").list();
 	}
-	
 	
 	public void deleteUser(String userName) {
 		User user = getUser(userName);
@@ -64,8 +62,8 @@ public class UserDAOImpl implements UserDAO {
 	 * update user will be fixed when the attributes of the model User are improved
 	 * overwriting the userName is currently not allowed, because userName is identifier
 	 */
-	public void updateUser(User user, String oldUserName) {
-		User userToUpdate = getUser(oldUserName);
+	public void updateUser(User user) {
+		User userToUpdate = getUser(user.getUserName());
 		userToUpdate.setBirthday(user.getBirthday());
 		userToUpdate.setCity(user.getCity());
 		userToUpdate.setEmail(user.getEmail());
