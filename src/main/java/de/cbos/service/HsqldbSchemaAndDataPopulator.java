@@ -71,8 +71,13 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
         	.execute("INSERT INTO USERS(USERNAME,PASSWORD,ENABLED,EMAIL,CITY,BIRTHDAY) VALUES ('admin','admin',TRUE,'Admin@sample.de','Adminhausen','31.12.1992');");
         template
     		.execute("INSERT INTO AUTHORITIES(USERNAME,AUTHORITY) VALUES ('admin','ROLE_ADMIN');");
+        
+        /**
+         *  hard coded default page
+         */
+        template
+        	.execute("INSERT INTO PAGES(PAGENAME) VALUES ('DEFAULT')");
 	}
-	
 	
 	/**
 	 * Load external dataSource

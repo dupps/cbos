@@ -1,7 +1,9 @@
 package de.cbos.model.page;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,13 +14,16 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import de.cbos.model.module.Module;
+import de.cbos.service.module.ModuleService;
 
 @Entity
 @Table(name="pages")
 public class Page {
-
+	
 	@Id
 	@GeneratedValue
 	private int pageId;

@@ -13,5 +13,5 @@ public interface ModuleService {
 	public void deleteModule(Module module);
 	public void updateModule(Module module);
 	public Module getModule(int id);
-	public List<GuestbookEntry> getGuestbookEntries(Guestbook guestbook);
+	public void addGuestbookEntry(GuestbookEntry guestbookEntry, Guestbook guestbook);
 }

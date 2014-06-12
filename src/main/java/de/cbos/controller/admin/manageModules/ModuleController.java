@@ -19,13 +19,18 @@ import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
 import de.cbos.model.module.Textcontainer;
+import de.cbos.model.page.Page;
 import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;
+import de.cbos.service.page.PageService;
 
 @Controller
 public class ModuleController {
 	
 	/**For autowiring, beans with context paths are set in home-context.xml**/
+	@Autowired
+	private PageService pageService;
+	
 	@Autowired
 	private ModuleService moduleService;
 	
@@ -66,7 +71,7 @@ public class ModuleController {
 		}
 	}
 	
-	@RequestMapping(value = "/visitortest", method = RequestMethod.GET)
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public ModelAndView testVisitor() {
 		ModelAndView modelAndView = new ModelAndView("home");
 //		Guestbook guestbook = new Guestbook();
@@ -83,7 +88,8 @@ public class ModuleController {
 //		
 //		Guestbook updatedGuestbook = (Guestbook) moduleService.getModule(guestbook.getId());
 //		System.out.println(moduleService.getGuestbookEntries(updatedGuestbook).get(0).getContentName());
-		System.out.println(moduleService.getModuleList().get(0).getType());
+		List<Page> pages = pageService.getPageList();
+		System.out.println(pages.get(0).getPageId());
 		return modelAndView;
 	}
 }

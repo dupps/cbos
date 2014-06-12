@@ -35,7 +35,15 @@ public class Module implements ModuleEntity {
 	@GeneratedValue
 	private int moduleId;
 	
-    @RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
+    public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
+	@RegExp(value="^[a-zA-Z0-9][a-zA-Z0-9 ]+$")
 	private String moduleName;
     
 	private String type;
