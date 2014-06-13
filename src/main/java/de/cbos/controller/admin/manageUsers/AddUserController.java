@@ -21,9 +21,6 @@ public class AddUserController {
 	private UserService userService;
 	
 	@Autowired
-	private UserListController userListController;
-	
-	@Autowired
 	private Validator validator;
 	
 	@RequestMapping(value="/manageusers/add", method=RequestMethod.GET)
