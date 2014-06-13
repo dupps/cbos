@@ -22,6 +22,7 @@ public class Navigation extends Module  {
 	@OneToMany (mappedBy="navigation", fetch=FetchType.EAGER)
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Link> links = new ArrayList<Link>();
+
 	
 	public Navigation() {
 		setType("navigation");
@@ -34,6 +35,7 @@ public class Navigation extends Module  {
 	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
+	
 	
 	public List<String> getLinks() {
 		List<String> links = new ArrayList<String>();
