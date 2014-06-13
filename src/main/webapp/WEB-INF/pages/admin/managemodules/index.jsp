@@ -18,19 +18,18 @@
 										scroll: false,
 										revert: false,
 										handle: "a.move",
-										grid: [20, 20]
+										/* grid: [10, 10], */
+										stop: function(e, ui) {
+											var currentPos = ui.helper.position();
+								            console.info("left: " + currentPos.left +
+								            			 "\ntop: " + currentPos.top);
+								            console.log(e.target.id);
+								        }
 							});
-			/* .resizable({ containment: "#containment-wrapper",
-										   animate: true,
-										   minHeight: 200,
-										   minWidth: 300,
-						   				   grid: 20
-			}); */
 		});
 	</script>
 	<style>
-		#containment-wrapper { width: 100%; height:800px; border:2px solid #ccc; padding: 10px; }
-		/* .ui-resizable-helper { border: 1px dotted gray; } */
+		#containment-wrapper { width: 100%; height:800px; border:2px solid #ccc; padding: 10px; position: relative; }
 	</style>
 </head>
 <body>
@@ -49,7 +48,7 @@
 
 				<!-- Textcontainer -->
 				<c:if test="${module.type == 'textcontainer'}">
-					<div class="col-md-4 draggable">
+					<div class="col-md-4 draggable" id="${module.type}${module.moduleId}">
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				            <div class="row">
@@ -74,7 +73,7 @@
 
 				<!-- Guestbook -->
 				<c:if test="${module.type == 'guestbook'}">
-					<div class="col-md-8 draggable">
+					<div class="col-md-8 draggable" id="${module.type}${module.moduleId}">
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				          <div class="row">
