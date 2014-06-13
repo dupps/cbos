@@ -1,7 +1,5 @@
 package de.cbos.model.user;
 
-
-import javax.persistence.AttributeOverride;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;

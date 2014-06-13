@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService {
 		userDAO.deleteUser(userName);
 	}
 	
-	public void updateUser(User user, String oldUserName) {
-		userDAO.updateUser(user, oldUserName); 
+	public void updateUser(User user) {
+		userDAO.updateUser(user); 
 	}
 	
 	public void resetPassword(User user) {
