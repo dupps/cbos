@@ -37,7 +37,7 @@
 				<form:input maxlength="100" name="birth" id="birthday" path="birthday"
 						value="${User.birthday}" class="form-control" type="hidden" />
 				<a href="${User.userName}" class="btn pull-left btn-default">Cancel</a>
-			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Update User</A>
+			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Update User</a>
 			</form:form>
 	   	</div>
 	</div>
