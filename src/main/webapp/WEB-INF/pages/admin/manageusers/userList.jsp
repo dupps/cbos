@@ -14,15 +14,20 @@
 	<div class="well"></div>
 	<div class="container">
 		<p>${message}</p>
-		<a href="/CboS/admin/manageusers/add" class="btn btn-block btn-primary">Create new User</a>
-		<br/>
-		<ul class="list-group">
-		<c:forEach var="User" items="${users}">
-			<li class="list-group-item">
-			 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a>
-			</li>
-		</c:forEach>
-		</ul>
+		<div class="col-md-6">
+			<ul class="list-group">
+				<a href="/CboS/admin/manageusers/add" class="btn btn-block btn-primary">Create new User</a>
+				<li class="list-group-item">
+					<ul class="list-group">
+					<c:forEach var="User" items="${users}">
+						<li class="list-group-item">
+						 <a href="/CboS/admin/manageusers/${User.userName}">${User.userName}</a>
+						</li>
+					</c:forEach>
+					</ul>
+				</li>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
