@@ -74,7 +74,6 @@ public class ModuleDAOImpl implements ModuleDAO {
 			
 			public void visit(Navigation navigation) {
 				Navigation navigationToUpdate = (Navigation) getModule(navigation.getModuleId());
-				navigationToUpdate.setBarLayout(navigation.getBarLayout());
 				navigationToUpdate.setLeftPosition(navigation.getLeftPosition());
 				navigationToUpdate.setTopPosition(navigation.getTopPosition());
 				navigationToUpdate.setLinks(navigation.getLinks());
