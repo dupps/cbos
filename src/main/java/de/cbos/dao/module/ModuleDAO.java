@@ -3,8 +3,10 @@ package de.cbos.dao.module;
 import java.util.List;
 
 import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.content.Link;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
+import de.cbos.model.module.Navigation;
 
 public interface ModuleDAO {
 
@@ -14,5 +16,6 @@ public interface ModuleDAO {
 	public void updateModule(Module module);
 	public Module getModule(int id);
 	public void addGuestbookEntry(GuestbookEntry guestbookEntry, Guestbook guestbook);
+	public void addLink(Link link, Navigation navigation);
 
 }

@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import de.cbos.dao.module.ModuleDAO;
 import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.content.Link;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
+import de.cbos.model.module.Navigation;
 
 public class ModuleServiceImpl implements ModuleService {
 
@@ -41,5 +43,9 @@ public class ModuleServiceImpl implements ModuleService {
 	
 	public void addGuestbookEntry(GuestbookEntry guestbookEntry, Guestbook guestbook) {
 		moduleDAO.addGuestbookEntry(guestbookEntry, guestbook);
+	}
+	
+	public void addLink(Link link, Navigation navigation) {
+		moduleDAO.addLink(link, navigation);
 	}
 }
