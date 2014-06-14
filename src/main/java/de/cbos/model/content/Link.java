@@ -8,7 +8,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import de.cbos.model.module.ModuleVisitor;
 import de.cbos.model.module.Navigation;
 import de.cbos.model.page.Page;
 
