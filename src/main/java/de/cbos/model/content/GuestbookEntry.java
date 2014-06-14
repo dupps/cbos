@@ -10,19 +10,22 @@ import javax.persistence.Table;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 import de.cbos.model.module.Guestbook;
+import de.cbos.model.user.User;
 
 @Entity
 @Table(name="guestbookEntries")
 @PrimaryKeyJoinColumn(name="contentId")
 public class GuestbookEntry extends Content {
 	
-//	private User autor;
-//	private Paragraph entry;
-	
 	@ManyToOne (fetch=FetchType.EAGER)
-	@JoinColumn(name="moduleID")
+	@JoinColumn(name="moduleId")
 	@NotNull
 	private Guestbook guestbook;
+	
+	@ManyToOne (fetch=FetchType.EAGER)
+	@JoinColumn(name="userId")
+	@NotNull
+	private User author;
 	
 	public GuestbookEntry() {
 		setContentType("guestbookEntry");
