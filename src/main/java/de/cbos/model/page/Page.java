@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,7 +32,7 @@ public class Page {
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Module> modules = new ArrayList<Module>();
 	
-//	@OneToMany (mappedBy="page", fetch=FetchType.EAGER)
+//	@OneToMany (mappedBy="page", targetEntity=Link.class, fetch=FetchType.EAGER)
 //	private List<Link> links = new ArrayList<Link>();
 	
 //	public List<Link> getLinks() {
