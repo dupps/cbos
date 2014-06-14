@@ -33,6 +33,8 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		.execute("CREATE TABLE IF NOT EXISTS MODULES(MODULEID INTEGER NOT NULL PRIMARY KEY,"
 				+ "MODULENAME VARCHAR(50) NOT NULL,"
                 + "TYPE VARCHAR_IGNORECASE(50),"
+				+ "LEFTPOSITION INT,"
+                + "TOPPOSITION INT,"
 				+ "PAGE INTEGER REFERENCES PAGE(PAGENAME));");
 		
 		template
