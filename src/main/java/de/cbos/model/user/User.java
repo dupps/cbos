@@ -1,12 +1,23 @@
 package de.cbos.model.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Email;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
+
+import de.cbos.model.content.GuestbookEntry;
 
 
 /**JPA-Entity der DB-Tabelle "users" --> entspricht einem Eintrag**/
@@ -36,8 +47,27 @@ public class User {
     
     private boolean enabled;
     
+    @GeneratedValue
+    @NotNull
+    private int userId;
     
-    /**
+    @OneToMany (mappedBy="author", fetch=FetchType.EAGER)
+    @Fetch (value=FetchMode.SUBSELECT)
+    private List<GuestbookEntry> guestbookEntries = new ArrayList<GuestbookEntry>();
+    
+    public List<GuestbookEntry> getGuestbookEntries() {
+		return guestbookEntries;
+	}
+	public void setGuestbookEntries(List<GuestbookEntry> guestbookEntries) {
+		this.guestbookEntries = guestbookEntries;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	/**
      * Getter and Setter-Methoden
      */
 	public String getUserName() {

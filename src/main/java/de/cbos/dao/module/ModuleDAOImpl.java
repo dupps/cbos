@@ -65,7 +65,6 @@ public class ModuleDAOImpl implements ModuleDAO {
 			public void visit(Textcontainer textcontainer) {
 				Textcontainer textcontainerToUpdate = (Textcontainer) getModule(textcontainer
 						.getModuleId());
-				textcontainerToUpdate.setHeadline(textcontainer.getHeadline());
 				textcontainerToUpdate.setModuleName(textcontainer
 						.getModuleName());
 				textcontainerToUpdate.setLeftPosition(textcontainer.getLeftPosition());

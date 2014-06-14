@@ -23,8 +23,6 @@ public class Navigation extends Module  {
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Link> links = new ArrayList<Link>();
 	
-	private Boolean barLayout;
-	
 	public Navigation() {
 		setType("navigation");
 	}
@@ -37,11 +35,7 @@ public class Navigation extends Module  {
 		this.links = links;
 	}
 
-	public Boolean getBarLayout() {
-		return barLayout;
-	}
-
-	public void setBarLayout(Boolean barLayout) {
-		this.barLayout = barLayout;
+	public void accept(ModuleVisitor visitor) {
+		visitor.visit(this);
 	}
 }

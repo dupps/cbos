@@ -8,6 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import de.cbos.model.module.ModuleVisitor;
 import de.cbos.model.module.Navigation;
 import de.cbos.model.page.Page;
 
@@ -49,10 +50,14 @@ public class Link extends Content {
 	}
 	
 	public String getLink() {
-		return this.link;
+		return "../"+this.link;
 	}
 	
 	public void setLink(String link) {
 		this.link = link;
+	}
+	
+	public void accept(ContentVisitor visitor) {
+		visitor.visit(this);
 	}
 }
