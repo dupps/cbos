@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import de.cbos.model.content.Content;
 import de.cbos.model.content.ContentVisitor;
 import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.content.Link;
 import de.cbos.model.content.Paragraph;
-import de.cbos.model.module.Guestbook;
 import de.cbos.service.module.ModuleService;
 
 @Transactional
@@ -34,6 +34,11 @@ public class ContentDAOImpl implements ContentDAO {
 	@SuppressWarnings("unchecked")
 	public List<Content> getContentList() {
 		return getCurrentSession().createQuery("FROM Content").list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Link> getAllLinks() {
+		return (List<Link>) getCurrentSession().createQuery("FROM Content WHERE CONTENTTYPE='link'").list();
 	}
 
 	public Content getContent(int contentId) {
@@ -61,6 +66,15 @@ public class ContentDAOImpl implements ContentDAO {
 				Paragraph paragraphToUpdate = (Paragraph) getContent(paragraph
 						.getId());
 				paragraphToUpdate.setContentName(paragraph.getContentName());
+			}
+			
+			public void visit(Link link) {
+				Link linkToUpdate = (Link) getContent(link.getId());
+				linkToUpdate.setContentName(link.getContentName());
+				linkToUpdate.setLink(link.getLink());
+				linkToUpdate.setNavigation(link.getNavigation());
+				linkToUpdate.setPage(link.getPage());
+				getCurrentSession().update(linkToUpdate);
 			}
 		});
 	}

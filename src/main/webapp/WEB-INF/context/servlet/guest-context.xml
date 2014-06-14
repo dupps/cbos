@@ -13,7 +13,13 @@
 
 	<!-- Beans to be autowired -->
 	<bean id="UserService" class="de.cbos.service.user.UserServiceImpl" />
+	<bean id="ModuleService" class="de.cbos.service.module.ModuleServiceImpl" />
 	<bean id="UserDAO" class="de.cbos.dao.user.UserDAOImpl" />
+	<bean id="ModuleDAO" class="de.cbos.dao.module.ModuleDAOImpl" />
+	<bean id="ContentService" class="de.cbos.service.content.ContentServiceImpl" />
+	<bean id="ContentDAO" class="de.cbos.dao.content.ContentDAOImpl" />
+	<bean id="PageService" class="de.cbos.service.page.PageServiceImpl" />
+	<bean id="PageDAO" class="de.cbos.dao.page.PageDAOImpl" />
 
 	<!-- Enables transactional via annotations -->
 	<tx:annotation-driven />

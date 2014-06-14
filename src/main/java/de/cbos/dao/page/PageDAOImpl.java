@@ -7,8 +7,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import de.cbos.model.content.Link;
 import de.cbos.model.module.Module;
 import de.cbos.model.page.Page;
+import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;
 
 @Transactional
@@ -18,6 +20,9 @@ public class PageDAOImpl implements PageDAO {
 	private ModuleService moduleService;
 	
 	@Autowired
+	private ContentService contentService;
+	
+	@Autowired
 	private SessionFactory sessionFactory;
 	
 	private Session getCurrentSession() {
@@ -25,6 +30,7 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public void addPage(Page page) {
+		page.setLink(new Link(page));
 		getCurrentSession().save(page);
 	}
 	
@@ -39,12 +45,15 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public void deletePage(Page page) {
+		contentService.deleteContent(page.getLink());
 		getCurrentSession().delete(page);
 	}
 	
 	public void updatePage(Page page) {
 		Page pageToUpdate = getPage(page.getPageName());
 		pageToUpdate.setModules(page.getModules());
+		pageToUpdate.setLink(page.getLink());
+		getCurrentSession().update(pageToUpdate);
 	}
 	
 	public void addModule(Module module, Page page) {

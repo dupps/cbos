@@ -23,23 +23,25 @@ public class Navigation extends Module  {
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Link> links = new ArrayList<Link>();
 	
+	private Boolean barLayout;
+	
 	public Navigation() {
 		setType("navigation");
 	}
 	
-	public List<Link> getLinkObjects() {
+	public List<Link> getLinks() {
 		return links;
 	}
 
 	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
-	
-	public List<String> getLinks() {
-		List<String> links = new ArrayList<String>();
-		for(int i=0; i<=getLinkObjects().size(); i++) {
-			links.add(getLinkObjects().get(i).getLink());
-		}
-		return links;
+
+	public Boolean getBarLayout() {
+		return barLayout;
+	}
+
+	public void setBarLayout(Boolean barLayout) {
+		this.barLayout = barLayout;
 	}
 }

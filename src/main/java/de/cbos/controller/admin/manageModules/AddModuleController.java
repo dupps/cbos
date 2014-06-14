@@ -11,7 +11,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import de.cbos.model.module.Guestbook;
+import de.cbos.model.module.Navigation;
 import de.cbos.model.module.Textcontainer;
+import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;
 import de.cbos.service.page.PageService;
 
@@ -23,6 +25,9 @@ public class AddModuleController {
 	
 	@Autowired
 	private ModuleService moduleService;
+	
+	@Autowired
+	private ContentService contentService;
 	
 	@Autowired
 	private PageService pageService;
@@ -48,6 +53,28 @@ public class AddModuleController {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Textcontainer textcontainer = new Textcontainer();
 		pageService.addModule(textcontainer, pageService.getPage(pageName));
+		modelAndView.addObject("page",pageService.getPage(pageName));
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/page/{pageName}/addNavigationBar", method=RequestMethod.GET)
+	public ModelAndView createNavigationBar(@PathVariable String pageName) {
+		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
+		Navigation navigation = new Navigation();
+		navigation.setBarLayout(true);
+		navigation.setLinks(contentService.getAllLinks());
+		pageService.addModule(navigation, pageService.getPage(pageName));
+		modelAndView.addObject("page",pageService.getPage(pageName));
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/page/{pageName}/addNavigationMenu", method=RequestMethod.GET)
+	public ModelAndView createNavigationMenu(@PathVariable String pageName) {
+		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
+		Navigation navigation = new Navigation();
+		navigation.setBarLayout(false);
+		navigation.setLinks(contentService.getAllLinks());
+		pageService.addModule(navigation, pageService.getPage(pageName));
 		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;
 	}
