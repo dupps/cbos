@@ -15,31 +15,34 @@
 	<script>
 		$(function() {
 			$(".draggable").draggable({ containment: "#containment-wrapper",
-										stack: "#stack-wrapper",
+										stack: "#containment-wrapper",
 										scroll: false,
 										revert: false,
 										handle: "a.move",
-										/* grid: [10, 10], */
+										grid: [10, 10],
 										stop: function(e, ui) {
-											var currentPos, id, left, top;
+											var currentPos, id, left, top, posLeftContainer, posTopContainer, idContainer;
 
 											currentPos = ui.helper.position();
 											id = e.target.id;
 											left = currentPos.left;
 											top = currentPos.top;
 
-								            console.info("id: " + id +
-								            			 "\nleft: " + left +
-								            			 "\ntop: " + top);
+								            posLeftContainer = '<input type="hidden" name="left" id="left" value="'+left+'"/>';
+								            posTopContainer = '<input type="hidden" name="top" id="top" value="'+top+'"/>';
+								            idContainer = '<input type="hidden" name="id" id="id" value="'+id+'"/>';
 
-								            var modulePosContainer = '<input type="hidden" id="'+id+'" value="'+left+','+top+'"/>'
-								            $('#positionForm').append(modulePosContainer);
+								            $('#positionForm').append(posLeftContainer);
+								            $('#positionForm').append(posTopContainer);
+								            $('#positionForm').append(idContainer);
+								            $('#positionForm').submit();
 								        }
 							});
 		});
 	</script>
 	<style>
 		#containment-wrapper { width: 100%; height:800px; border:2px solid #ccc; padding: 10px; position: relative; }
+		.module { position: absolute; }
 		#menu-top { padding: 20px 0 20px; width: 100%; text-align: center; }
 		.menu-item { display: inline-block; }
 		.left { float: left; }
@@ -59,20 +62,14 @@
 			<div class="menu-item center">
 				<span>&nbsp;You can move every module in the following container.</span>
 			</div>
-			<div class="menu-item right">
-				<form:form name="submitForm" id="positionForm" method="POST" action="">
-				    <a href="${page.pageName}/save" class="btn pull-right btn-success">Save</a>
-				</form:form>
-			</div>
 		</div>
 		<div id="containment-wrapper">
-		  <div id="stack-wrapper">
 
 		  	<c:forEach var="module" items="${modules}">
 
-				<!-- Textcontainer -->
 				<c:if test="${module.type == 'textcontainer'}">
-					<div class="col-md-4 draggable" id="${module.type}${module.moduleId}">
+				<!-- Textcontainer -->
+					<div class="col-md-4 module draggable" id="${module.type}-${module.moduleId}" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				            <div class="row">
@@ -88,12 +85,12 @@
 				        </li>
 				      </ul>
 				    </div>
-				</c:if>
 				<!-- EOF Textcontainer -->
+				</c:if>
 
-				<!-- Guestbook -->
 				<c:if test="${module.type == 'guestbook'}">
-					<div class="col-md-8 draggable" id="${module.type}${module.moduleId}">
+				<!-- Guestbook -->
+					<div class="col-md-8 module draggable" id="${module.type}-${module.moduleId}" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				          <div class="row">
@@ -111,13 +108,13 @@
 				        </li>
 				      </ul>
 				    </div>
-				</c:if>
 				<!-- EOF Guestbook -->
+				</c:if>
 
 			</c:forEach>
 
-		  </div>
 		</div>
 	</div>
+	<form:form name="positionForm" id="positionForm" method="POST" action="${page.pageName}/save" />
 </body>
 </html>
