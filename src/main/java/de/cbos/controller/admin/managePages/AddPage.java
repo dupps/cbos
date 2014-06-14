@@ -29,7 +29,7 @@ public class AddPage {
 			modelAndView.addObject("pages",pageService.getPageList());
 			return modelAndView;
 		} else {
-			pageService.addPage(page);;
+			pageService.addPage(page);
 			ModelAndView modelAndView = new ModelAndView("home");
 			modelAndView.addObject("pageContainer", new Page());
 			modelAndView.addObject("pages",pageService.getPageList());
