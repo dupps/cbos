@@ -35,14 +35,6 @@ public class Navigation extends Module  {
 		this.links = links;
 	}
 
-	public Boolean getBarLayout() {
-		return barLayout;
-	}
-
-	public void setBarLayout(Boolean barLayout) {
-		this.barLayout = barLayout;
-	}
-	
 	public void accept(ModuleVisitor visitor) {
 		visitor.visit(this);
 	}
