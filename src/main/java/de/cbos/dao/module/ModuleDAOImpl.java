@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.content.Link;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
 import de.cbos.model.module.ModuleVisitor;
+import de.cbos.model.module.Navigation;
 import de.cbos.model.module.Textcontainer;
 import de.cbos.service.content.ContentService;
 
@@ -57,6 +59,7 @@ public class ModuleDAOImpl implements ModuleDAO {
 				guestbookToUpdate.setGuestbookEntries(guestbook.getGuestbookEntries());
 				guestbookToUpdate.setLeftPosition(guestbook.getLeftPosition());
 				guestbookToUpdate.setTopPosition(guestbook.getTopPosition());
+				getCurrentSession().update(guestbookToUpdate);
 			}
 
 			public void visit(Textcontainer textcontainer) {
@@ -67,6 +70,18 @@ public class ModuleDAOImpl implements ModuleDAO {
 						.getModuleName());
 				textcontainerToUpdate.setLeftPosition(textcontainer.getLeftPosition());
 				textcontainerToUpdate.setTopPosition(textcontainer.getTopPosition());
+				getCurrentSession().update(textcontainerToUpdate);
+			}
+			
+			public void visit(Navigation navigation) {
+				Navigation navigationToUpdate = (Navigation) getModule(navigation.getModuleId());
+				navigationToUpdate.setBarLayout(navigation.getBarLayout());
+				navigationToUpdate.setLeftPosition(navigation.getLeftPosition());
+				navigationToUpdate.setTopPosition(navigation.getTopPosition());
+				navigationToUpdate.setLinks(navigation.getLinks());
+				navigationToUpdate.setModuleName(navigation.getModuleName());
+				navigationToUpdate.setPage(navigation.getPage());
+				getCurrentSession().update(navigationToUpdate);
 			}
 		});
 	}
@@ -83,6 +98,13 @@ public class ModuleDAOImpl implements ModuleDAO {
 		entries.add(guestbookEntry);
 		guestbook.setGuestbookEntries(entries);
 		updateModule(guestbook);
+	}
+	
+	public void addLink(Link link, Navigation navigation) {
+		List<Link> links = navigation.getLinks();
+		links.add(link);
+		navigation.setLinks(links);
+		updateModule(navigation);
 	}
 
 }
