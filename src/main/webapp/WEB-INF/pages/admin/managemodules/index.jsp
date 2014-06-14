@@ -110,7 +110,10 @@
 				    </div>
 				<!-- EOF Guestbook -->
 				</c:if>
-
+				
+				<c:if test="${module.type == 'navigation'}">
+					<!-- c:if navigation.barLayout=true, needs workaround -->
+				</c:if>
 			</c:forEach>
 
 		</div>
