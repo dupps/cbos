@@ -31,6 +31,24 @@ public class GuestbookEntry extends Content {
 		setContentType("guestbookEntry");
 	}
 	
+	private String entry;
+	
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	public String getEntry() {
+		return entry;
+	}
+
+	public void setEntry(String entry) {
+		this.entry = entry;
+	}
+
 	public void accept(ContentVisitor visitor) {
 		visitor.visit(this);
 	}

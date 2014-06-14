@@ -20,10 +20,7 @@
 			 <a href="addGuestbook">Guestbook</a>
 			</li>
 			<li class="list-group-item">
-			 <a href="addNavigationBar">Horizontal Navigation</a>
-			</li>
-			<li class="list-group-item">
-			 <a href="addNavigationMenu">Vertikal Navigation</a>
+			 <a href="addNavigation">Navigation</a>
 			</li>
 		</ul>
 	</div>
