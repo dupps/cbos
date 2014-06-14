@@ -32,6 +32,8 @@ public class ModuleDAOImpl implements ModuleDAO {
 	}
 
 	public void addModule(Module module) {
+//		module.setLeftPosition(0);
+//		module.setTopPosition(0);
 		getCurrentSession().save(module);
 	}
 
@@ -53,6 +55,8 @@ public class ModuleDAOImpl implements ModuleDAO {
 						.getModuleId());
 				guestbookToUpdate.setModuleName(guestbook.getModuleName());
 				guestbookToUpdate.setGuestbookEntries(guestbook.getGuestbookEntries());
+				guestbookToUpdate.setLeftPosition(guestbook.getLeftPosition());
+				guestbookToUpdate.setTopPosition(guestbook.getTopPosition());
 			}
 
 			public void visit(Textcontainer textcontainer) {
@@ -61,6 +65,8 @@ public class ModuleDAOImpl implements ModuleDAO {
 				textcontainerToUpdate.setHeadline(textcontainer.getHeadline());
 				textcontainerToUpdate.setModuleName(textcontainer
 						.getModuleName());
+				textcontainerToUpdate.setLeftPosition(textcontainer.getLeftPosition());
+				textcontainerToUpdate.setTopPosition(textcontainer.getTopPosition());
 			}
 		});
 	}

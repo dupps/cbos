@@ -52,6 +52,26 @@ public class Module implements ModuleEntity {
 	@JoinColumn(name="pageName")
 	private Page page;
 	
+	private int leftPosition;
+	
+	private int topPosition;
+	
+	public int getLeftPosition() {
+		return leftPosition;
+	}
+
+	public void setLeftPosition(int leftPosition) {
+		this.leftPosition = leftPosition;
+	}
+
+	public int getTopPosition() {
+		return topPosition;
+	}
+
+	public void setTopPosition(int topPosition) {
+		this.topPosition = topPosition;
+	}
+
 	public void accept(ModuleVisitor visitor) {
 		
 	}
