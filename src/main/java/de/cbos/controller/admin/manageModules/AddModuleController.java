@@ -57,22 +57,10 @@ public class AddModuleController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/page/{pageName}/addNavigationBar", method=RequestMethod.GET)
+	@RequestMapping(value="/page/{pageName}/addNavigation", method=RequestMethod.GET)
 	public ModelAndView createNavigationBar(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Navigation navigation = new Navigation();
-		navigation.setBarLayout(true);
-		navigation.setLinks(contentService.getAllLinks());
-		pageService.addModule(navigation, pageService.getPage(pageName));
-		modelAndView.addObject("page",pageService.getPage(pageName));
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/page/{pageName}/addNavigationMenu", method=RequestMethod.GET)
-	public ModelAndView createNavigationMenu(@PathVariable String pageName) {
-		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
-		Navigation navigation = new Navigation();
-		navigation.setBarLayout(false);
 		navigation.setLinks(contentService.getAllLinks());
 		pageService.addModule(navigation, pageService.getPage(pageName));
 		modelAndView.addObject("page",pageService.getPage(pageName));
