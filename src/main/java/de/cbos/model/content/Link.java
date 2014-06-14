@@ -8,8 +8,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
-
 import de.cbos.model.module.Navigation;
 import de.cbos.model.page.Page;
 

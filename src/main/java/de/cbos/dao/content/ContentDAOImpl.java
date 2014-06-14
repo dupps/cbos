@@ -12,7 +12,6 @@ import de.cbos.model.content.ContentVisitor;
 import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.content.Link;
 import de.cbos.model.content.Paragraph;
-import de.cbos.model.module.Guestbook;
 import de.cbos.service.module.ModuleService;
 
 @Transactional
@@ -35,6 +34,11 @@ public class ContentDAOImpl implements ContentDAO {
 	@SuppressWarnings("unchecked")
 	public List<Content> getContentList() {
 		return getCurrentSession().createQuery("FROM Content").list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Link> getAllLinks() {
+		return (List<Link>) getCurrentSession().createQuery("FROM Content WHERE CONTENTTYPE='link'").list();
 	}
 
 	public Content getContent(int contentId) {
