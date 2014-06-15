@@ -71,6 +71,7 @@ public class UpdatePageController {
 			e.printStackTrace();
 		}
 		Module module = moduleService.getModule(moduleId);
+		System.out.println(leftPos);
 		module.setLeftPosition(leftPos);
 		module.setTopPosition(topPos);
 		moduleService.updateModule(module);

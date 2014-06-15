@@ -162,13 +162,7 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
-				      	<%  /* Navigation navigation = (Navigation) pageContext.getAttribute("module");
-							List<Link> links = navigation.getLinks();
-	 						pageContext.setAttribute("links",links); 
-							pageContext.setAttribute("type",navigation.getType()); */%>
 						<c:forEach var="link" items="${links}">
-							<% /* Link link = (Link) pageContext.getAttribute("link");
-								pageContext.setAttribute("linkString", link.getLink()) */;%>
 				        	<li><a href="${link.link}">${link.link}</a></li>
 				        </c:forEach>
 				      </ul>
