@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.taglibs.standard.lang.jstl.test.PageContextImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,7 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import de.cbos.model.content.GuestbookEntry;
+import de.cbos.model.content.Link;
+import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
+import de.cbos.model.module.ModuleVisitor;
+import de.cbos.model.module.Navigation;
+import de.cbos.model.module.Textcontainer;
+import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;
 import de.cbos.service.page.PageService;
 
@@ -28,11 +36,25 @@ public class UpdatePageController {
 	@Autowired
 	private ModuleService moduleService;
 	
+	@Autowired
+	private ContentService contentService;
+	
 	/**maps incoming requests by URL and Method**/
 	@RequestMapping(value="/page/{pageName}",method=RequestMethod.GET)
 	public ModelAndView editPage(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
+		modelAndView.addObject("moduleService",moduleService);
 		List<Module> modules = pageService.getPage(pageName).getModules();
+//		for(int i=0;i<pageService.getPage(pageName).getModules().size();i++) {
+//			if (pageService.getPage(pageName).getModules().get(i).getType().equals("navigation")) {
+//				Navigation navigation = (Navigation) pageService.getPage(pageName).getModules().get(i);
+//				System.out.println(navigation.getLinks().get(0).getLink());
+//				System.out.println(navigation.getType());
+//			}
+//		} 
+//		for(int i=0; i<contentService.getContentList().size();i++) {
+//			System.out.println(contentService.getContentList().get(i).getContentType());
+//		}
 		modelAndView.addObject("modules", modules);
 		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;

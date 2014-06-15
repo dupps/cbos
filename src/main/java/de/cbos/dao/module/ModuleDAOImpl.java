@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.content.Link;
+import de.cbos.model.content.Paragraph;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
 import de.cbos.model.module.ModuleVisitor;
@@ -34,8 +35,8 @@ public class ModuleDAOImpl implements ModuleDAO {
 	}
 
 	public void addModule(Module module) {
-//		module.setLeftPosition(0);
-//		module.setTopPosition(0);
+		module.setLeftPosition(0);
+		module.setTopPosition(0);
 		getCurrentSession().save(module);
 	}
 
@@ -96,6 +97,15 @@ public class ModuleDAOImpl implements ModuleDAO {
 		entries.add(guestbookEntry);
 		guestbook.setGuestbookEntries(entries);
 		updateModule(guestbook);
+	}
+	
+	public void addParagraph(Paragraph paragraph, Textcontainer textcontainer) {
+		paragraph.setTextcontainer(textcontainer);
+		contentService.addContent(paragraph);
+		List<Paragraph> paragraphs = textcontainer.getParagraphs();
+		paragraphs.add(paragraph);
+		textcontainer.setParagraphs(paragraphs);
+		updateModule(textcontainer);
 	}
 	
 	public void addLink(Link link, Navigation navigation) {

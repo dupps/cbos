@@ -38,7 +38,7 @@ public class ContentDAOImpl implements ContentDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Link> getAllLinks() {
-		return (List<Link>) getCurrentSession().createQuery("FROM Content WHERE CONTENTTYPE='link'").list();
+		return (List<Link>) getCurrentSession().createQuery("FROM Content WHERE contentType='link'").list();
 	}
 
 	public Content getContent(int contentId) {

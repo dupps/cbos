@@ -22,7 +22,7 @@ public class Guestbook extends Module {
 	public Guestbook() {
 		setType("guestbook");
 	}
-
+	
 	public void accept(ModuleVisitor visitor) {
 		visitor.visit(this);
 	}

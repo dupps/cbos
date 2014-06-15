@@ -1,3 +1,11 @@
+<%@page import="de.cbos.model.content.Paragraph"%>
+<%@page import="de.cbos.model.module.Textcontainer"%>
+<%@page import="de.cbos.model.content.GuestbookEntry"%>
+<%@page import="de.cbos.model.module.Guestbook"%>
+<%@page import="de.cbos.model.content.Link"%>
+<%@page import="org.springframework.beans.factory.annotation.Autowired"%>
+<%@page import="de.cbos.service.module.ModuleService"%>
+<%@page import="de.cbos.model.module.Navigation"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
@@ -79,9 +87,19 @@
 				                <a href="#" class="btn pull-right btn-primary move">Move</a>
 				              </div>
 				            </div>
+				            <div>
+				            	<% Textcontainer textcontainer = (Textcontainer) pageContext.getAttribute("module");
+				            	   List<Paragraph> paragraphs = textcontainer.getParagraphs();
+				            	   pageContext.setAttribute("paragraphs",paragraphs);%>
+				            	<c:forEach var="paragraph" items="${paragraphs}"> 
+								<div class="container"> 
+										<span>This is a sample paragraph!</span> 
+									</div> 
+								</c:forEach>
+				            </div>
 				        </li>
 				        <li class="list-group-item">
-				          <a href="" class="btn btn-primary">Add Paragraph</a>
+				          <a href="${page.pageName}/${module.moduleId}/addTextcontainer" class="btn btn-primary">Add Paragraph</a>
 				        </li>
 				      </ul>
 				    </div>
@@ -98,13 +116,23 @@
 				            <div class="col-md-4">
 				              <h1 class="text-center">${module.type} (${module.moduleId})</h1>
 				            </div>
+				            <div>
+				            	<% Guestbook guestbook = (Guestbook) pageContext.getAttribute("module");
+				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
+				            		pageContext.setAttribute("guestbookEntries",entries); %>
+				            	<c:forEach var="guestbookEntries" items="${guestbookEntries}"> 
+								<div class="container"> 
+										<span>This is a sample guestbookEntry!</span> 
+									</div> 
+								</c:forEach>
+				            </div>
 				            <div class="col-md-4">
 				              <a href="#" class="btn pull-right btn-primary move">Move</a>
 				            </div>
 				          </div>
 				        </li>
 				        <li class="list-group-item">
-				          <a href="" class="btn btn-primary">Add Entry</a>
+				          <a href="${page.pageName}/${module.moduleId}/addGuestbookEntry" class="btn btn-primary">Add Entry</a>
 				        </li>
 				      </ul>
 				    </div>
@@ -112,7 +140,17 @@
 				</c:if>
 				
 				<c:if test="${module.type == 'navigation'}">
-					<!-- c:if navigation.barLayout=true, needs workaround -->
+					<%  Navigation navigation = (Navigation) pageContext.getAttribute("module");
+						List<Link> links = navigation.getLinks();
+/*  					System.out.println(navigation.getLinks().get(0).getLink()) */;  
+ 						pageContext.setAttribute("links",links); 
+						pageContext.setAttribute("type",navigation.getType());%>
+						<p>${type}</p>
+					<c:forEach var="link" items="${links}"> 
+						<div class="container"> 
+							<span>hallo</span> 
+						</div> 
+					</c:forEach>
 				</c:if>
 			</c:forEach>
 

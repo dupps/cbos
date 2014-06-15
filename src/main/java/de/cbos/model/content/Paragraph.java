@@ -21,6 +21,14 @@ public class Paragraph extends Content {
 	@NotNull
 	private Textcontainer textcontainer;
 	
+	public Textcontainer getTextcontainer() {
+		return textcontainer;
+	}
+
+	public void setTextcontainer(Textcontainer textcontainer) {
+		this.textcontainer = textcontainer;
+	}
+
 	private String text;
 	
 	public String getText() {
