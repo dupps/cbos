@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="de.cbos.model.content.Paragraph"%>
 <%@page import="de.cbos.model.module.Textcontainer"%>
 <%@page import="de.cbos.model.content.GuestbookEntry"%>
@@ -5,10 +6,8 @@
 <%@page import="de.cbos.model.content.Link"%>
 <%@page import="org.springframework.beans.factory.annotation.Autowired"%>
 <%@page import="de.cbos.service.module.ModuleService"%>
-<%@page import="de.cbos.model.module.Navigation"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.List"%>
 <%@page import="de.cbos.model.module.Module"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -47,9 +46,12 @@
 				            		List<Paragraph> paragraphs = textcontainer.getParagraphs();
 				            		pageContext.setAttribute("paragraphs",paragraphs);%>
 				            	<c:forEach var="paragraph" items="${paragraphs}"> 
-								<div class="container"> 
-									<span>${paragraph}</span> 
-								</div> 
+								  <div class="container">
+									<%  Paragraph paragraph = (Paragraph) pageContext.getAttribute("paragraph");
+										pageContext.setAttribute("contentId", paragraph.getId());
+										pageContext.setAttribute("contentType", paragraph.getContentType());%> 
+									<p class="break-word">${paragraph.getText()}</p> 
+								  </div> 
 								</c:forEach>
 				            </div>
 				        </li>
@@ -73,9 +75,12 @@
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
 				            		pageContext.setAttribute("guestbookEntries",entries); %>
 				            	<c:forEach var="guestbookEntry" items="${guestbookEntries}"> 
-								<div class="container"> 
-									<span>${guestbookEntry}</span> 
-								</div> 
+								  <div class="container"> 
+									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
+									   pageContext.setAttribute("contentId", guestbookEntry.getId());
+									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
+									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}:</strong> ${guestbookEntry.getEntry()}</span> 
+								  </div> 
 								</c:forEach>
 				            </div>
 				            <div class="col-md-2"></div>
@@ -91,7 +96,7 @@
 				
 				<c:if test="${module.type == 'navigation'}">
 				<!-- Navigation -->
-				<nav class="navbar navbar-default module" role="navigation" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
+				<nav class="navbar navbar-default module" id="${module.type}-${module.moduleId}" role="navigation" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
 				  <div class="container-fluid">
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -106,18 +111,12 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
-				      	<%  /* Navigation navigation = (Navigation) pageContext.getAttribute("module");
-							List<Link> links = navigation.getLinks();
-	 						pageContext.setAttribute("links",links); 
-							pageContext.setAttribute("type",navigation.getType()); */%>
 						<c:forEach var="link" items="${links}">
-							<% /* Link link = (Link) pageContext.getAttribute("link");
-								pageContext.setAttribute("linkString", link.getLink()) */;%>
 				        	<li><a href="${link.link}">${link.link}</a></li>
 				        </c:forEach>
 				      </ul>
-				    </div><!-- /.navbar-collapse -->
-				  </div><!-- /.container-fluid -->
+				    </div>
+				  </div>
 				</nav>
 				<!-- EOF Navigation -->
 				</c:if>

@@ -17,4 +17,9 @@
       <from>^/$</from>
       <to type="redirect">page/home</to>
      </rule>
+     <rule match-type="regex">  
+      <note>redirect</note>
+      <from>^/user$</from>
+      <to type="redirect">user/page/home</to>
+     </rule>
 </urlrewrite>

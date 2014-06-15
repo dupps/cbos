@@ -44,7 +44,6 @@ public class UpdatePageController {
 	@RequestMapping(value="/page/{pageName}",method=RequestMethod.GET)
 	public ModelAndView editPage(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
-		modelAndView.addObject("moduleService",moduleService);
 		List<Module> modules = pageService.getPage(pageName).getModules();
 		modelAndView.addObject("modules", modules);
 		List<Link> links = contentService.getAllLinks();

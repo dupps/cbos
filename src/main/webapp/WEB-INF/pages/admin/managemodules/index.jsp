@@ -128,12 +128,12 @@
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
 				            		pageContext.setAttribute("guestbookEntries",entries); %>
 				            	<c:forEach var="guestbookEntry" items="${guestbookEntries}"> 
-								<div class="container"> 
+								  <div class="container"> 
 									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
 									   pageContext.setAttribute("contentId", guestbookEntry.getId());
 									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
 									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}:</strong> ${guestbookEntry.getEntry()}</span> 
-								</div> 
+								  </div> 
 								</c:forEach>
 				            </div>
 				            <div class="col-md-2">
