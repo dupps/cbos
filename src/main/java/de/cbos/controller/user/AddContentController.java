@@ -42,16 +42,6 @@ public class AddContentController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/page/{pageName}/{moduleId}/addParagraph", method=RequestMethod.POST)
-	public ModelAndView addParagraph(@PathVariable int moduleId, HttpServletRequest request) {
-		ModelAndView modelAndView = new ModelAndView(new RedirectView("addContent/redirect"));
-		String text = request.getParameter("textContent");
-		Paragraph paragraph = new Paragraph();
-		paragraph.setText(text);
-		moduleService.addParagraph(paragraph,(Textcontainer) moduleService.getModule(moduleId));
-		return modelAndView;
-	}
-	
 	@RequestMapping(value="/page/{pageName}/{moduleId}/addContent/redirect", method=RequestMethod.GET)
 	public String redirectAfterAddContent() {
 		return "redirect:../../";
