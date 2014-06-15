@@ -15,6 +15,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 
 import de.cbos.model.content.Link;
 import de.cbos.model.module.Module;
@@ -24,6 +25,7 @@ import de.cbos.model.module.Module;
 public class Page {
 	
 	@Id
+	@RegExp(value="[a-zA-Z0-9_-]*$")
 	@NotNull
 	@NotBlank
 	private String pageName;
