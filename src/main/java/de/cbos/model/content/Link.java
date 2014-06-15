@@ -1,5 +1,6 @@
 package de.cbos.model.content;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -16,20 +17,18 @@ import de.cbos.model.page.Page;
 @PrimaryKeyJoinColumn(name="contentId")
 public class Link extends Content {
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="pageId")
 	private Page page;
 	
-	@ManyToOne (fetch=FetchType.EAGER)
-	@JoinColumn(name="moduleID")
+	@ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="moduleId")
 	private Navigation navigation;
 	
 	private String link;
 	
-	public Link(Page page) {
+	public Link() {
 		setContentType("link");
-		setPage(page);
-		setLink(getPage().getPageName());
 	}
 	
 	public Navigation getNavigation() {

@@ -95,10 +95,10 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
          *  hard coded default page
          */
         template
-        	.execute("INSERT INTO PAGES(PAGENAME, PAGEID) VALUES ('home','1')");
+        	.execute("INSERT INTO PAGES(PAGENAME, PAGEID) VALUES ('home',1)");
         
         template
-        	.execute("INSERT INTO CONTENTS(CONTENTID, CONTENTNAME) VALUES (1,'homelink')");
+        	.execute("INSERT INTO CONTENTS(CONTENTID, CONTENTNAME, CONTENTTYPE) VALUES (1,'homelink', 'link')");
         
         template
         	.execute("INSERT INTO LINKS(LINK, CONTENTID) VALUES ('home',1)");
