@@ -39,8 +39,6 @@
 								            posLeftContainer = '<input type="hidden" name="left" id="left" value="'+left+'"/>';
 								            posTopContainer = '<input type="hidden" name="top" id="top" value="'+top+'"/>';
 								            idContainer = '<input type="hidden" name="id" id="id" value="'+id+'"/>';
-								            
-								            console.info(id+"\n"+left+"\n"+top);
 
 								            $('#positionForm').append(posLeftContainer);
 								            $('#positionForm').append(posTopContainer);
