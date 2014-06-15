@@ -1,7 +1,12 @@
 package de.cbos.controller.admin.managecontent;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +17,9 @@ import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.content.Paragraph;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Textcontainer;
+import de.cbos.model.user.User;
 import de.cbos.service.module.ModuleService;
+import de.cbos.service.user.UserService;
 
 @Controller
 public class AddContentController {
@@ -20,17 +27,28 @@ public class AddContentController {
 	@Autowired
 	private ModuleService moduleService;
 	
-	@RequestMapping(value="/page/{pageName}/{moduleId}/addGuestbookEntry", method=RequestMethod.GET)
-	public ModelAndView addGuestbookEntry(@PathVariable int moduleId ) {
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping(value="/page/{pageName}/{moduleId}/addGuestbookEntry", method=RequestMethod.POST)
+	public ModelAndView addGuestbookEntry(@PathVariable int moduleId, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("addContent/redirect"));
-		moduleService.addGuestbookEntry(new GuestbookEntry(),(Guestbook) moduleService.getModule(moduleId));
+		String entry = request.getParameter("gbContent");
+		GuestbookEntry guestbookEntry = new GuestbookEntry();
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    guestbookEntry.setAuthor(userService.getUser(auth.getName()));
+	    guestbookEntry.setEntry(entry);
+		moduleService.addGuestbookEntry(guestbookEntry,(Guestbook) moduleService.getModule(moduleId));
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/page/{pageName}/{moduleId}/addParagraph", method=RequestMethod.GET)
-	public ModelAndView addParagraph(@PathVariable int moduleId ) {
+	@RequestMapping(value="/page/{pageName}/{moduleId}/addParagraph", method=RequestMethod.POST)
+	public ModelAndView addParagraph(@PathVariable int moduleId, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("addContent/redirect"));
-		moduleService.addParagraph(new Paragraph(),(Textcontainer) moduleService.getModule(moduleId));
+		String text = request.getParameter("textContent");
+		Paragraph paragraph = new Paragraph();
+		paragraph.setText(text);
+		moduleService.addParagraph(paragraph,(Textcontainer) moduleService.getModule(moduleId));
 		return modelAndView;
 	}
 	

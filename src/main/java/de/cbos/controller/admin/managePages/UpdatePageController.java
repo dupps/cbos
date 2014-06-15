@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import de.cbos.model.content.Content;
 import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.content.Link;
 import de.cbos.model.module.Guestbook;
@@ -49,6 +50,7 @@ public class UpdatePageController {
 		List<Link> links = contentService.getAllLinks();
 		modelAndView.addObject("links",links);
 		modelAndView.addObject("page",pageService.getPage(pageName));
+		modelAndView.addObject("contentContainer", new Content());
 		return modelAndView;
 	}
 	
@@ -71,7 +73,6 @@ public class UpdatePageController {
 			e.printStackTrace();
 		}
 		Module module = moduleService.getModule(moduleId);
-		System.out.println(leftPos);
 		module.setLeftPosition(leftPos);
 		module.setTopPosition(topPos);
 		moduleService.updateModule(module);

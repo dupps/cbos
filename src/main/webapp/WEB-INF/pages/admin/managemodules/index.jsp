@@ -56,6 +56,7 @@
 		.left { float: left; }
 		.right { float: right; }
 		.center { margin: 0 auto; }
+		.break-word { word-wrap: break-word; }
 	</style>
 </head>
 <body>
@@ -92,19 +93,25 @@
 				            		List<Paragraph> paragraphs = textcontainer.getParagraphs();
 				            		pageContext.setAttribute("paragraphs",paragraphs);%>
 				            	<c:forEach var="paragraph" items="${paragraphs}"> 
-								<div class="container">
+								  <div class="container">
 									<%  Paragraph paragraph = (Paragraph) pageContext.getAttribute("paragraph");
 										pageContext.setAttribute("contentId", paragraph.getId());
 										pageContext.setAttribute("contentType", paragraph.getContentType());%> 
-									<span>${contentType} (${contentId})</span> 
-								</div> 
+									<p class="break-word">${paragraph.getText()}</p> 
+								  </div>
 								</c:forEach>
 				            </div>
 				        </li>
-				        <li class="list-group-item">
-				          <a href="${page.pageName}/${module.moduleId}/addParagraph" class="btn btn-primary">Add Paragraph</a>
-				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
-				        </li>
+				        <form:form name="textForm" id="textForm" method="POST" action="${page.pageName}/${module.moduleId}/addParagraph">
+				          <li class="list-group-item">
+				            <label for="textContent">Insert text</label>
+				            <input type="text" name="textContent" id="textContent" class="form-control">
+				          </li>
+				          <li class="list-group-item">
+				            <input type="submit" class="btn btn-primary" value="Add Paragraph">
+				            <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
+				          </li>
+				        </form:form>
 				      </ul>
 				    </div>
 				<!-- EOF Textcontainer -->
@@ -125,7 +132,7 @@
 									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
 									   pageContext.setAttribute("contentId", guestbookEntry.getId());
 									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
-									<span>${contentType} (${contentId})</span> 
+									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}:</strong> ${guestbookEntry.getEntry()}</span> 
 								</div> 
 								</c:forEach>
 				            </div>
@@ -134,10 +141,16 @@
 				            </div>
 				          </div>
 				        </li>
-				        <li class="list-group-item">
-				          <a href="${page.pageName}/${module.moduleId}/addGuestbookEntry" class="btn btn-primary">Add Entry</a>
-				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
-				        </li>
+				        <form:form name="gbForm" id="gbForm" method="POST" action="${page.pageName}/${module.moduleId}/addGuestbookEntry">
+				          <li class="list-group-item">
+				            <label for="gbContent">Insert text</label>
+				            <input type="text" name="gbContent" id="gbContent" class="form-control">
+				          </li>
+				          <li class="list-group-item">
+				            <input type="submit" class="btn btn-primary" value="Add Entry">
+				            <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
+				          </li>
+				        </form:form>
 				      </ul>
 				    </div>
 				<!-- EOF Guestbook -->

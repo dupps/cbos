@@ -19,7 +19,7 @@ public class GuestController {
 	private PageService pageService;
 	
 	/**mapps incoming requests by URL and Method**/
-	@RequestMapping(value="/*",method=RequestMethod.GET)
+	@RequestMapping(value="/page/home",method=RequestMethod.GET)
 	public ModelAndView welcomePage() {
 		/**ModelAndView object: returned name describes which jsp should be rendered,
 		 * 						data can be saved

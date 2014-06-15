@@ -24,7 +24,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="menu2.jsp" %>
 	<div class="well"></div>
 	
 	<div class="container">
