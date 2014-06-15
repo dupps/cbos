@@ -49,7 +49,7 @@
 		});
 	</script>
 	<style>
-		#containment-wrapper { width: 100%; height:800px; border:2px solid #ccc; padding: 10px; position: relative; }
+		#containment-wrapper { width: 100%; height:800px; border:1px solid #ccc; padding: 0; position: relative; }
 		.module { position: absolute; }
 		#menu-top { padding: 20px 0 20px; width: 100%; text-align: center; }
 		.menu-item { display: inline-block; }
@@ -81,25 +81,26 @@
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				            <div class="row">
-				              <div class="col-md-4"><h1 class="text-center">${module.type} (${module.moduleId})<br></h1></div>
+				              <div class="col-md-4"></div>
 				              <div class="col-md-4"></div>
 				              <div class="col-md-4">
 				                <a href="#" class="btn pull-right btn-primary move">Move</a>
 				              </div>
 				            </div>
 				            <div>
-				            	<% Textcontainer textcontainer = (Textcontainer) pageContext.getAttribute("module");
-				            	   List<Paragraph> paragraphs = textcontainer.getParagraphs();
-				            	   pageContext.setAttribute("paragraphs",paragraphs);%>
+				            	<%	Textcontainer textcontainer = (Textcontainer) pageContext.getAttribute("module");
+				            		List<Paragraph> paragraphs = textcontainer.getParagraphs();
+				            		pageContext.setAttribute("paragraphs",paragraphs);%>
 				            	<c:forEach var="paragraph" items="${paragraphs}"> 
 								<div class="container"> 
-										<span>This is a sample paragraph!</span> 
-									</div> 
+									<span>${paragraph}</span> 
+								</div> 
 								</c:forEach>
 				            </div>
 				        </li>
 				        <li class="list-group-item">
 				          <a href="${page.pageName}/${module.moduleId}/addTextcontainer" class="btn btn-primary">Add Paragraph</a>
+				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
 				        </li>
 				      </ul>
 				    </div>
@@ -112,27 +113,25 @@
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				          <div class="row">
-				            <div class="col-md-4"></div>
-				            <div class="col-md-4">
-				              <h1 class="text-center">${module.type} (${module.moduleId})</h1>
-				            </div>
-				            <div>
-				            	<% Guestbook guestbook = (Guestbook) pageContext.getAttribute("module");
+				            <div class="col-md-10">
+				            	
+				            	<%  Guestbook guestbook = (Guestbook) pageContext.getAttribute("module");
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
 				            		pageContext.setAttribute("guestbookEntries",entries); %>
-				            	<c:forEach var="guestbookEntries" items="${guestbookEntries}"> 
+				            	<c:forEach var="guestbookEntry" items="${guestbookEntries}"> 
 								<div class="container"> 
-										<span>This is a sample guestbookEntry!</span> 
-									</div> 
+									<span>${guestbookEntry}</span> 
+								</div> 
 								</c:forEach>
 				            </div>
-				            <div class="col-md-4">
+				            <div class="col-md-2">
 				              <a href="#" class="btn pull-right btn-primary move">Move</a>
 				            </div>
 				          </div>
 				        </li>
 				        <li class="list-group-item">
 				          <a href="${page.pageName}/${module.moduleId}/addGuestbookEntry" class="btn btn-primary">Add Entry</a>
+				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
 				        </li>
 				      </ul>
 				    </div>
@@ -140,18 +139,36 @@
 				</c:if>
 				
 				<c:if test="${module.type == 'navigation'}">
-					<%  Navigation navigation = (Navigation) pageContext.getAttribute("module");
-						List<Link> links = navigation.getLinks();
-/*  					System.out.println(navigation.getLinks().get(0).getLink()) */;  
- 						pageContext.setAttribute("links",links); 
-						pageContext.setAttribute("type",navigation.getType());%>
-						<p>${type}</p>
-					<c:forEach var="link" items="${links}"> 
-						<div class="container"> 
-							<span>hallo</span> 
-						</div> 
-					</c:forEach>
+				<!-- Navigation -->
+				<nav class="navbar navbar-default module draggable" role="navigation" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
+				  <div class="container-fluid">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand move" href="#">Navigation</a>
+				    </div>
+				    <!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				      	<%  Navigation navigation = (Navigation) pageContext.getAttribute("module");
+							List<Link> links = navigation.getLinks();
+	 						pageContext.setAttribute("links",links); 
+							pageContext.setAttribute("type",navigation.getType());%>
+						<c:forEach var="link" items="${links}">
+				        	<li><a href="${link.getLink()}">${link.getPage()}</a></li>
+				        </c:forEach>
+				      </ul>
+				    </div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</nav>
+				<!-- EOF Navigation -->
 				</c:if>
+
 			</c:forEach>
 
 		</div>
