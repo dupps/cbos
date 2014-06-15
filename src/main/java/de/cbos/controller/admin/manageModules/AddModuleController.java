@@ -64,12 +64,6 @@ public class AddModuleController {
 	public ModelAndView createNavigationBar(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Navigation navigation = new Navigation();
-		navigation.setLinks(contentService.getAllLinks());
-		for (int i=0; i<contentService.getAllLinks().size();i++) {
-			Link link = (Link) contentService.getAllLinks().get(i);
-			link.setNavigation(navigation);
-			contentService.updateContent(link);
-		}
 		pageService.addModule(navigation, pageService.getPage(pageName));
 		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;

@@ -1,4 +1,4 @@
-package de.cbos.controller.admin.managecontent;
+package de.cbos.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 

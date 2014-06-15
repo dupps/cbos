@@ -26,22 +26,10 @@ public class Link extends Content {
 	@JoinColumn(name="pageId")
 	private Page page;
 	
-	@ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="mappingId")
-	private Navigation navigation;
-	
 	private String link;
 
 	public Link() {
 		setContentType("link");
-	}
-	
-	public Navigation getNavigation() {
-		return navigation;
-	}
-
-	public void setNavigation(Navigation navigation) {
-		this.navigation = navigation;
 	}
 
 	public Page getPage() {

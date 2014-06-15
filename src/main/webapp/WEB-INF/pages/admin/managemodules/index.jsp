@@ -56,6 +56,7 @@
 		.left { float: left; }
 		.right { float: right; }
 		.center { margin: 0 auto; }
+		.break-word { word-wrap: break-word; }
 	</style>
 </head>
 <body>
@@ -92,19 +93,25 @@
 				            		List<Paragraph> paragraphs = textcontainer.getParagraphs();
 				            		pageContext.setAttribute("paragraphs",paragraphs);%>
 				            	<c:forEach var="paragraph" items="${paragraphs}"> 
-								<div class="container">
+								  <div class="container">
 									<%  Paragraph paragraph = (Paragraph) pageContext.getAttribute("paragraph");
 										pageContext.setAttribute("contentId", paragraph.getId());
 										pageContext.setAttribute("contentType", paragraph.getContentType());%> 
-									<span>${contentType} (${contentId})</span> 
-								</div> 
+									<p class="break-word">${paragraph.getText()}</p> 
+								  </div>
 								</c:forEach>
 				            </div>
 				        </li>
-				        <li class="list-group-item">
-				          <a href="${page.pageName}/${module.moduleId}/addParagraph" class="btn btn-primary">Add Paragraph</a>
-				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
-				        </li>
+				        <form:form name="textForm" id="textForm" method="POST" action="${page.pageName}/${module.moduleId}/addParagraph">
+				          <li class="list-group-item">
+				            <label for="textContent">Insert text</label>
+				            <input type="text" name="textContent" id="textContent" class="form-control">
+				          </li>
+				          <li class="list-group-item">
+				            <input type="submit" class="btn btn-primary" value="Add Paragraph">
+				            <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
+				          </li>
+				        </form:form>
 				      </ul>
 				    </div>
 				<!-- EOF Textcontainer -->
@@ -121,12 +128,12 @@
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
 				            		pageContext.setAttribute("guestbookEntries",entries); %>
 				            	<c:forEach var="guestbookEntry" items="${guestbookEntries}"> 
-								<div class="container"> 
+								  <div class="container"> 
 									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
 									   pageContext.setAttribute("contentId", guestbookEntry.getId());
 									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
-									<span>${contentType} (${contentId})</span> 
-								</div> 
+									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}:</strong> ${guestbookEntry.getEntry()}</span> 
+								  </div> 
 								</c:forEach>
 				            </div>
 				            <div class="col-md-2">
@@ -134,10 +141,16 @@
 				            </div>
 				          </div>
 				        </li>
-				        <li class="list-group-item">
-				          <a href="${page.pageName}/${module.moduleId}/addGuestbookEntry" class="btn btn-primary">Add Entry</a>
-				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
-				        </li>
+				        <form:form name="gbForm" id="gbForm" method="POST" action="${page.pageName}/${module.moduleId}/addGuestbookEntry">
+				          <li class="list-group-item">
+				            <label for="gbContent">Insert text</label>
+				            <input type="text" name="gbContent" id="gbContent" class="form-control">
+				          </li>
+				          <li class="list-group-item">
+				            <input type="submit" class="btn btn-primary" value="Add Entry">
+				            <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
+				          </li>
+				        </form:form>
 				      </ul>
 				    </div>
 				<!-- EOF Guestbook -->
@@ -160,13 +173,7 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
-				      	<%  /* Navigation navigation = (Navigation) pageContext.getAttribute("module");
-							List<Link> links = navigation.getLinks();
-	 						pageContext.setAttribute("links",links); 
-							pageContext.setAttribute("type",navigation.getType()); */%>
 						<c:forEach var="link" items="${links}">
-							<% /* Link link = (Link) pageContext.getAttribute("link");
-								pageContext.setAttribute("linkString", link.getLink()) */;%>
 				        	<li><a href="${link.link}">${link.link}</a></li>
 				        </c:forEach>
 				      </ul>
