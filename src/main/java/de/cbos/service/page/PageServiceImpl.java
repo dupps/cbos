@@ -13,8 +13,8 @@ public class PageServiceImpl implements PageService {
 	@Autowired
 	private PageDAO pageDAO;
 	
-	public void addPage(Page page) {
-		pageDAO.addPage(page);
+	public String addPage(Page page) {
+		return pageDAO.addPage(page);
 	}
 	
 	public Page getPage(String pageName) {

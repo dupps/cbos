@@ -74,13 +74,15 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
 		
 		template
 		.execute("CREATE TABLE IF NOT EXISTS NAVIGATIONS(MODULEID INTEGER NOT NULL PRIMARY KEY,"
-				+"CONSTRAINT FK_LINKS FOREIGN KEY(MODULEID) REFERENCES LINKS(MODULEID),"
+				+"MAPPINGID INT,"
+				+"CONSTRAINT FK_LINKS FOREIGN KEY(MAPPINGID) REFERENCES LINKS(MAPPINGID),"
 				+"CONSTRAINT FK_MODULES FOREIGN KEY(MODULEID) REFERENCES MODULES(MODULEID));");
 		
 		template
 		.execute("CREATE TABLE IF NOT EXISTS LINKS(CONTENTID INTEGER NOT NULL PRIMARY KEY,"
-				+"NAVIGATION INTEGER NOT NULL REFERENCES NAVIGATIONS(MODULEID),"
+				+"NAVIGATION INTEGER NOT NULL REFERENCES NAVIGATIONS(MAPPINGID),"
 				+"LINK VARCHAR(50),"
+				+"MAPPINGID INT,"
 				+"PAGE INTEGER NOT NULL REFERENCES PAGES(PAGEID)"
 				+"CONSTRAINT FK_CONTENTS FOREIGN KEY REFERENCES CONTENTS(CONTENTID));");
         /**
@@ -95,13 +97,13 @@ public class HsqldbSchemaAndDataPopulator implements InitializingBean {
          *  hard coded default page
          */
         template
-        	.execute("INSERT INTO PAGES(PAGENAME, PAGEID) VALUES ('home',1)");
+        	.execute("INSERT INTO PAGES(PAGENAME, PAGEID) VALUES ('home',-1)");
         
         template
-        	.execute("INSERT INTO CONTENTS(CONTENTID, CONTENTNAME, CONTENTTYPE) VALUES (1,'homelink', 'link')");
+        	.execute("INSERT INTO CONTENTS(CONTENTID, CONTENTNAME, CONTENTTYPE) VALUES (-1,'homelink', 'link')");
         
         template
-        	.execute("INSERT INTO LINKS(LINK, CONTENTID) VALUES ('home',1)");
+        	.execute("INSERT INTO LINKS(LINK, CONTENTID) VALUES ('home',-1)");
 	}
 	
 	/**
