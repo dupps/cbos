@@ -45,17 +45,9 @@ public class UpdatePageController {
 		ModelAndView modelAndView = new ModelAndView("/managemodules/index");
 		modelAndView.addObject("moduleService",moduleService);
 		List<Module> modules = pageService.getPage(pageName).getModules();
-//		for(int i=0;i<pageService.getPage(pageName).getModules().size();i++) {
-//			if (pageService.getPage(pageName).getModules().get(i).getType().equals("navigation")) {
-//				Navigation navigation = (Navigation) pageService.getPage(pageName).getModules().get(i);
-//				System.out.println(navigation.getLinks().get(0).getLink());
-//				System.out.println(navigation.getType());
-//			}
-//		} 
-//		for(int i=0; i<contentService.getContentList().size();i++) {
-//			System.out.println(contentService.getContentList().get(i).getContentType());
-//		}
 		modelAndView.addObject("modules", modules);
+		List<Link> links = contentService.getAllLinks();
+		modelAndView.addObject("links",links);
 		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;
 	}

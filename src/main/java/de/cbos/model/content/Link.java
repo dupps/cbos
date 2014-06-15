@@ -3,11 +3,16 @@ package de.cbos.model.content;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 import de.cbos.model.module.Navigation;
 import de.cbos.model.page.Page;
@@ -17,16 +22,16 @@ import de.cbos.model.page.Page;
 @PrimaryKeyJoinColumn(name="contentId")
 public class Link extends Content {
 	
-	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="pageId")
 	private Page page;
 	
 	@ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="moduleId")
+	@JoinColumn(name="mappingId")
 	private Navigation navigation;
 	
 	private String link;
-	
+
 	public Link() {
 		setContentType("link");
 	}
@@ -48,7 +53,7 @@ public class Link extends Content {
 	}
 	
 	public String getLink() {
-		return "../"+this.link;
+		return this.link;
 	}
 	
 	public void setLink(String link) {

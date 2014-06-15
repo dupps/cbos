@@ -29,9 +29,18 @@ public class PageDAOImpl implements PageDAO {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public void addPage(Page page) {
-		page.setLink(new Link());
-		getCurrentSession().save(page);
+	public String addPage(Page page) {
+		if (getPage(page.getPageName())!=null) {
+			return "Page "+page.getPageName()+" already exists";
+		} else {
+			Link link = new Link();
+			link.setPage(page);
+			link.setLink(page.getPageName());
+			page.setLink(link);
+			contentService.addContent(link);
+			getCurrentSession().save(page);
+			return "Page "+page.getPageName()+" added successfully";
+		}
 	}
 	
 	public Page getPage(String pageName) {

@@ -92,14 +92,17 @@
 				            		List<Paragraph> paragraphs = textcontainer.getParagraphs();
 				            		pageContext.setAttribute("paragraphs",paragraphs);%>
 				            	<c:forEach var="paragraph" items="${paragraphs}"> 
-								<div class="container"> 
-									<span>${paragraph}</span> 
+								<div class="container">
+									<%  Paragraph paragraph = (Paragraph) pageContext.getAttribute("paragraph");
+										pageContext.setAttribute("contentId", paragraph.getId());
+										pageContext.setAttribute("contentType", paragraph.getContentType());%> 
+									<span>${contentType} (${contentId})</span> 
 								</div> 
 								</c:forEach>
 				            </div>
 				        </li>
 				        <li class="list-group-item">
-				          <a href="${page.pageName}/${module.moduleId}/addTextcontainer" class="btn btn-primary">Add Paragraph</a>
+				          <a href="${page.pageName}/${module.moduleId}/addParagraph" class="btn btn-primary">Add Paragraph</a>
 				          <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
 				        </li>
 				      </ul>
@@ -120,7 +123,11 @@
 				            		pageContext.setAttribute("guestbookEntries",entries); %>
 				            	<c:forEach var="guestbookEntry" items="${guestbookEntries}"> 
 								<div class="container"> 
-									<span>${guestbookEntry}</span> 
+									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
+									   pageContext.setAttribute("contentId", guestbookEntry.getId());
+									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
+									<span>${contentType} (${contentId})</span> 
+									
 								</div> 
 								</c:forEach>
 				            </div>
@@ -155,12 +162,14 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
-				      	<%  Navigation navigation = (Navigation) pageContext.getAttribute("module");
+				      	<%  /* Navigation navigation = (Navigation) pageContext.getAttribute("module");
 							List<Link> links = navigation.getLinks();
 	 						pageContext.setAttribute("links",links); 
-							pageContext.setAttribute("type",navigation.getType());%>
+							pageContext.setAttribute("type",navigation.getType()); */%>
 						<c:forEach var="link" items="${links}">
-				        	<li><a href="${link.getLink()}">${link.getPage()}</a></li>
+							<% /* Link link = (Link) pageContext.getAttribute("link");
+								pageContext.setAttribute("linkString", link.getLink()) */;%>
+				        	<li><a href="${link.link}">${link.link}</a></li>
 				        </c:forEach>
 				      </ul>
 				    </div><!-- /.navbar-collapse -->

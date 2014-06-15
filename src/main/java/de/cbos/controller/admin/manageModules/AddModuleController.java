@@ -65,17 +65,13 @@ public class AddModuleController {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Navigation navigation = new Navigation();
 		navigation.setLinks(contentService.getAllLinks());
-		Link link = new Link();
-		link.setPage(pageService.getPage(pageName));
-		link.setLink(pageName);
-		link.setNavigation(navigation);
-		contentService.addContent(link);
-		List<Link> links = navigation.getLinks();
-		links.add(link);
-		navigation.setLinks(links);
+		for (int i=0; i<contentService.getAllLinks().size();i++) {
+			Link link = (Link) contentService.getAllLinks().get(i);
+			link.setNavigation(navigation);
+			contentService.updateContent(link);
+		}
 		pageService.addModule(navigation, pageService.getPage(pageName));
 		modelAndView.addObject("page",pageService.getPage(pageName));
-		System.out.println(navigation.getLinks().get(0).getLink());
 		return modelAndView;
 	}
 	
