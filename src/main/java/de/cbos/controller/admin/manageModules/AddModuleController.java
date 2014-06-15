@@ -1,5 +1,7 @@
 package de.cbos.controller.admin.manageModules;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Validator;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import de.cbos.model.content.Link;
 import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Navigation;
 import de.cbos.model.module.Textcontainer;
@@ -62,8 +65,17 @@ public class AddModuleController {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("../"+pageName+"/redirect"));
 		Navigation navigation = new Navigation();
 		navigation.setLinks(contentService.getAllLinks());
+		Link link = new Link();
+		link.setPage(pageService.getPage(pageName));
+		link.setLink(pageName);
+		link.setNavigation(navigation);
+		contentService.addContent(link);
+		List<Link> links = navigation.getLinks();
+		links.add(link);
+		navigation.setLinks(links);
 		pageService.addModule(navigation, pageService.getPage(pageName));
 		modelAndView.addObject("page",pageService.getPage(pageName));
+		System.out.println(navigation.getLinks().get(0).getLink());
 		return modelAndView;
 	}
 	

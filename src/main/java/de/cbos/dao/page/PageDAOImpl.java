@@ -30,7 +30,7 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public void addPage(Page page) {
-		page.setLink(new Link(page));
+		page.setLink(new Link());
 		getCurrentSession().save(page);
 	}
 	
