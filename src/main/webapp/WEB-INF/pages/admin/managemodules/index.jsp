@@ -117,7 +117,6 @@
 				        <li class="list-group-item">
 				          <div class="row">
 				            <div class="col-md-10">
-				            	
 				            	<%  Guestbook guestbook = (Guestbook) pageContext.getAttribute("module");
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
 				            		pageContext.setAttribute("guestbookEntries",entries); %>
@@ -127,7 +126,6 @@
 									   pageContext.setAttribute("contentId", guestbookEntry.getId());
 									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
 									<span>${contentType} (${contentId})</span> 
-									
 								</div> 
 								</c:forEach>
 				            </div>
@@ -144,10 +142,10 @@
 				    </div>
 				<!-- EOF Guestbook -->
 				</c:if>
-				
+
 				<c:if test="${module.type == 'navigation'}">
 				<!-- Navigation -->
-				<nav class="navbar navbar-default module draggable" role="navigation" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
+				<nav class="navbar navbar-default module draggable" id="${module.type}-${module.moduleId}" role="navigation" style="left:${module.leftPosition}px; top:${module.topPosition}px;">
 				  <div class="container-fluid">
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -166,8 +164,8 @@
 				        	<li><a href="${link.link}">${link.link}</a></li>
 				        </c:forEach>
 				      </ul>
-				    </div><!-- /.navbar-collapse -->
-				  </div><!-- /.container-fluid -->
+				    </div>
+				  </div>
 				</nav>
 				<!-- EOF Navigation -->
 				</c:if>
