@@ -1,5 +1,6 @@
 package de.cbos.model.content;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -7,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 import de.cbos.model.module.Textcontainer;
@@ -21,6 +23,7 @@ public class Paragraph extends Content {
 	@NotNull
 	private Textcontainer textcontainer;
 	
+    @Column(columnDefinition="LONGVARCHAR")
 	private String text;
 	
 	private String headline;
