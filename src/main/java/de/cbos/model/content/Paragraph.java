@@ -21,6 +21,18 @@ public class Paragraph extends Content {
 	@NotNull
 	private Textcontainer textcontainer;
 	
+	private String text;
+	
+	private String headline;
+	
+	public String getHeadline() {
+		return headline;
+	}
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
+	}
+
 	public Textcontainer getTextcontainer() {
 		return textcontainer;
 	}
@@ -28,8 +40,6 @@ public class Paragraph extends Content {
 	public void setTextcontainer(Textcontainer textcontainer) {
 		this.textcontainer = textcontainer;
 	}
-
-	private String text;
 	
 	public String getText() {
 		return text;

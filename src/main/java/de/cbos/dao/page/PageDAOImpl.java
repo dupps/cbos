@@ -30,16 +30,20 @@ public class PageDAOImpl implements PageDAO {
 	}
 	
 	public String addPage(Page page) {
-		if (getPage(page.getPageName())!=null) {
-			return "Page "+page.getPageName()+" already exists";
+		if (!page.getPageName().equals("page")) {
+			if (getPage(page.getPageName())!=null) {
+				return "Page "+page.getPageName()+" already exists";
+			} else {
+				Link link = new Link();
+				link.setPage(page);
+				link.setLink(page.getPageName());
+				page.setLink(link);
+				contentService.addContent(link);
+				getCurrentSession().save(page);
+				return "Page "+page.getPageName()+" added successfully";
+			}
 		} else {
-			Link link = new Link();
-			link.setPage(page);
-			link.setLink(page.getPageName());
-			page.setLink(link);
-			contentService.addContent(link);
-			getCurrentSession().save(page);
-			return "Page "+page.getPageName()+" added successfully";
+			return "'Page' is not a valid name";
 		}
 	}
 	
