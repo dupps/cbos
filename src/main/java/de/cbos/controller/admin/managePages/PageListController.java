@@ -22,7 +22,6 @@ public class PageListController {
 		 * 						data can be saved
 		 */
 		ModelAndView modelAndView = new ModelAndView("home");
-		modelAndView.addObject("message", "Logged in as admin");
 		modelAndView.addObject("pageContainer", new Page());
 		modelAndView.addObject("pages",pageService.getPageList());
 		return modelAndView;

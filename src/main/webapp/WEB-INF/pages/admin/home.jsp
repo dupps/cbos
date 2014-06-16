@@ -41,6 +41,7 @@
 						<c:forEach var="page" items="${pages}">
 							<li class="list-group-item">
 								<a href="admin/page/${page.pageName}">${page.pageName}</a>
+								<a href="admin/delete/${page.pageName}">Delete</a>
 							</li>
 						</c:forEach>
 					</ul>

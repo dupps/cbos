@@ -1,3 +1,5 @@
+
+
 package de.cbos.dao.page;
 
 import java.util.List;
@@ -59,6 +61,9 @@ public class PageDAOImpl implements PageDAO {
 	
 	public void deletePage(Page page) {
 		contentService.deleteContent(page.getLink());
+		for (int i=0;i<page.getModules().size(); i++) {
+			moduleService.deleteModule(page.getModules().get(i));
+		}
 		getCurrentSession().delete(page);
 	}
 	

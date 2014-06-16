@@ -34,7 +34,7 @@ public class DeleteUserController {
 		ModelAndView modelAndView = new ModelAndView("manageusers/userList");
 		List<User> users = userService.getUserList();
 		modelAndView.addObject("users", users);
-		modelAndView.addObject("message", "User was successfully deleted.");
+		modelAndView.addObject("message", "User was deleted successfully.");
 		return modelAndView;
 	}
 }
