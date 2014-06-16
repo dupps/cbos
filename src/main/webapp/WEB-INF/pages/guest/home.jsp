@@ -20,6 +20,7 @@
 	<style>
 		#containment-wrapper { width: 100%; height:800px; border:0; padding: 0; position: relative; }
 		.module { position: absolute; }
+		.break-word { word-wrap: break-word; }
 	</style>
 </head>
 <body>
@@ -54,9 +55,6 @@
 								  </div> 
 								</c:forEach>
 				            </div>
-				        </li>
-				        <li class="list-group-item">
-				          <span class="btn btn-default">Add Paragraph</span>
 				        </li>
 				      </ul>
 				    </div>
