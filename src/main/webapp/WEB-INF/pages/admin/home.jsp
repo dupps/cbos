@@ -20,6 +20,7 @@
 	<div class="container">
 		<p>${message}</p>
 	</div>
+
 	<div class="container">
 		<h1>Manage your pages</h1>
 		<div class="col-md-6">
@@ -41,7 +42,12 @@
 						<c:forEach var="page" items="${pages}">
 							<li class="list-group-item">
 								<a href="admin/page/${page.pageName}">${page.pageName}</a>
-								<a href="admin/delete/${page.pageName}">Delete</a>
+								<c:choose>
+								    <c:when test="${page.pageName == 'home'}"></c:when>
+								    <c:otherwise>
+								    	<a href="admin/delete/${page.pageName}" class="pull-right error">Delete Page</a>
+								    </c:otherwise>
+								</c:choose>
 							</li>
 						</c:forEach>
 					</ul>
