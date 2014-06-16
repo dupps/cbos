@@ -18,10 +18,10 @@ public class DeletePageController {
 	@Autowired
 	private PageService pageService;
 
-	@RequestMapping(value="/admin/delete/${page.pageName}", method=RequestMethod.GET)
+	@RequestMapping(value="/delete/{pageName}", method=RequestMethod.GET)
 	public ModelAndView deletePageConfirmation(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("deletePage");
-		modelAndView.addObject(pageService.getPage(pageName));
+		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;
 	}
 	
