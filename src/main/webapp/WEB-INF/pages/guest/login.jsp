@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body onload='document.f.j_username.focus();'>
-    <%@ include file="menu1.jsp" %>
+    <%@ include file="menu2.jsp" %>
     <div class="well"></div>
     <div class="container">
     	<h1>Please Login</h1>
