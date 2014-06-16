@@ -1,4 +1,4 @@
-package de.cbos.controller.admin.managecontent;
+package de.cbos.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,9 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import de.cbos.model.content.GuestbookEntry;
-import de.cbos.model.content.Paragraph;
 import de.cbos.model.module.Guestbook;
-import de.cbos.model.module.Textcontainer;
 import de.cbos.service.module.ModuleService;
 import de.cbos.service.user.UserService;
 
@@ -38,21 +36,6 @@ public class AddContentController {
 		    guestbookEntry.setAuthor(userService.getUser(auth.getName()));
 		    guestbookEntry.setEntry(entry);
 			moduleService.addGuestbookEntry(guestbookEntry,(Guestbook) moduleService.getModule(moduleId));
-			return modelAndView;
-		} else {
-			modelAndView.addObject("message", "Please type in some text");
-			return modelAndView;
-		}
-	}
-	
-	@RequestMapping(value="/page/{pageName}/{moduleId}/addParagraph", method=RequestMethod.POST)
-	public ModelAndView addParagraph(@PathVariable int moduleId, HttpServletRequest request) {
-		ModelAndView modelAndView = new ModelAndView(new RedirectView("addContent/redirect"));
-		String text = request.getParameter("textContent");
-		if (!text.isEmpty()) {
-			Paragraph paragraph = new Paragraph();
-			paragraph.setText(text);
-			moduleService.addParagraph(paragraph,(Textcontainer) moduleService.getModule(moduleId));
 			return modelAndView;
 		} else {
 			modelAndView.addObject("message", "Please type in some text");

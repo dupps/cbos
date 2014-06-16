@@ -77,7 +77,6 @@ public class ModuleDAOImpl implements ModuleDAO {
 				Navigation navigationToUpdate = (Navigation) getModule(navigation.getModuleId());
 				navigationToUpdate.setLeftPosition(navigation.getLeftPosition());
 				navigationToUpdate.setTopPosition(navigation.getTopPosition());
-				navigationToUpdate.setLinks(navigation.getLinks());
 				navigationToUpdate.setModuleName(navigation.getModuleName());
 				navigationToUpdate.setPage(navigation.getPage());
 				getCurrentSession().update(navigationToUpdate);
@@ -109,9 +108,6 @@ public class ModuleDAOImpl implements ModuleDAO {
 	}
 	
 	public void addLink(Link link, Navigation navigation) {
-		List<Link> links = navigation.getLinks();
-		links.add(link);
-		navigation.setLinks(links);
 		updateModule(navigation);
 	}
 
