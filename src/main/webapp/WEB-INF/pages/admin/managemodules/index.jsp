@@ -57,6 +57,7 @@
 		.right { float: right; }
 		.center { margin: 0 auto; }
 		.break-word { word-wrap: break-word; }
+		.autoscroll { max-height: 400px; overflow: auto; }
 	</style>
 </head>
 <body>
@@ -123,7 +124,7 @@
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				          <div class="row">
-				            <div class="col-md-10">
+				            <div class="col-md-10 autoscroll">
 				            	<%  Guestbook guestbook = (Guestbook) pageContext.getAttribute("module");
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
 				            		pageContext.setAttribute("guestbookEntries",entries); %>

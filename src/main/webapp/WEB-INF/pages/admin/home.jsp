@@ -9,9 +9,7 @@
 	<title>CboS - Home</title>
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<style>
-		.error {
-			color: #ff0000;
-		}
+		.error { color: #ff0000; }
 	</style>
 </head>
 <body>
