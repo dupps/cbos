@@ -32,7 +32,7 @@ public class DeletePageController {
 		ModelAndView modelAndView = new ModelAndView("home");
 		modelAndView.addObject("pageContainer", new Page());
 		modelAndView.addObject("pages",pageService.getPageList());
-		modelAndView.addObject("message", "Page was successfully deleted");
+		modelAndView.addObject("message", "Page deleted successfully");
 		return modelAndView;
 	}
 }

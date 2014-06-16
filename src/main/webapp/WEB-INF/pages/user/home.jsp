@@ -27,7 +27,10 @@
 <body>
 	<%@ include file="menu.jsp" %>
 	<div class="well"></div>
-	
+	<div class="container">
+		<p>${message}</p>
+	</div>
+
 	<div class="container">
 		<div id="containment-wrapper">
 

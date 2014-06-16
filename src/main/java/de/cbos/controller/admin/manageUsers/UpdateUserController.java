@@ -56,7 +56,7 @@ public class UpdateUserController {
 		List<User> users = userService.getUserList();
 		ModelAndView modelAndView = new ModelAndView("manageusers/userList");
 		modelAndView.addObject("users", users);
-		modelAndView.addObject("message", "The User was successfully updated.");
+		modelAndView.addObject("message", "The User was updated successfully.");
 		return modelAndView;
 	}
 }
