@@ -26,7 +26,7 @@
 		}
 	</style>
 <body>
-	<%@ include file="menu1.jsp" %>
+	<%@ include file="menu2.jsp" %>
 	<div class="well"></div>
 	<div class="container">
 		<form:form method="POST" action="register" commandName="userDummy">

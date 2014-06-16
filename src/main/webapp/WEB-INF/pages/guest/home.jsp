@@ -25,7 +25,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="menu2.jsp" %>
+	<%@ include file="menu1.jsp" %>
 	<div class="well"></div>
 	<div class="container">
 		<p>${message}</p>
@@ -81,7 +81,7 @@
 									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
 									   pageContext.setAttribute("contentId", guestbookEntry.getId());
 									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
-									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}:</strong> ${guestbookEntry.getEntry()}</span> 
+									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}</strong> from ${guestbookEntry.getAuthor().getCity()}: ${guestbookEntry.getEntry()}</span> 
 								  </div> 
 								</c:forEach>
 				            </div>
