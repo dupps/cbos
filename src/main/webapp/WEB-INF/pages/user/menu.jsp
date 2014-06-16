@@ -6,6 +6,7 @@
 	        <li><a href="../">Home</a></li>
 	        <% if (request.isUserInRole("ROLE_ADMIN")) { %>
 	        <li><a href="<c:url value='../../admin' />">Admin Area</a></li>
+	        <li><a href="../../admin/manageusers">Manage Users</a></li>
 	        <% } %>
 	        <li><a href="../../j_spring_security_logout">Logout</a></li>
 	        <li><a href="https://github.com/cbos-team/cbos">Github</a></li>
