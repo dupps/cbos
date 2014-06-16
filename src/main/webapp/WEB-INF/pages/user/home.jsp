@@ -22,6 +22,7 @@
 		#containment-wrapper { width: 100%; height:800px; border:0; padding: 0; position: relative; }
 		.module { position: absolute; }
 		.break-word { word-wrap: break-word; }
+		.autoscroll { max-height: 400px; overflow: auto; }
 	</style>
 </head>
 <body>
@@ -71,7 +72,7 @@
 				      <ul class="list-group">
 				        <li class="list-group-item">
 				          <div class="row">
-				            <div class="col-md-10">
+				            <div class="col-md-10 autoscroll">
 				            	
 				            	<%  Guestbook guestbook = (Guestbook) pageContext.getAttribute("module");
 				            		List<GuestbookEntry> entries = guestbook.getGuestbookEntries();
