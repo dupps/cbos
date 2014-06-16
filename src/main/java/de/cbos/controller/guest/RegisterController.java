@@ -59,14 +59,14 @@ public class RegisterController {
 			userService.setAuthority(user,"ROLE_USER");
 
 			// START Mail
-			ApplicationContext context = 
-		             new ClassPathXmlApplicationContext("send-mail.xml");
-		 
-	    	SendMail sm = (SendMail) context.getBean("sendMail");
-	        sm.sendMail("elsa.mustermann@gmail.com",
-	    		   user.getEmail(),
-	    		   "CboS registration email",
-	    		   "Welcome to CboS! \n\n Your password: "+user.getPassword());
+//			ApplicationContext context = 
+//		             new ClassPathXmlApplicationContext("send-mail.xml");
+//		 
+//	    	SendMail sm = (SendMail) context.getBean("sendMail");
+//	        sm.sendMail("elsa.mustermann@gmail.com",
+//	    		   user.getEmail(),
+//	    		   "CboS registration email",
+//	    		   "Welcome to CboS! \n\n Your password: "+user.getPassword());
 	        // END Mail
 
 			/** Method setAuthority from autowired UserService creates for each new entry
