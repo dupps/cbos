@@ -1,5 +1,6 @@
 package de.cbos.model.content;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -31,6 +32,7 @@ public class GuestbookEntry extends Content {
 		setContentType("guestbookEntry");
 	}
 	
+    @Column(columnDefinition="LONGVARCHAR")
 	private String entry;
 	
 	public User getAuthor() {
