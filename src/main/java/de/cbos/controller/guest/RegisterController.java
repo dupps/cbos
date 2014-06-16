@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView; 
+import org.springframework.web.servlet.view.RedirectView;
 
 import de.cbos.mail.SendMail;
 import de.cbos.model.user.User;
@@ -54,7 +55,7 @@ public class RegisterController {
 
 		} else {
 			/**if user input is valid, new user is added to the data base and home.jsp is rendered with a message**/
-			ModelAndView modelAndView = new ModelAndView("home");
+			ModelAndView modelAndView = new ModelAndView("registerSuccess");
 			userService.addUser(user);
 			userService.setAuthority(user,"ROLE_USER");
 
@@ -74,7 +75,7 @@ public class RegisterController {
 			 *  column "Authority" to "ROLE_USER" --> each new user has "ROLE_USER"
 			 */
 
-			modelAndView.addObject("message", "Password = "+user.getPassword()+
+			modelAndView.addObject("message", "Your password is "+user.getPassword()+"."+
 					"<p>Additionally we have sent you an e-mail.</p>");
 			return modelAndView;
 		}

@@ -133,7 +133,7 @@
 									<% GuestbookEntry guestbookEntry = (GuestbookEntry) pageContext.getAttribute("guestbookEntry");
 									   pageContext.setAttribute("contentId", guestbookEntry.getId());
 									   pageContext.setAttribute("contentType", guestbookEntry.getContentType());%>
-									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}:</strong> ${guestbookEntry.getEntry()}</span> 
+									<span class="break-word"><strong>${guestbookEntry.getAuthor().getUserName()}</strong> from ${guestbookEntry.getAuthor().getCity()}: ${guestbookEntry.getEntry()}</span> 
 								  </div> 
 								</c:forEach>
 				            </div>
