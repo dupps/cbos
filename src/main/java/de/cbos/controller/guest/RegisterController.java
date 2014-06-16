@@ -75,7 +75,7 @@ public class RegisterController {
 			 *  column "Authority" to "ROLE_USER" --> each new user has "ROLE_USER"
 			 */
 
-			modelAndView.addObject("message", "Your password is "+user.getPassword()+"."+
+			modelAndView.addObject("message", "Your password is "+user.getPassword()+
 					"<p>Additionally we have sent you an e-mail.</p>");
 			return modelAndView;
 		}
