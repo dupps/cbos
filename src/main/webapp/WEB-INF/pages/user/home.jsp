@@ -21,6 +21,7 @@
 	<style>
 		#containment-wrapper { width: 100%; height:800px; border:0; padding: 0; position: relative; }
 		.module { position: absolute; }
+		.break-word { word-wrap: break-word; }
 	</style>
 </head>
 <body>
@@ -56,16 +57,6 @@
 								</c:forEach>
 				            </div>
 				        </li>
-				        <form:form name="textForm" id="textForm" method="POST" action="${page.pageName}/${module.moduleId}/addParagraph">
-				          <li class="list-group-item">
-				            <label for="textContent">Insert text</label>
-				            <input type="text" name="textContent" id="textContent" class="form-control">
-				          </li>
-				          <li class="list-group-item">
-				            <input type="submit" class="btn btn-primary" value="Add Paragraph">
-				            <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
-				          </li>
-				        </form:form>
 				      </ul>
 				    </div>
 				<!-- EOF Textcontainer -->
@@ -101,7 +92,6 @@
 				          </li>
 				          <li class="list-group-item">
 				            <input type="submit" class="btn btn-primary" value="Add Entry">
-				            <h4 class="text-center pull-right">${module.type} (${module.moduleId})</h4>
 				          </li>
 				        </form:form>
 				      </ul>
