@@ -72,7 +72,6 @@ public class ContentDAOImpl implements ContentDAO {
 				Link linkToUpdate = (Link) getContent(link.getId());
 				linkToUpdate.setContentName(link.getContentName());
 				linkToUpdate.setLink(link.getLink());
-				linkToUpdate.setNavigation(link.getNavigation());
 				linkToUpdate.setPage(link.getPage());
 				getCurrentSession().update(linkToUpdate);
 			}
