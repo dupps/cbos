@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.module.Guestbook;
 import de.cbos.service.module.ModuleService;
@@ -29,8 +31,8 @@ public class AddContentController {
 	@RequestMapping(value="/page/{pageName}/{moduleId}/addGuestbookEntry", method=RequestMethod.POST)
 	public ModelAndView addGuestbookEntry(@PathVariable int moduleId, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("addContent/redirect"));
-		String entry = request.getParameter("gbContent");
-		if (!entry.isEmpty()) {
+		String entry = StringEscapeUtils.escapeXml(request.getParameter("gbContent"));
+		if (!entry.isEmpty() && entry.trim().length() > 0) {
 			GuestbookEntry guestbookEntry = new GuestbookEntry();
 		    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		    guestbookEntry.setAuthor(userService.getUser(auth.getName()));

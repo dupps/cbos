@@ -32,7 +32,7 @@ public class AddContentController {
 	public ModelAndView addGuestbookEntry(@PathVariable int moduleId, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("addContent/redirect"));
 		String entry = request.getParameter("gbContent");
-		if (!entry.isEmpty()) {
+		if (!entry.isEmpty() && entry.trim().length() > 0) {
 			GuestbookEntry guestbookEntry = new GuestbookEntry();
 		    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		    guestbookEntry.setAuthor(userService.getUser(auth.getName()));

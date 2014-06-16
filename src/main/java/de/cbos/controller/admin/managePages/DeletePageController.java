@@ -18,10 +18,10 @@ public class DeletePageController {
 	@Autowired
 	private PageService pageService;
 
-	@RequestMapping(value="/admin/delete/${page.pageName}", method=RequestMethod.GET)
+	@RequestMapping(value="/delete/{pageName}", method=RequestMethod.GET)
 	public ModelAndView deletePageConfirmation(@PathVariable String pageName) {
 		ModelAndView modelAndView = new ModelAndView("deletePage");
-		modelAndView.addObject(pageService.getPage(pageName));
+		modelAndView.addObject("page",pageService.getPage(pageName));
 		return modelAndView;
 	}
 	
@@ -32,7 +32,7 @@ public class DeletePageController {
 		ModelAndView modelAndView = new ModelAndView("home");
 		modelAndView.addObject("pageContainer", new Page());
 		modelAndView.addObject("pages",pageService.getPageList());
-		modelAndView.addObject("message", "Page was successfully deleted");
+		modelAndView.addObject("message", "Page deleted successfully");
 		return modelAndView;
 	}
 }
