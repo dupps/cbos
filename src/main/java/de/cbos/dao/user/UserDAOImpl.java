@@ -7,8 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import de.cbos.model.content.ContentVisitor;
 import de.cbos.model.user.User;
 import de.cbos.model.user.Authority;
+import de.cbos.service.content.ContentService;
 
 import java.security.SecureRandom;
 
@@ -18,6 +20,9 @@ public class UserDAOImpl implements UserDAO {
 	 * or load objects from there to the session**/
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private ContentService contentService;
 	
 	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
@@ -48,6 +53,9 @@ public class UserDAOImpl implements UserDAO {
 	public void deleteUser(String userName) {
 		User user = getUser(userName);
 		Authority authority = getAuthority(userName);
+		for (int i=0; i<user.getGuestbookEntries().size(); i++) {
+			contentService.deleteContent(user.getGuestbookEntries().get(i));
+		}
 		if (user != null) {
 			getCurrentSession().delete(user);
 		}

@@ -10,7 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.cbos.model.content.Link;
+import de.cbos.model.module.Guestbook;
 import de.cbos.model.module.Module;
+import de.cbos.model.module.ModuleVisitor;
+import de.cbos.model.module.Navigation;
+import de.cbos.model.module.Textcontainer;
 import de.cbos.model.page.Page;
 import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;

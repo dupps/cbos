@@ -12,13 +12,22 @@ import de.cbos.model.content.ContentVisitor;
 import de.cbos.model.content.GuestbookEntry;
 import de.cbos.model.content.Link;
 import de.cbos.model.content.Paragraph;
+import de.cbos.model.user.User;
+import de.cbos.service.content.ContentService;
 import de.cbos.service.module.ModuleService;
+import de.cbos.service.user.UserService;
 
 @Transactional
 public class ContentDAOImpl implements ContentDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private ContentService contentService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private ModuleService moduleService;
@@ -46,7 +55,32 @@ public class ContentDAOImpl implements ContentDAO {
 	}
 
 	public void deleteContent(Content content) {
-		getCurrentSession().delete(content);
+		content.accept(new ContentVisitor() {
+			
+			public void visit(Link link) {
+				getCurrentSession().delete(link);
+			}
+			
+			public void visit(GuestbookEntry guestbookEntry) {
+				System.out.println(guestbookEntry.getAuthor().getUserName());
+				User user = userService.getUser(guestbookEntry.getAuthor().getUserName());
+				for (int i=0; i<user.getGuestbookEntries().size();i++) {
+					if(user.getGuestbookEntries().get(i).getId()==guestbookEntry.getId()) {
+						user.getGuestbookEntries().remove(guestbookEntry);
+						userService.updateUser(user);
+						System.out.println("gotcha");
+					} else {
+						System.out.println("nie");
+					}
+				}
+				userService.updateUser(user);
+				getCurrentSession().delete(guestbookEntry);
+			}
+			
+			public void visit(Paragraph paragraph) {
+				getCurrentSession().delete(paragraph);
+			}
+		});
 	}
 
 	public void updateContent(Content content) {
