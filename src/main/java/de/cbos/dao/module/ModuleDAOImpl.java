@@ -47,7 +47,26 @@ public class ModuleDAOImpl implements ModuleDAO {
 	}
 
 	public void deleteModule(Module module) {
-		getCurrentSession().delete(module);
+		module.accept(new ModuleVisitor() {
+			
+			public void visit(Navigation navigation) {
+				getCurrentSession().delete(navigation);
+			}
+			
+			public void visit(Guestbook guestbook) {
+				for (int i=0; i<guestbook.getGuestbookEntries().size();i++) {
+					contentService.deleteContent(guestbook.getGuestbookEntries().get(i));
+				}
+				getCurrentSession().delete(guestbook);
+			}
+			
+			public void visit(Textcontainer textcontainer) {
+				for (int i=0; i<textcontainer.getParagraphs().size();i++) {
+					contentService.deleteContent(textcontainer.getParagraphs().get(i));
+				}
+				getCurrentSession().delete(textcontainer);
+			}
+		});
 	}
 
 	public void updateModule(Module module) {
