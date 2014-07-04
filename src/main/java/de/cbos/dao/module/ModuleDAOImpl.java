@@ -54,16 +54,16 @@ public class ModuleDAOImpl implements ModuleDAO {
 			}
 			
 			public void visit(Guestbook guestbook) {
-				for (int i=0; i<guestbook.getGuestbookEntries().size();i++) {
-					contentService.deleteContent(guestbook.getGuestbookEntries().get(i));
-				}
+//				for (int i=0; i<guestbook.getGuestbookEntries().size();i++) {
+//					contentService.deleteContent(guestbook.getGuestbookEntries().get(i));
+//				}
 				getCurrentSession().delete(guestbook);
 			}
 			
 			public void visit(Textcontainer textcontainer) {
-				for (int i=0; i<textcontainer.getParagraphs().size();i++) {
-					contentService.deleteContent(textcontainer.getParagraphs().get(i));
-				}
+//				for (int i=0; i<textcontainer.getParagraphs().size();i++) {
+//					contentService.deleteContent(textcontainer.getParagraphs().get(i));
+//				}
 				getCurrentSession().delete(textcontainer);
 			}
 		});

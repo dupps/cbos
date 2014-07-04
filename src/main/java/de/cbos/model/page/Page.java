@@ -3,6 +3,7 @@ package de.cbos.model.page;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.engine.spi.CascadeStyle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
@@ -42,7 +45,7 @@ public class Page {
 		this.pageId = pageId;
 	}
 
-	@OneToMany (mappedBy="page", fetch=FetchType.EAGER)
+	@OneToMany (cascade=CascadeType.REMOVE, orphanRemoval=true, mappedBy="page", fetch=FetchType.EAGER)
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Module> modules = new ArrayList<Module>();
 	
@@ -58,7 +61,7 @@ public class Page {
 //		this.links = links;
 //	}
 	
-	@OneToOne (mappedBy="page", fetch=FetchType.EAGER)
+	@OneToOne (cascade=CascadeType.REMOVE, mappedBy="page", fetch=FetchType.EAGER)
 	private Link link;
 
 	public Link getLink() {

@@ -62,18 +62,18 @@ public class ContentDAOImpl implements ContentDAO {
 			}
 			
 			public void visit(GuestbookEntry guestbookEntry) {
-				System.out.println(guestbookEntry.getAuthor().getUserName());
-				User user = userService.getUser(guestbookEntry.getAuthor().getUserName());
-				for (int i=0; i<user.getGuestbookEntries().size();i++) {
-					if(user.getGuestbookEntries().get(i).getId()==guestbookEntry.getId()) {
-						user.getGuestbookEntries().remove(guestbookEntry);
-						userService.updateUser(user);
-						System.out.println("gotcha");
-					} else {
-						System.out.println("nie");
-					}
-				}
-				userService.updateUser(user);
+//				System.out.println(guestbookEntry.getAuthor().getUserName());
+//				User user = userService.getUser(guestbookEntry.getAuthor().getUserName());
+//				for (int i=0; i<user.getGuestbookEntries().size();i++) {
+//					if(user.getGuestbookEntries().get(i).getId()==guestbookEntry.getId()) {
+//						user.getGuestbookEntries().remove(guestbookEntry);
+//						userService.updateUser(user);
+//						System.out.println("gotcha");
+//					} else {
+//						System.out.println("nie");
+//					}
+//				}
+//				userService.updateUser(user);
 				getCurrentSession().delete(guestbookEntry);
 			}
 			
