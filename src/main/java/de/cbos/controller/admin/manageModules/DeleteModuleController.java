@@ -21,13 +21,15 @@ public class DeleteModuleController {
 	
 	@RequestMapping(value="/page/{pageName}/{moduleId}/delete", method=RequestMethod.GET)
 	public ModelAndView deleteModuleConfirmation(@PathVariable String pageName, @PathVariable String moduleId) {
-		ModelAndView modelAndView = new ModelAndView("managemodules/deleteModule");
 		try {
+			ModelAndView modelAndView = new ModelAndView("managemodules/deleteModule");
 			modelAndView.addObject("module", moduleService.getModule(Integer.parseInt(moduleId)));
+			return modelAndView;
 		} catch (Exception e) {
-			e.printStackTrace();
+			ModelAndView modelAndView = new ModelAndView("error");
+			modelAndView.addObject("message", e.getStackTrace());
+			return modelAndView;
 		}
-		return modelAndView;
 	}
 	
 	@RequestMapping(value="/page/{pageName}/{moduleId}/delete", method=RequestMethod.DELETE)
