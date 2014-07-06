@@ -3,6 +3,7 @@ package de.cbos.model.module;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -19,7 +20,7 @@ import de.cbos.model.content.Paragraph;
 @PrimaryKeyJoinColumn(name = "moduleId")
 public class Textcontainer extends Module {
 
-	@OneToMany (mappedBy="textcontainer", fetch=FetchType.EAGER)
+	@OneToMany (cascade=CascadeType.REMOVE, orphanRemoval=true, mappedBy="textcontainer", fetch=FetchType.EAGER)
 	@Fetch (value=FetchMode.SUBSELECT)
 	private List<Paragraph> paragraphs = new ArrayList<Paragraph>();
 	

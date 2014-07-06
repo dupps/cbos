@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="de.cbos.mail.SendMail" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/mail/SendMail.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="220" x="244" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="de.cbos.service.content.ContentServiceImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/content/ContentServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="172" x="3736" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="3" language="java" name="de.cbos.dao.content.ContentDAO" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/content/ContentDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="172" x="3664" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="4" language="java" name="de.cbos.model.module.ModuleEntity" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/module/ModuleEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="155" x="5496" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="de.cbos.model.user.Authority" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/user/Authority.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="150" x="504" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="de.cbos.model.content.GuestbookEntry" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/content/GuestbookEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="176" x="2829" y="1015"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="de.cbos.model.content.Paragraph" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/content/Paragraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="202" x="5040" y="1015"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="de.cbos.controller.admin.manageModules.AddModuleController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/manageModules/AddModuleController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="304" x="2835" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="de.cbos.controller.admin.managePages.PageListController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/managePages/PageListController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="174" x="1321" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="de.cbos.model.content.Link" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/content/Link.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="158" x="4825" y="1015"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="de.cbos.service.page.PageServiceImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/page/PageServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="170" x="1832" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="de.cbos.controller.admin.manageUsers.UserListController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/manageUsers/UserListController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="173" x="6156" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="de.cbos.service.user.UserServiceImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/user/UserServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="169" x="5947" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="de.cbos.controller.guest.GuestController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/guest/GuestController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="183" x="2291" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="15" language="java" name="de.cbos.model.content.ContentEntity" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/content/ContentEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="158" x="2631" y="1015"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="16" language="java" name="de.cbos.controller.admin.managePages.AddPage" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/managePages/AddPage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="281" x="2514" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="de.cbos.controller.user.UserController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/user/UserController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="209" x="2042" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="de.cbos.controller.user.AddContentController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/user/AddContentController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="313" x="5594" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="de.cbos.controller.admin.managecontent.AddContentController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/managecontent/AddContentController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="313" x="5241" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="de.cbos.controller.admin.managePages.DeletePageController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/managePages/DeletePageController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="257" x="1535" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="de.cbos.controller.admin.manageUsers.AddUserController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/manageUsers/AddUserController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="258" x="6369" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="22" language="java" name="de.cbos.model.content.ContentVisitor" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/content/ContentVisitor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="153" x="694" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="23" language="java" name="de.cbos.dao.content.ContentDAOImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/content/ContentDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="183" x="4494" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="de.cbos.dao.page.PageDAOImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/page/PageDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="183" x="3513" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="25" language="java" name="de.cbos.dao.user.UserDAO" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/user/UserDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="169" x="5287" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="26" language="java" name="de.cbos.service.HsqldbSchemaAndDataPopulator" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/HsqldbSchemaAndDataPopulator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="213" x="887" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="de.cbos.model.page.Page" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/page/Page.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="175" x="4825" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="de.cbos.controller.admin.manageUsers.DeleteUserController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/manageUsers/DeleteUserController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="256" x="6667" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="de.cbos.model.module.Module" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/module/Module.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="161" x="5040" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="de.cbos.controller.admin.manageUsers.UpdateUserController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/manageUsers/UpdateUserController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="300" x="6963" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="de.cbos.model.module.Navigation" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/module/Navigation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="155" x="5691" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="de.cbos.dao.user.UserDAOImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/user/UserDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="183" x="4271" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="33" language="java" name="de.cbos.service.page.PageService" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/page/PageService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="170" x="2835" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="34" language="java" name="de.cbos.model.module.ModuleVisitor" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/module/ModuleVisitor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="141" x="1140" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="35" language="java" name="de.cbos.service.user.UserService" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/user/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="169" x="6233" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="36" language="java" name="de.cbos.controller.admin.managePages.UpdatePageController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/managePages/UpdatePageController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="294" x="3179" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="de.cbos.dao.module.ModuleDAOImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/module/ModuleDAOImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="283" x="3948" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="de.cbos.model.module.Guestbook" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/module/Guestbook.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="263" x="4522" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="de.cbos.model.content.Content" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/content/Content.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="164" x="2631" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="40" language="java" name="de.cbos.service.module.ModuleService" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/module/ModuleService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="283" x="3876" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="41" language="java" name="de.cbos.model.user.User" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/user/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="263" x="2328" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="42" language="java" name="de.cbos.dao.page.PageDAO" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/page/PageDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="170" x="3045" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="43" language="java" name="de.cbos.model.module.Textcontainer" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/model/module/Textcontainer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="207" x="5040" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="de.cbos.service.module.ModuleServiceImpl" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/module/ModuleServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="283" x="4717" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="de.cbos.controller.guest.RegisterController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/guest/RegisterController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="255" x="7303" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="46" language="java" name="de.cbos.service.content.ContentService" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/service/content/ContentService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="172" x="3283" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="47" language="java" name="de.cbos.dao.module.ModuleDAO" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/dao/module/ModuleDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="283" x="4199" y="480"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="48" language="java" name="de.cbos.controller.admin.manageUsers.ResetPasswordController" project="cbos" 
+    file="/cbos/src/main/java/de/cbos/controller/admin/manageUsers/ResetPasswordController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="302" x="7598" y="35"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="49">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="50" name="contentService"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="39"/>  
+  </generalization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="46"/>  
+  </realization>  
+  <association id="55">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="56" name="userService"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="58">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="59">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="60" name="guestbookEntries"/>      
+      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="62">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <association id="63">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="64" name="contentService"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="67" name="pageDAO"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="70" name="pageService"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="73" name="contentDAO"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="76" name="link"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="79" name="contentService"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="82" name="moduleService"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="85" name="userService"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="88" name="moduleService"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="91" name="contentService"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="93">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="47"/>  
+  </realization>  
+  <association id="94">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="95" name="pageService"/>      
+      <multiplicity id="96" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="97">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="98">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="99" name="guestbookEntries"/>      
+      <multiplicity id="100" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="102" name="contentService"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="105" name="pageService"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="108" name="moduleService"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="111" name="pageService"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="113">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="114" name="page"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="116">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="117" name="moduleDAO"/>      
+      <multiplicity id="118" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="119">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="120" name="moduleService"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="122">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="39"/>  
+  </generalization>  
+  <association id="123">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="124" name="textcontainer"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="127" name="modules"/>      
+      <multiplicity id="128" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="130" name="userService"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="132">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="42"/>  
+  </realization>  
+  <association id="133">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="134" name="userService"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="137" name="userService"/>      
+      <multiplicity id="138" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="139">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <realization id="140">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="141">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="142" name="moduleService"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="145" name="userService"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="148" name="moduleService"/>      
+      <multiplicity id="149" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="151" name="contentService"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="154" name="contentService"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="156">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="157" name="contentService"/>      
+      <multiplicity id="158" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="160" name="guestbook"/>      
+      <multiplicity id="161" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="162">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <association id="163">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="164" name="pageService"/>      
+      <multiplicity id="165" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="166">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="33"/>  
+  </realization>  
+  <generalization id="167">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <association id="168">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="169" name="page"/>      
+      <multiplicity id="170" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="171">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="172" name="userService"/>      
+      <multiplicity id="173" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="174">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="175" name="userService"/>      
+      <multiplicity id="176" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="177">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="178" name="pageService"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="180">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="40"/>  
+  </realization>  
+  <association id="181">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="182" name="contentService"/>      
+      <multiplicity id="183" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="184">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="39"/>  
+  </generalization>  
+  <association id="185">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="186" name="pageService"/>      
+      <multiplicity id="187" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="188">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="189" name="paragraphs"/>      
+      <multiplicity id="190" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="191">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="192" name="userService"/>      
+      <multiplicity id="193" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="194">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="195" name="author"/>      
+      <multiplicity id="196" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="197">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="198" name="userDAO"/>      
+      <multiplicity id="199" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
