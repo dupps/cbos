@@ -3,6 +3,7 @@ package de.cbos.model.module;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -16,7 +17,7 @@ import de.cbos.model.content.GuestbookEntry;
 @PrimaryKeyJoinColumn(name = "moduleId")
 public class Guestbook extends Module {
 	
-	@OneToMany (mappedBy="guestbook", fetch=FetchType.EAGER)
+	@OneToMany (cascade=CascadeType.REMOVE, orphanRemoval=true, mappedBy="guestbook", fetch=FetchType.EAGER)
 	private List<GuestbookEntry> guestbookEntries = new ArrayList<GuestbookEntry>();
 	
 	public Guestbook() {

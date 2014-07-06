@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>CboS - Delete page confirmation</title>
+<title>CboS - Error</title>
 <link rel="stylesheet"
     href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
@@ -13,15 +13,9 @@
     <%@ include file="menu2.jsp" %>
     <div class="well"></div>
     <div class="container">
-		<p>Are you really sure you want to delete the page ${page.pageName}?</p>
-	   	<!-- Post method giving back ${User.userName} -->
-	   	<div>
-	   		<form:form name="submitForm" method="DELETE" action="../../admin">
-			    <input type="hidden" name="pageToDelete" value="${page.pageName}">
-				<a href="../" class="btn pull-left btn-default">Cancel</a>
-			    <a href="javascript:document.submitForm.submit()" class="btn pull-right btn-danger">Delete Page</a>
-			</form:form>
-	   	</div>
+		<h1>Sorry, something went wrong...</h1>
+		<p>Error Message:</p>
+		<p>${message}</p>
 	</div>
 </body>
 </html>

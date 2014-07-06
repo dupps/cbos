@@ -3,6 +3,7 @@ package de.cbos.model.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.engine.spi.CascadeStyle;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Email;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
@@ -51,7 +53,7 @@ public class User {
     @NotNull
     private int userId;
     
-    @OneToMany (mappedBy="author", fetch=FetchType.EAGER)
+    @OneToMany (cascade=CascadeType.REMOVE, orphanRemoval=true, mappedBy="author", fetch=FetchType.EAGER)
     @Fetch (value=FetchMode.SUBSELECT)
     private List<GuestbookEntry> guestbookEntries = new ArrayList<GuestbookEntry>();
     
